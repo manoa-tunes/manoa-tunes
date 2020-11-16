@@ -1,0 +1,11 @@
+.bg-image {
+  background-size: cover;
+  padding-top: 30px;
+  padding-bottom: 100px;
+  margin-top: -10px;
+  background-color: black;
+}
+
+body {
+  background-color: black;
+}
