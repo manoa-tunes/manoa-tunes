@@ -22,7 +22,7 @@ class Landing extends React.Component {
                   Upcoming Jam Meeting
                 </Header>
                 <Segment attached>
-                  Jam session with X and Y
+                  Jam session with X and Y <br/>
                   Meeting on mm/dd/yyyy
                 </Segment>
               </Grid.Column>

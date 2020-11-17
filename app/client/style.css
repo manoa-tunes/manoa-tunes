@@ -6,3 +6,13 @@
 body {
   background-color: black;
 }
+
+.footer
+{
+  margin-top: 14px;
+  background-color: #1B1C1D;
+}
+
+.text {
+    color: white;
+}
