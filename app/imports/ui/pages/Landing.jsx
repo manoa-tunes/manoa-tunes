@@ -16,8 +16,8 @@ class Landing extends React.Component {
               </Header>
             </Grid.Row>
 
-            <Grid.Row columns={2}>
-              <Grid.Column textAlign='left'>
+            <Grid.Row columns={2} stretched>
+              <Grid.Column textAlign='left' className='test'>
                 <Header as='h3' attached='top'>
                   Upcoming Jam Meeting
                 </Header>
@@ -26,7 +26,7 @@ class Landing extends React.Component {
                   Meeting on mm/dd/yyyy
                 </Segment>
               </Grid.Column>
-              <Grid.Column textAlign='right'>
+              <Grid.Column textAlign='right' className='test'>
                 <Header as='h3' attached='top'>
                   Featured Track
                 </Header>
@@ -36,7 +36,7 @@ class Landing extends React.Component {
               </Grid.Column>
             </Grid.Row>
 
-            <Grid.Row columns={2}>
+            <Grid.Row columns={2} stretched>
               <Grid.Column textAlign='left'>
                 <Header as='h3' attached='top'>
                   Features
@@ -45,7 +45,7 @@ class Landing extends React.Component {
                   <List bulleted>
                     <List.Item>Keyword Interest Searching</List.Item>
                     <List.Item>Planning In-Person Events</List.Item>
-                    <List.Item>Clickable Links to Artist's Music</List.Item>
+                    <List.Item>Clickable Links to other Artists&amp;apos Music</List.Item>
                   </List>
                 </Segment>
               </Grid.Column>
@@ -54,8 +54,9 @@ class Landing extends React.Component {
                   Frequently Asked Questions
                 </Header>
                 <Segment attached>
-                  What is the meaning of life?
-                  Not too sure, but I keep hearing this 42 business.
+                  <p>How do I create an account?<p>Sign up in the top right corner above!</p></p>
+
+                  <p>How can I contact the creators of the site?<p>Contact information below!</p></p>
                 </Segment>
               </Grid.Column>
             </Grid.Row>
