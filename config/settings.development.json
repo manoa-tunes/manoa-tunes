@@ -9,5 +9,10 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
-  ]
+  ],
+
+  "monti": {
+    "appId": "pc4tGWASdAoj6b6GD",
+    "appSecret": "71b125d0-aabb-48e2-8b57-31e20081331a"
+  }
 }

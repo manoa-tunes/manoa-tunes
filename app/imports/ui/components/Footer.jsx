@@ -1,6 +1,5 @@
 import React from 'react';
-import { Grid, GridColumn, Header, Icon, Item, List } from 'semantic-ui-react';
-import Image from 'semantic-ui-react/dist/commonjs/elements/Image';
+import { Grid, GridColumn, Header, Icon, List } from 'semantic-ui-react';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class Footer extends React.Component {
@@ -48,9 +47,14 @@ class Footer extends React.Component {
                 </GridColumn>
 
                 <GridColumn>
-                  <hr/>
-                  <Image size="tiny"
-                      src="https://anad.org/wp-content/uploads/2017/09/university-of-hawaii-manoa.png"/>
+                  <hr />
+                  <List inverted>
+                    <List.Item className="text">Manoa-Tunes Team</List.Item>
+                    <List.Item className="text">ICS 314 Project</List.Item>
+                    <List.Item className="text">University of Hawaii</List.Item>
+                    <List.Item className="text">Honolulu, HI 96822</List.Item>
+                    <List.Item href='https://manoa-tunes.github.io/' className="text">Home Page</List.Item>
+                  </List>
                 </GridColumn>
               </Grid>
             </div>
