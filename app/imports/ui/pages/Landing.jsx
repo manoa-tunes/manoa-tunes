@@ -10,7 +10,7 @@ class Landing extends React.Component {
             <Grid.Row>
               <Header as='h1' size='huge' inverted color='green'>
                 Manoa Tunes
-                <Header.Subheader>
+                <Header.Subheader color='black'>
                   A Hub for People to Connect through the Power of Music
                 </Header.Subheader>
               </Header>
