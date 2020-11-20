@@ -1,6 +1,6 @@
 .bg-image {
   background-size: auto;
-  background-color: black;
+  background-image: url("../../app/public/images/electronic.jpg");
 }
 
 body {
