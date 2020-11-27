@@ -19,3 +19,7 @@ body {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+#back {
+  background-color: #1d1e1f;
+}
