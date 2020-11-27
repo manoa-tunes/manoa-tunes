@@ -26,3 +26,7 @@ body {
     object-fit: cover;
     background-image: url("https://w-dog.net/wallpapers/6/14/483307692322911/background-dark-album-vinyl-music.jpg");
 }
+
+.icons-landing {
+  margin: 0 0 0 10.5px !important;
+}
