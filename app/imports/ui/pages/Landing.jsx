@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Header, Segment, List, Icon } from 'semantic-ui-react';
+import { Grid, Header, Segment, List, Icon, Image } from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -13,6 +13,7 @@ class Landing extends React.Component {
                 <Header.Subheader color='black'>
                   A Hub for People to Connect through the Power of Music
                 </Header.Subheader>
+                <Image size='massive' src="/images/band.png"/>
               </Header>
             </Grid.Row>
 
