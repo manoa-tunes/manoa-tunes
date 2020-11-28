@@ -23,7 +23,8 @@ class Footer extends React.Component {
 
                 <GridColumn>
                   <hr />
-                  <Image size='tiny' src="/images/logo.png"/>
+                  <Image size='tiny'
+                         src="https://cdn.discordapp.com/attachments/779160949814067200/782345086981111819/logo.png"/>
                   <List inverted>
                     <List.Item className="text">Manoa-Tunes Team</List.Item>
                     <List.Item className="text">ICS 314 Project</List.Item>

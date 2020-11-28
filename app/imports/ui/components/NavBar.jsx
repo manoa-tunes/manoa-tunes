@@ -13,7 +13,9 @@ class NavBar extends React.Component {
     return (
       <Menu style={menuStyle} attached="top" borderless inverted>
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
-          <Header inverted as='h1'><Image size='massive' src="/images/logo.png"/></Header>
+          <Header inverted as='h1'>
+            <Image size='massive'
+                   src="https://cdn.discordapp.com/attachments/779160949814067200/782345086981111819/logo.png"/></Header>
         </Menu.Item>
         {this.props.currentUser ? (
             [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Home</Menu.Item>,
