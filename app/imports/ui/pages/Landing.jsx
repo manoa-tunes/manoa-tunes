@@ -6,7 +6,7 @@ class Landing extends React.Component {
   render() {
     return (
         <div className='bg-image'>
-          <Grid container centered stackable>
+          <Grid container centered stackable id='landing-page'>
             <Grid.Row>
               <Header as='h1' size='huge' inverted color='green'>
                 Manoa Tunes
