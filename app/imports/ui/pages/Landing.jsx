@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Header, Segment, List, Icon, Image } from 'semantic-ui-react';
+import { Grid, Header, Segment, List, Icon } from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -16,7 +16,7 @@ class Landing extends React.Component {
               </Header>
             </Grid.Row>
 
-            <Image size='huge' centered src="/images/band.png"/>
+           {/* <Image size='huge' centered src="/images/band.png"/> */}
 
             <Grid.Row columns={2} stretched>
               <Grid.Column textAlign='left' className='test'>
