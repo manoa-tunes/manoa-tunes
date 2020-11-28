@@ -13,9 +13,10 @@ class Landing extends React.Component {
                 <Header.Subheader color='black'>
                   A Hub for People to Connect through the Power of Music
                 </Header.Subheader>
-                <Image size='massive' src="/images/band.png"/>
               </Header>
             </Grid.Row>
+
+            <Image size='huge' centered src="/images/band.png"/>
 
             <Grid.Row columns={2} stretched>
               <Grid.Column textAlign='left' className='test'>
