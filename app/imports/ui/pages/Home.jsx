@@ -56,7 +56,7 @@ class Home extends React.Component {
     // Create the form schema for uniforms. Need to determine all interests and jams for multi select list.
     const allInterests = _.pluck(Interests.collection.find().fetch(), 'name');
     const allJams = _.pluck(Jams.collection.find().fetch(), 'name');
-    const allInstruments = _.pluck(Jams.collection.find().fetch(), 'name');
+    const allInstruments = _.pluck(Instruments.collection.find().fetch(), 'name');
     const formSchema = makeSchema(allInterests, allJams, allInstruments);
     const bridge = new SimpleSchema2Bridge(formSchema);
     // Now create the model with all the user information.
