@@ -15,7 +15,19 @@
     {
       "name": "Michael Hui",
       "email": "huim@hawaii.edu",
-      "bio": "I am currently a student studying computer science at UH Manoa"
+      "bio": "I am currently a student studying computer science at UH Manoa",
+      "picture": "",
+      "interest": [
+        "Classical",
+        "Rock",
+        "Pop"
+      ],
+      "instruments": [
+       "Piano"
+      ],
+      "jams": [
+        "Manoa-Tunes"
+      ]
     }
 
   ],
