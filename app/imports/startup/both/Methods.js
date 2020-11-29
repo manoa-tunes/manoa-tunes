@@ -20,6 +20,7 @@ Meteor.methods({
     ProfilesJams.collection.remove({ profile: email });
     ProfilesInstruments.collection.remove({ profile: email });
     interests.map((interest) => ProfilesInterests.collection.insert({ profile: email, interest }));
+    instruments.map((instrument) => ProfilesInstruments.collection.insert({ profile: email, instrument }));
     jams.map((jam) => ProfilesJams.collection.insert({ profile: email, jam }));
   },
 });
