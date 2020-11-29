@@ -3,6 +3,7 @@ import { Jams } from '../../api/jams/Jams';
 import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
+import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 import { JamsInterests } from '../../api/jams/JamsInterests';
 
 const updateProfileMethod = 'Profiles.update';
@@ -17,7 +18,9 @@ Meteor.methods({
     Profiles.collection.update({ email }, { $set: { email, name, bio, picture, interests, instruments, jams } });
     ProfilesInterests.collection.remove({ profile: email });
     ProfilesJams.collection.remove({ profile: email });
+    ProfilesInstruments.collection.remove({ profile: email });
     interests.map((interest) => ProfilesInterests.collection.insert({ profile: email, interest }));
+    instruments.map((instrument) => ProfilesInstruments.collection.insert({ profile: email, instrument }));
     jams.map((jam) => ProfilesJams.collection.insert({ profile: email, jam }));
   },
 });
