@@ -74,7 +74,7 @@ class Home extends React.Component {
               <Segment>
                 <Form.Group widths={'equal'}>
                   <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
-                  <TextField name='email' showInlineError={true} placeholder={'email'} disabled/>
+                  <TextField name='email' showInlineError={true} placeholder={'email'}/>
                 </Form.Group>
                 <LongTextField id='bio' name='bio' placeholder='Write a little bit about yourself.'/>
                 <Form.Group widths={'equal'}>

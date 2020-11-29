@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Interests } from '../../api/interests/Interests';
-import { Instruments} from '../../api/instruments/Instruments';
+import { Instruments } from '../../api/instruments/Instruments';
 import { Jams } from '../../api/jams/Jams';
 import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
@@ -22,9 +22,9 @@ Meteor.publish(Stuffs.userPublicationName, function () {
 /** Define a publication to publish all interests. */
 Meteor.publish(Interests.userPublicationName, () => Interests.collection.find());
 
-Meteor.publish(Instruments.userPublicationName, () => Interests.collection.find());
+Meteor.publish(Instruments.userPublicationName, () => Instruments.collection.find());
 
-Meteor.publish(Jams.userPublicationName, () => Interests.collection.find());
+Meteor.publish(Jams.userPublicationName, () => Jams.collection.find());
 
 /** Define a publication to publish all profiles. */
 Meteor.publish(Profiles.userPublicationName, () => Profiles.collection.find());
@@ -32,9 +32,9 @@ Meteor.publish(Profiles.userPublicationName, () => Profiles.collection.find());
 /** Define a publication to publish this collection. */
 Meteor.publish(ProfilesInterests.userPublicationName, () => ProfilesInterests.collection.find());
 
-Meteor.publish(ProfilesInstruments.userPublicationName, () => ProfilesInterests.collection.find());
+Meteor.publish(ProfilesInstruments.userPublicationName, () => ProfilesInstruments.collection.find());
 
-Meteor.publish(ProfilesJams.userPublicationName, () => ProfilesInterests.collection.find());
+Meteor.publish(ProfilesJams.userPublicationName, () => ProfilesJams.collection.find());
 
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.

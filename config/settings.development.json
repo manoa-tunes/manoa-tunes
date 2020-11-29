@@ -29,7 +29,18 @@
         "Manoa-Tunes"
       ]
     }
+  ],
 
+  "defaultInterests": [
+    "Pop", "Jazz", "Classical", "K-Pop"
+  ],
+
+  "defaultInstruments": [
+    "Piano", "Guitar", "Flute", "Drums"
+  ],
+
+  "defaultJams": [
+    "None","Manoa Tunes"
   ],
 
   "monti": {
