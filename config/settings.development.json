@@ -11,6 +11,15 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
 
+  "defaultProfile": [
+    {
+      "name": "Michael Hui",
+      "email": "huim@hawaii.edu",
+      "bio": "I am currently a student studying computer science at UH Manoa"
+    }
+
+  ],
+
   "monti": {
     "appId": "pc4tGWASdAoj6b6GD",
     "appSecret": "71b125d0-aabb-48e2-8b57-31e20081331a"

@@ -16,13 +16,14 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { Jams } from '../../api/jams/Jams';
 import { updateProfileMethod } from '../../startup/both/Methods';
+import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
   email: { type: String, label: 'Email', optional: true },
   name: { type: String, label: 'Name', optional: true },
   bio: { type: String, label: 'Introduce & Goals', optional: true },
-  picture: { type: String, label: 'Icon', optional: true },
+  picture: { type: String, label: 'Picture URL', optional: true },
   interests: { type: Array, label: 'Interests', optional: true },
   'interests.$': { type: String, allowedValues: allInterests },
   instruments: { type: Array, label: 'Instruments', optional: true },
@@ -56,14 +57,15 @@ class Home extends React.Component {
     // Create the form schema for uniforms. Need to determine all interests and jams for multi select list.
     const allInterests = _.pluck(Interests.collection.find().fetch(), 'name');
     const allJams = _.pluck(Jams.collection.find().fetch(), 'name');
-    const allInstruments = _.pluck(Jams.collection.find().fetch(), 'name');
+    const allInstruments = _.pluck(Instruments.collection.find().fetch(), 'name');
     const formSchema = makeSchema(allInterests, allJams, allInstruments);
     const bridge = new SimpleSchema2Bridge(formSchema);
     // Now create the model with all the user information.
     const jams = _.pluck(ProfilesJams.collection.find({ profile: email }).fetch(), 'jam');
     const interests = _.pluck(ProfilesInterests.collection.find({ profile: email }).fetch(), 'interest');
+    const instruments = _.pluck(ProfilesInstruments.collection.find({ profile: email }).fetch(), 'instruments');
     const profile = Profiles.collection.findOne({ email });
-    const model = _.extend({}, profile, { interests, jams });
+    const model = _.extend({}, profile, { interests, instruments, jams });
     return (
         <Grid id="home-page" container centered>
           <Grid.Column>
@@ -105,7 +107,8 @@ export default withTracker(() => {
   const sub4 = Meteor.subscribe(Profiles.userPublicationName);
   const sub5 = Meteor.subscribe(ProfilesInterests.userPublicationName);
   const sub6 = Meteor.subscribe(ProfilesJams.userPublicationName);
+  const sub7 = Meteor.subscribe(ProfilesInstruments.userPublicationName);
   return {
-    ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready(),
+    ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready() && sub7.ready(),
   };
 })(Home);
