@@ -11,38 +11,38 @@ class NavBar extends React.Component {
   render() {
     const menuStyle = { marginBottom: '10px' };
     return (
-      <Menu style={menuStyle} attached="top" borderless inverted>
-        <Menu.Item as={NavLink} activeClassName="" exact to="/">
-          <Header inverted as='h1'>
-            <Image size='massive'
-                   src="https://cdn.discordapp.com/attachments/779160949814067200/782345086981111819/logo.png"/></Header>
-        </Menu.Item>
-        {this.props.currentUser ? (
-            [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Home</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Meet Others</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Current Jams</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Profile</Menu.Item>]
-        ) : ''}
-        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
-        ) : ''}
-        <Menu.Item position="right">
-          {this.props.currentUser === '' ? (
-            <Dropdown id="login-dropdown" text="Login" pointing="top right" icon={'inverted user'}>
-              <Dropdown.Menu id="back">
-                <Dropdown.Item id="login-dropdown-sign-in" icon="inverted user" text="Sign In" as={NavLink} exact to="/signin"/>
-                <Dropdown.Item id="login-dropdown-sign-up" icon="inverted add user" text="Sign Up" as={NavLink} exact to="/signup"/>
-              </Dropdown.Menu>
-            </Dropdown>
-          ) : (
-            <Dropdown id="navbar-current-user" text={this.props.currentUser} pointing="top right" icon={'inverted user'} >
-              <Dropdown.Menu id="back">
-                <Dropdown.Item id="navbar-sign-out" icon="inverted sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
-              </Dropdown.Menu>
-            </Dropdown>
-          )}
-        </Menu.Item>
-      </Menu>
+        <Menu style={menuStyle} attached="top" borderless inverted>
+          <Menu.Item as={NavLink} activeClassName="" exact to="/">
+            <Header inverted as='h1'>
+              <Image size='massive'
+                     src="https://cdn.discordapp.com/attachments/779160949814067200/782345086981111819/logo.png"/></Header>
+          </Menu.Item>
+          {this.props.currentUser ? (
+              [<Menu.Item as={NavLink} activeClassName="active" exact to="/home" key='home'>Home</Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Meet Others</Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/list1" key='list1'>Current Jams</Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/Profiles" key='Profiles'>Profiles</Menu.Item>]
+          ) : ''}
+          {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
+          ) : ''}
+          <Menu.Item position="right">
+            {this.props.currentUser === '' ? (
+                <Dropdown id="login-dropdown" text="Login" pointing="top right" icon={'inverted user'}>
+                  <Dropdown.Menu id="back">
+                    <Dropdown.Item id="login-dropdown-sign-in" icon="inverted user" text="Sign In" as={NavLink} exact to="/signin"/>
+                    <Dropdown.Item id="login-dropdown-sign-up" icon="inverted add user" text="Sign Up" as={NavLink} exact to="/signup"/>
+                  </Dropdown.Menu>
+                </Dropdown>
+            ) : (
+                <Dropdown id="navbar-current-user" text={this.props.currentUser} pointing="top right" icon={'inverted user'} >
+                  <Dropdown.Menu id="back">
+                    <Dropdown.Item id="navbar-sign-out" icon="inverted sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
+                  </Dropdown.Menu>
+                </Dropdown>
+            )}
+          </Menu.Item>
+        </Menu>
     );
   }
 }
