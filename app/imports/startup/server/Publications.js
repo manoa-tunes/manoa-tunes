@@ -27,8 +27,6 @@ Meteor.publish(Instruments.userPublicationName, () => Instruments.collection.fin
 
 Meteor.publish(Jams.userPublicationName, () => Jams.collection.find());
 
-Meteor.publish(JamsInterests.userPublicationName, () => JamsInterests.collection.find());
-
 /** Define a publication to publish all profiles. */
 Meteor.publish(Profiles.userPublicationName, () => Profiles.collection.find());
 

@@ -18,10 +18,10 @@ class NavBar extends React.Component {
                      src="https://cdn.discordapp.com/attachments/779160949814067200/782345086981111819/logo.png"/></Header>
           </Menu.Item>
           {this.props.currentUser ? (
-              [<Menu.Item as={NavLink} activeClassName="active" exact to="/home" key='home'>Home</Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Meet Others</Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/list1" key='list1'>Current Jams</Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/Profiles" key='Profiles'>Profiles</Menu.Item>]
+              [<Menu.Item as={NavLink} activeClassName="active" exact to="/home" key='home'>Create Profile</Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/Profiles" key='Profiles'>All Profiles</Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Create Jam</Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/list1" key='list1'>All Jams</Menu.Item>]
           ) : ''}
           {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>

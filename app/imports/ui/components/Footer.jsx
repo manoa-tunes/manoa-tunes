@@ -13,11 +13,11 @@ class Footer extends React.Component {
                   <hr />
                   <Header className="inverted" textAlign="left">Navigation</Header>
                   <List inverted>
-                    <List.Item href='https://manoatunes.xyz/' className="text">Home</List.Item>
-                    <List.Item href='https://github.com/manoa-tunes/manoa-tunes' className='text'>Our Github</List.Item>
-                    <List.Item href='https://manoa-tunes.github.io/' className="text">About Us</List.Item>
-                    <List.Item href='https://www.meteor.com/install' className="text">Meteor Installation</List.Item>
-                    <List.Item href='/signup#/signup' className="text">Sign Up</List.Item>
+                    <List.Item href='https://manoatunes.xyz/' className="footer-text">Home</List.Item>
+                    <List.Item href='https://github.com/manoa-tunes/manoa-tunes' className='footer-text'>Our Github</List.Item>
+                    <List.Item href='https://manoa-tunes.github.io/' className="footer-text">About Us</List.Item>
+                    <List.Item href='https://www.meteor.com/install' className="footer-text">Meteor Installation</List.Item>
+                    <List.Item href='/signup#/signup' className="footer-text">Sign Up</List.Item>
                   </List>
                 </GridColumn>
 
@@ -26,11 +26,11 @@ class Footer extends React.Component {
                   <Image size='tiny'
                          src="https://cdn.discordapp.com/attachments/779160949814067200/782345086981111819/logo.png"/>
                   <List inverted>
-                    <List.Item className="text">Manoa-Tunes Team</List.Item>
-                    <List.Item className="text">ICS 314 Project</List.Item>
-                    <List.Item className="text">University of Hawaii</List.Item>
-                    <List.Item className="text">Honolulu, HI 96822</List.Item>
-                    <List.Item className="text"><Icon name='copyright'/> Manoa-Tunes 2020   </List.Item>
+                    <List.Item className="footer-text">Manoa-Tunes Team</List.Item>
+                    <List.Item className="footer-text">ICS 314 Project</List.Item>
+                    <List.Item className="footer-text">University of Hawaii</List.Item>
+                    <List.Item className="footer-text">Honolulu, HI 96822</List.Item>
+                    <List.Item className="footer-text"><Icon name='copyright'/> Manoa-Tunes 2020   </List.Item>
                   </List>
                 </GridColumn>
               </Grid>

@@ -32,11 +32,29 @@
   ],
 
   "defaultInterests": [
-    "Pop", "Jazz", "Classical", "K-Pop"
+    "Pop",
+    "Classical",
+    "Jazz",
+    "Korean Pop",
+    "Rock",
+    "Alternative",
+    "Rap",
+    "Lofi",
+    "Other"
   ],
 
   "defaultInstruments": [
-    "Piano", "Guitar", "Flute", "Drums"
+    "Do not play any instruments",
+    "Piano",
+    "Guitar",
+    "Violin/Viola/Cello",
+    "Clarinet",
+    "Flute",
+    "Ukulele",
+    "Drums",
+    "Saxophone",
+    "Sound Board",
+    "Other"
   ],
 
   "defaultJams": [

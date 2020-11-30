@@ -70,30 +70,31 @@ class Home extends React.Component {
     const model = _.extend({}, profile, { interests, instruments, jams });
     let fRef = null;
     return (
-        <Grid id="home-page" container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">Your Profile</Header>
-            <AutoForm ref={ref => { fRef = ref; }}
-                      model={model} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
-              <Segment>
-                <Form.Group widths={'equal'}>
-                  <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
-                  <TextField name='email' showInlineError={true} placeholder={'email'}/>
-                </Form.Group>
-                <LongTextField id='bio' name='bio' placeholder='Write a little bit about yourself.'/>
-                <Form.Group widths={'equal'}>
-                  <MultiSelectField name='interests' showInlineError={true} placeholder={'Interests'}/>
-                  <MultiSelectField name='instruments' showInlineError={true} placeholder={'Instruments'}/>
-                </Form.Group>
-                <Form.Group widths={'equal'}>
-                  <MultiSelectField name='jams' showInlineError={true} placeholder={'Jams'}/>
-                  <TextField name='picture' showInlineError={true} placeholder={'URL to picture'}/>
-                </Form.Group>
-                <SubmitField id='home-page-submit' value='Update'/>
-              </Segment>
-            </AutoForm>
-          </Grid.Column>
-        </Grid>
+        <div className="bg-image">
+          <Grid id="home-page" container centered>
+            <Grid.Column>
+              <Header as="h2" textAlign="center" inverted>Your Profile</Header>
+              <AutoForm ref={ref => { fRef = ref; }}
+                        model={model} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
+                <Segment>
+                  <Form.Group widths={'equal'}>
+                    <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
+                    <TextField name='email' showInlineError={true} placeholder={'email'}/>
+                  </Form.Group>
+                  <Form.Group widths={'equal'}>
+                    <TextField name='picture' showInlineError={true} placeholder={'URL to picture'}/>
+                  </Form.Group>
+                  <LongTextField id='bio' name='bio' placeholder='Write a little bit about yourself.'/>
+                  <Form.Group widths={'equal'}>
+                    <MultiSelectField className="multiselect" name='interests' showInlineError={true} placeholder={'Interests'}/>
+                    <MultiSelectField className="multiselect" name='instruments' showInlineError={true} placeholder={'Instruments'}/>
+                  </Form.Group>
+                  <SubmitField id='home-page-submit' value='Update'/>
+                </Segment>
+              </AutoForm>
+            </Grid.Column>
+          </Grid>
+        </div>
     );
   }
 }
