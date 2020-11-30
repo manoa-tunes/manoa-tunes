@@ -15,7 +15,6 @@ import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { Jams } from '../../api/jams/Jams';
-import { updateProfileMethod } from '../../startup/both/Methods';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
@@ -36,14 +35,17 @@ const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
 class Home extends React.Component {
 
   /** On submit, insert the data. */
-  submit(data) {
-    Meteor.call(updateProfileMethod, data, (error) => {
-      if (error) {
-        swal('Error', error.message, 'error');
-      } else {
-        swal('Success', 'Profile updated successfully', 'success');
-      }
-    });
+
+  submit(data, formRef) {
+    const { name, email, bio, picture, interests, instruments, jams } = data;
+    Profiles.collection.insert({ name, email, bio, picture, interests, instruments, jams },
+        (error) => {
+          if (error) {
+            swal('Error', error.message, 'error');
+          } else {
+            swal('Success', 'Project added successfully', 'success').then(() => formRef.reset());
+          }
+        });
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -66,11 +68,13 @@ class Home extends React.Component {
     const instruments = _.pluck(ProfilesInstruments.collection.find({ profile: email }).fetch(), 'instruments');
     const profile = Profiles.collection.findOne({ email });
     const model = _.extend({}, profile, { interests, instruments, jams });
+    let fRef = null;
     return (
         <Grid id="home-page" container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Your Profile</Header>
-            <AutoForm model={model} schema={bridge} onSubmit={data => this.submit(data)}>
+            <AutoForm ref={ref => { fRef = ref; }}
+                      model={model} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
                 <Form.Group widths={'equal'}>
                   <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
