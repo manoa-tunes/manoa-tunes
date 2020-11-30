@@ -2,21 +2,18 @@ import React from 'react';
 import { Grid, Segment, Header, Form, Loader } from 'semantic-ui-react';
 import { AutoForm, TextField, LongTextField, SubmitField } from 'uniforms-semantic';
 import swal from 'sweetalert';
-import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
+import 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
-import { Interests } from '../../api/interests/Interests';
-import { Instruments } from '../../api/instruments/Instruments';
-import { Profiles } from '../../api/profiles/Profiles';
-import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
-import { ProfilesJams } from '../../api/profiles/ProfilesJams';
-import { Jams } from '../../api/jams/Jams';
+import { Interests, interestsName } from '../../api/interests/Interests';
+import { Instruments, instrumentsName } from '../../api/instruments/Instruments';
+import { Profiles, profilesName } from '../../api/profiles/Profiles';
+import { Jams, jamsName } from '../../api/jams/Jams';
 import { updateProfileMethod } from '../../startup/both/Methods';
-import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
@@ -55,22 +52,22 @@ class Home extends React.Component {
   renderPage() {
     const email = Meteor.user().username;
     // Create the form schema for uniforms. Need to determine all interests and jams for multi select list.
-    const allInterests = _.pluck(Interests.collection.find().fetch(), 'name');
-    const allJams = _.pluck(Jams.collection.find().fetch(), 'name');
-    const allInstruments = _.pluck(Instruments.collection.find().fetch(), 'name');
+    const allInterests = _.pluck(Interests.find().fetch(), 'name');
+    const allJams = _.pluck(Jams.find().fetch(), 'name');
+    const allInstruments = _.pluck(Instruments.find().fetch(), 'name');
     const formSchema = makeSchema(allInterests, allJams, allInstruments);
-    const bridge = new SimpleSchema2Bridge(formSchema);
     // Now create the model with all the user information.
-    const jams = _.pluck(ProfilesJams.collection.find({ profile: email }).fetch(), 'jam');
-    const interests = _.pluck(ProfilesInterests.collection.find({ profile: email }).fetch(), 'interest');
-    const instruments = _.pluck(ProfilesInstruments.collection.find({ profile: email }).fetch(), 'instruments');
-    const profile = Profiles.collection.findOne({ email });
-    const model = _.extend({}, profile, { interests, instruments, jams });
+    const profile = Profiles.findOne({ email });
+    const model = _.extend(
+        {},
+        profile,
+        { interests: profile.interests, instruments: profile.instruments, jams: profile.jams },
+    );
     return (
         <Grid id="home-page" container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Your Profile</Header>
-            <AutoForm model={model} schema={bridge} onSubmit={data => this.submit(data)}>
+            <AutoForm model={model} schema={formSchema} onSubmit={data => this.submit(data)}>
               <Segment>
                 <Form.Group widths={'equal'}>
                   <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
@@ -101,14 +98,11 @@ Home.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Ensure that minimongo is populated with all collections prior to running render().
-  const sub1 = Meteor.subscribe(Interests.userPublicationName);
-  const sub2 = Meteor.subscribe(Instruments.userPublicationName);
-  const sub3 = Meteor.subscribe(Jams.userPublicationName);
-  const sub4 = Meteor.subscribe(Profiles.userPublicationName);
-  const sub5 = Meteor.subscribe(ProfilesInterests.userPublicationName);
-  const sub6 = Meteor.subscribe(ProfilesJams.userPublicationName);
-  const sub7 = Meteor.subscribe(ProfilesInstruments.userPublicationName);
+  const sub1 = Meteor.subscribe(interestsName);
+  const sub2 = Meteor.subscribe(instrumentsName);
+  const sub3 = Meteor.subscribe(jamsName);
+  const sub4 = Meteor.subscribe(profilesName);
   return {
-    ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready() && sub7.ready(),
+    ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready(),
   };
 })(Home);
