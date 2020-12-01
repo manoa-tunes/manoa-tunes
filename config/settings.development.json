@@ -11,7 +11,7 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
 
-  "defaultProfile": [
+  "defaultProfiles": [
     {
       "name": "Michael Hui",
       "email": "huim@hawaii.edu",
