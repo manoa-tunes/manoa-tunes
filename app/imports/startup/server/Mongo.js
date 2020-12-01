@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles';
-import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Interests } from '../../api/interests/Interests';
 import { Instruments } from '../../api/instruments/Instruments';
 import { Jams } from '../../api/jams/Jams';
@@ -12,27 +11,8 @@ import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 
 /* eslint-disable no-console */
 
-/** Initialize the database with a default data document. */
-function addData(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
-  Stuffs.collection.insert(data);
-}
-
-/** Initialize the collection if empty. */
-if (Stuffs.collection.find().count() === 0) {
-  if (Meteor.settings.defaultData) {
-    console.log('Creating default data.');
-    Meteor.settings.defaultData.map(data => addData(data));
-  }
-}
-
-function createUser(email, password, role) {
-  console.log(`  Creating user ${email}.`);
-  const userID = Accounts.createUser({
-    username: email,
-    email: email,
-    password: password,
-  });
+function createUser(email, role) {
+  const userID = Accounts.createUser({ username: email, email, password: 'foo' });
   if (role === 'admin') {
     Roles.createRole(role, { unlessExists: true });
     Roles.addUsersToRoles(userID, 'admin');
@@ -77,11 +57,9 @@ if (Jams.collection.find().count() === 0) {
 
 function addProfile({ name, bio, interests, instruments, jams, picture, email, role }) {
   console.log(`Defining profile ${email}`);
-  // Define the user in the Meteor accounts package.
-  createUser(email, role);
-  // Create the profile.
   Profiles.collection.insert({ name, bio, picture, email });
   // Add interests and projects.
+  createUser(email, role);
   interests.map(interest => ProfilesInterests.collection.insert({ profile: email, interest }));
   instruments.map(instrument => ProfilesInstruments.collection.insert({ profile: email, instrument }));
   jams.map(jam => ProfilesJams.collection.insert({ profile: email, jam }));
@@ -91,7 +69,8 @@ function addProfile({ name, bio, interests, instruments, jams, picture, email, r
   jams.map(jam => addJam(jam));
 }
 
-if (Meteor.users.find().count() === 0) {
+/** Initialize the collection if empty. */
+if (Profiles.collection.find().count() === 0) {
   if (Meteor.settings.defaultProfiles) {
     console.log('Creating the default profiles');
     Meteor.settings.defaultProfiles.map(profile => addProfile(profile));

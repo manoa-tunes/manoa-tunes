@@ -11,13 +11,13 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
 
-  "defaultProfile": [
+  "defaultProfiles": [
     {
       "name": "Michael Hui",
       "email": "huim@hawaii.edu",
       "bio": "I am currently a student studying computer science at UH Manoa",
-      "picture": "",
-      "interest": [
+      "picture": "https://cdn.discordapp.com/avatars/206212416915243008/3e0b8f1378b77ac65c2d033c9d84e649.png?size=2048",
+      "interests": [
         "Classical",
         "Rock",
         "Pop"
@@ -26,7 +26,7 @@
        "Piano"
       ],
       "jams": [
-        "Manoa-Tunes"
+        "Manoa Tunes"
       ]
     }
   ],

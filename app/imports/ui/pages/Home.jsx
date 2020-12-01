@@ -35,10 +35,33 @@ const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
 class Home extends React.Component {
 
   /** On submit, insert the data. */
-
   submit(data, formRef) {
     const { name, email, bio, picture, interests, instruments, jams } = data;
-    Profiles.collection.insert({ name, email, bio, picture, interests, instruments, jams },
+    ProfilesInterests.collection.insert(interests,
+        (error) => {
+          if (error) {
+            swal('Error', error.message, 'error');
+          } else {
+            swal('Success', 'Project added successfully', 'success');
+          }
+        });
+    ProfilesInstruments.collection.insert(instruments,
+        (error) => {
+          if (error) {
+            swal('Error', error.message, 'error');
+          } else {
+            swal('Success', 'Project added successfully', 'success');
+          }
+        });
+    ProfilesJams.collection.insert(jams,
+        (error) => {
+          if (error) {
+            swal('Error', error.message, 'error');
+          } else {
+            swal('Success', 'Project added successfully', 'success');
+          }
+        });
+    Profiles.collection.insert({ name, email, bio, picture },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
