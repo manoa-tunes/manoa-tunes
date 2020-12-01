@@ -4,7 +4,6 @@ import { Stuffs } from '../../api/stuff/Stuff';
 import { Interests } from '../../api/interests/Interests';
 import { Instruments } from '../../api/instruments/Instruments';
 import { Jams } from '../../api/jams/Jams';
-import { JamsInterests } from '../../api/jams/JamsInterests';
 import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
@@ -27,10 +26,8 @@ Meteor.publish(Instruments.userPublicationName, () => Instruments.collection.fin
 
 Meteor.publish(Jams.userPublicationName, () => Jams.collection.find());
 
-/** Define a publication to publish all profiles. */
 Meteor.publish(Profiles.userPublicationName, () => Profiles.collection.find());
 
-/** Define a publication to publish this collection. */
 Meteor.publish(ProfilesInterests.userPublicationName, () => ProfilesInterests.collection.find());
 
 Meteor.publish(ProfilesInstruments.userPublicationName, () => ProfilesInstruments.collection.find());
