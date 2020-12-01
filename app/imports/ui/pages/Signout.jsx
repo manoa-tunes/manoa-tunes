@@ -9,7 +9,7 @@ export default class Signout extends React.Component {
     return (
         <div className="signout">
           <Header id="signout-page" as="h2" textAlign="center">
-            <p className="text">You are signed out.</p>
+            <p className="white">You are signed out.</p>
           </Header>
         </div>
     );

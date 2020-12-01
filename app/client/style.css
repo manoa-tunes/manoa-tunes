@@ -28,7 +28,7 @@ body {
 }
 
 #back {
-  background-color: #1d1e1f;
+  background-color: white;
 }
 
 .icons-landing {
@@ -37,4 +37,8 @@ body {
 
 .multiselect {
   color: black !important;
+}
+
+.white{
+  color: white;
 }

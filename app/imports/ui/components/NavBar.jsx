@@ -18,26 +18,41 @@ class NavBar extends React.Component {
                      src="https://cdn.discordapp.com/attachments/779160949814067200/782345086981111819/logo.png"/></Header>
           </Menu.Item>
           {this.props.currentUser ? (
-              [<Menu.Item as={NavLink} activeClassName="active" exact to="/home" key='home'>Create Profile</Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/Profiles" key='Profiles'>All Profiles</Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Create Jam</Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/list1" key='list1'>All Jams</Menu.Item>]
+              [
+                // eslint-disable-next-line react/jsx-key
+                <Menu.Item>
+                      <Dropdown id="navbar-current-user" text= 'Profiles' simple item>
+                        <Dropdown.Menu>
+                          <Dropdown.Item text="Create Profile" as={NavLink} exact to="/home" key='home'/>
+                          <Dropdown.Item text="All Profile" as={NavLink} exact to="/Profiles" key='Profiles'/>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                </Menu.Item>,
+                // eslint-disable-next-line react/jsx-key
+                <Menu.Item>
+                  <Dropdown id="navbar-current-user" text= 'Jams' simple item>
+                    <Dropdown.Menu>
+                      <Dropdown.Item text="Create Jams" as={NavLink} exact to="/list" key='list'/>
+                      <Dropdown.Item text="All Jams" as={NavLink} exact to="/list1" key='list1'/>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Menu.Item>]
           ) : ''}
           {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
           ) : ''}
           <Menu.Item position="right">
             {this.props.currentUser === '' ? (
-                <Dropdown id="login-dropdown" text="Login" pointing="top right" icon={'inverted user'}>
+                <Dropdown id="login-dropdown" text="Login" pointing="top right" icon={'user'}>
                   <Dropdown.Menu id="back">
-                    <Dropdown.Item id="login-dropdown-sign-in" icon="inverted user" text="Sign In" as={NavLink} exact to="/signin"/>
-                    <Dropdown.Item id="login-dropdown-sign-up" icon="inverted add user" text="Sign Up" as={NavLink} exact to="/signup"/>
+                    <Dropdown.Item id="login-dropdown-sign-in" icon="user" text="Sign In" as={NavLink} exact to="/signin"/>
+                    <Dropdown.Item id="login-dropdown-sign-up" icon="add user" text="Sign Up" as={NavLink} exact to="/signup"/>
                   </Dropdown.Menu>
                 </Dropdown>
             ) : (
-                <Dropdown id="navbar-current-user" text={this.props.currentUser} pointing="top right" icon={'inverted user'} >
+                <Dropdown id="navbar-current-user" text={this.props.currentUser} pointing="top right" icon={'user'} >
                   <Dropdown.Menu id="back">
-                    <Dropdown.Item id="navbar-sign-out" icon="inverted sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
+                    <Dropdown.Item id="navbar-sign-out" icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
                   </Dropdown.Menu>
                 </Dropdown>
             )}
