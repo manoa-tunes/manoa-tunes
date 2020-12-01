@@ -16,6 +16,7 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { Jams } from '../../api/jams/Jams';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
+import { addProfileMethod } from '../../startup/both/Methods';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
@@ -36,39 +37,13 @@ class Home extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, email, bio, picture, interests, instruments, jams } = data;
-    ProfilesInterests.collection.insert(interests,
-        (error) => {
-          if (error) {
-            swal('Error', error.message, 'error');
-          } else {
-            swal('Success', 'Project added successfully', 'success');
-          }
-        });
-    ProfilesInstruments.collection.insert(instruments,
-        (error) => {
-          if (error) {
-            swal('Error', error.message, 'error');
-          } else {
-            swal('Success', 'Project added successfully', 'success');
-          }
-        });
-    ProfilesJams.collection.insert(jams,
-        (error) => {
-          if (error) {
-            swal('Error', error.message, 'error');
-          } else {
-            swal('Success', 'Project added successfully', 'success');
-          }
-        });
-    Profiles.collection.insert({ name, email, bio, picture },
-        (error) => {
-          if (error) {
-            swal('Error', error.message, 'error');
-          } else {
-            swal('Success', 'Project added successfully', 'success').then(() => formRef.reset());
-          }
-        });
+    Meteor.call(addProfileMethod, data, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      } else {
+        swal('Success', 'Profile updated successfully', 'success').then(() => formRef.reset());
+      }
+    });
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */

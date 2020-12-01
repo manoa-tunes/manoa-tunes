@@ -25,6 +25,17 @@ Meteor.methods({
   },
 });
 
+const addProfileMethod = 'Profiles.add';
+
+Meteor.methods({
+  'Profiles.add'({ email, name, bio, picture, interests, instruments, jams }) {
+    Profiles.collection.insert({ name, email, bio, picture });
+    interests.map((interest) => ProfilesInterests.collection.insert({ profile: email, interest }));
+    instruments.map((instrument) => ProfilesInstruments.collection.insert({ profile: email, instrument }));
+    jams.map((jam) => ProfilesJams.collection.insert({ profile: email, jam }));
+  },
+});
+
 const addJamMethod = 'Jams.add';
 
 /** Creates a new jam in the Jams collection, and also updates ProfilesJams and JamsInterests. */
@@ -41,4 +52,4 @@ Meteor.methods({
   },
 });
 
-export { updateProfileMethod, addJamMethod };
+export { updateProfileMethod, addProfileMethod, addJamMethod };
