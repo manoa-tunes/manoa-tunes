@@ -17,16 +17,19 @@ export const ProfileCard = (props) => (
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
+        <Header as='h5'>Interests</Header>
         {_.map(props.profile.interests,
             (interest, index) => <Label key={index} size='tiny' color='black'>{interest}</Label>)}
       </Card.Content>
       <Card.Content extra>
+        <Header as='h5'>Instruments</Header>
         {_.map(props.profile.instruments,
             (instrument, index) => <Label key={index} size='tiny' color='black'>{instrument}</Label>)}
       </Card.Content>
       <Card.Content extra>
         <Header as='h5'>Jams</Header>
-        {_.map(props.profile.jams, (jam, index) => <Image key={index} size='mini' src={jam}/>)}
+        {_.map(props.profile.jams,
+            (jam, index) => <Label key={index} size='tiny' color='green'>{jam}</Label>)}
       </Card.Content>
     </Card>
 );
