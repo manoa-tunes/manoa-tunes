@@ -5,6 +5,7 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 import { JamsInterests } from '../../api/jams/JamsInterests';
+import { JamsInstruments } from '../../api/jams/JamsInstruments';
 
 const updateProfileMethod = 'Profiles.update';
 
@@ -40,15 +41,20 @@ const addJamMethod = 'Jams.add';
 
 /** Creates a new jam in the Jams collection, and also updates ProfilesJams and JamsInterests. */
 Meteor.methods({
-  'Jams.add'({ name, description, picture, interests, homepage }) {
-    Jams.collection.insert({ name, description, picture, homepage });
-    ProfilesJams.collection.remove({ jam: name });
+  'Jams.add'({ name, contact, date, location, interests, instruments }) {
+    Jams.collection.insert({ name, contact, date, location, interests, instruments });
     JamsInterests.collection.remove({ jam: name });
+    JamsInstruments.collection.remove({ jam: name });
     if (interests) {
     interests.map((interest) => JamsInterests.collection.insert({ jam: name, interest }));
   } else {
     throw new Meteor.Error('At least one interest is required.');
   }
+    if (instruments) {
+      instruments.map((instrument) => JamsInstruments.collection.insert({ jam: name, instrument }));
+    } else {
+      throw new Meteor.Error('At least one interest is required.');
+    }
   },
 });
 

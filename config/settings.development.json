@@ -621,7 +621,21 @@
   ],
 
   "defaultJams": [
-    "None", "Manoa Tunes"
+    {
+      "name": "Jazz Messengers",
+      "contact": "JazzMessengers@hawaii.edu",
+      "date": "December 1, 2020 at 4:00pm",
+      "location": "UH Manoa",
+      "interests": [
+        "Jazz",
+        "Jazz Rock",
+        "Korean Pop"
+      ],
+      "instruments": [
+        "Guitar",
+        "Microphone"
+      ]
+    }
   ],
 
   "monti": {

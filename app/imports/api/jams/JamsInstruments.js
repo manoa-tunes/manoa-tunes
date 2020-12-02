@@ -11,7 +11,7 @@ class JamsInstrumentsCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      profile: String,
+      jam: String,
       instrument: String,
     }, { tracker: Tracker });
     // Ensure collection documents obey schema.

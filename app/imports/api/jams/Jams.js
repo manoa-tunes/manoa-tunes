@@ -12,9 +12,13 @@ class JamsCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       name: { type: String, index: true, unique: true },
-      homepage: { type: String, optional: true },
-      description: { type: String, optional: true },
-      picture: { type: String, optional: true },
+      contact: { type: String, optional: true },
+      date: { type: String, optional: true },
+      location: { type: String, optional: true },
+      interests: { type: Array, optional: true },
+      'interests.$': { type: String },
+      instruments: { type: Array, optional: true },
+      'instruments.$': { type: String },
     }, { tracker: Tracker });
     // Ensure collection documents obey schema.
     this.collection.attachSchema(this.schema);
