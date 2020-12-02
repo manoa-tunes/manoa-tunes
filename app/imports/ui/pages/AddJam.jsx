@@ -75,10 +75,10 @@ class AddJam extends React.Component {
                 <Segment>
                   <Form.Group widths={'equal'}>
                     <TextField id='name' name='name' showInlineError={true} placeholder={'Name Of Your Jam'}/>
-                    <TextField name='contact' showInlineError={true} placeholder={'contact'}/>
+                    <TextField name='contact' showInlineError={true} placeholder={'Contact Information (Email or Phone Number)'}/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
-                    <TextField name='date' showInlineError={true} placeholder={'date'}/>
+                    <TextField name='date' showInlineError={true} placeholder={'mm/dd/yy & time'}/>
                     <TextField name='location' showInlineError={true} placeholder={'location'}/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>

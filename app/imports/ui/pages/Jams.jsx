@@ -23,17 +23,14 @@ const MakeCard = (props) => (
     <Card>
       <Card.Content>
         <Card.Header style={{ marginTop: '0px' }}>{props.jam.name}</Card.Header>
-        <Card.Meta>
-          <span className='date'>{props.jam.title}</span>
-        </Card.Meta>
         <Card.Description>
-          {props.jam.contact}
+          <span className='date'>Contact Information: {props.jam.contact}</span>
         </Card.Description>
         <Card.Description>
-          {props.jam.location}
+          <span className='date'>Location: {props.jam.location}</span>
         </Card.Description>
         <Card.Description>
-          {props.jam.date}
+          <span className='date'>Date: {props.jam.date}</span>
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
