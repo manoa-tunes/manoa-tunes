@@ -69,12 +69,12 @@ class AddJam extends React.Component {
         <div className="bg-image">
           <Grid id="home-page" container centered>
             <Grid.Column>
-              <Header as="h2" textAlign="center" inverted>Your Profile</Header>
+              <Header as="h2" textAlign="center" inverted>Your Jams</Header>
               <AutoForm ref={ref => { fRef = ref; }}
                          schema={bridge} onSubmit={data => this.submit(data, fRef)}>
                 <Segment>
                   <Form.Group widths={'equal'}>
-                    <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
+                    <TextField id='name' name='name' showInlineError={true} placeholder={'Name Of Your Jam'}/>
                     <TextField name='contact' showInlineError={true} placeholder={'contact'}/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
