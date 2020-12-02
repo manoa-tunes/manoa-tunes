@@ -1,6 +1,10 @@
 {
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
+    { "email": "huim@hawaii.edu", "password": "changeme", "role": "admin" },
+    { "email": "khhc@hawaii.edu", "password": "changeme", "role": "admin" },
+    { "email": "choi4879@hawaii.edu", "password": "changeme", "role": "admin" },
+    { "email": "thuo@hawaii.edu", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
   ],
 
@@ -9,6 +13,124 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultProfiles": [
+    {
+      "name": "Michael Hui",
+      "email": "huim@hawaii.edu",
+      "bio": "I am currently a student studying computer science at UH Manoa",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Classical",
+        "Rock",
+        "Pop"
+      ],
+      "instruments": [
+        "Piano"
+      ],
+      "jams": [
+        "Manoa-Tunes"
+      ]
+    },
+
+    {
+      "name": "Henry Cheung",
+      "email": "khhc@hawaii.edu",
+      "bio": "I have been listening to Korean Pop since before I could walk! I absolutely love kpop and Jungkook from BTS is my bias. Anyone else is absolutely wrong. I stream their videos every second that I am awake.",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Korean Pop"
+      ],
+      "instruments": [
+        "Do not play any instruments"
+      ],
+      "jams": [
+        "Manoa-Tunes"
+      ]
+    },
+
+    {
+      "name": "Timothy Huo",
+      "email": "thuo@hawaii.edu",
+      "bio": "I have been playing ukulele and piano since middle school.",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Jazz",
+        "Korean Pop",
+        "Pop"
+      ],
+      "instruments": [
+        "Piano",
+        "Ukulele"
+      ],
+      "jams": [
+        "Manoa-Tunes"
+      ]
+    }
+  ],
+
+  "defaultInterests": [
+    "Pop",
+    "Classical",
+    "Jazz",
+    "Korean Pop",
+    "Rock",
+    "Alternative",
+    "Rap",
+    "Lofi",
+    "Acapella",
+    "Big Band",
+    "Blues",
+    "Jazz Rock",
+    "Latin",
+    "R&B",
+    "Other",
+    "Indie",
+    "Metal or Heavy Metal",
+    "EDM",
+    "Percussion",
+    "Island Music",
+    "Japanese"
+  ],
+
+  "defaultInstruments": [
+    "Do not play any instruments",
+    "Baritone",
+    "Piano",
+    "Guitar",
+    "Violin/Viola/Cello",
+    "Clarinet",
+    "Flute",
+    "Ukulele",
+    "Drums",
+    "Saxophone",
+    "Sound Board",
+    "Trombone",
+    "Conch Shell",
+    "Keyboard",
+    "Taiko Drums",
+    "Microphone",
+    "Trumpet",
+    "Other"
+  ],
+
+  "defaultJams": [
+    {
+      "name": "Jazz Messengers",
+      "contact": "JazzMessengers@hawaii.edu",
+      "date": "December 1, 2020 at 4:00pm",
+      "location": "UH Manoa",
+      "interests": [
+        "Jazz",
+        "Jazz Rock",
+        "Korean Pop"
+      ],
+      "instruments": [
+        "Guitar",
+        "Microphone"
+      ]
+    }
   ],
 
   "monti": {
