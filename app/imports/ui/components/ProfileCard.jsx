@@ -4,30 +4,31 @@ import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 
 /** Component for layout out a Profile Card. */
+const whiteText = { color: 'white' };
 export const ProfileCard = (props) => (
     <Card>
-      <Card.Content>
+      <Card.Content className="card-bg">
         <Image floated='right' size='mini' src={props.profile.picture}/>
-        <Card.Header>{props.profile.name}</Card.Header>
-        <Card.Meta>
+        <Card.Header style={whiteText}>{props.profile.name}</Card.Header>
+        <Card.Meta style={whiteText}>
           <span className='date'>{props.profile.email}</span>
         </Card.Meta>
-        <Card.Description>
+        <Card.Description style={whiteText}>
           {props.profile.bio}
         </Card.Description>
       </Card.Content>
-      <Card.Content extra>
-        <Header as='h5'>Interests</Header>
+      <Card.Content extra className="card-bg">
+        <Header as='h5' style={whiteText} className="card-header">Interests</Header>
         {_.map(props.profile.interests,
             (interest, index) => <Label key={index} size='tiny' color='black'>{interest}</Label>)}
       </Card.Content>
-      <Card.Content extra>
-        <Header as='h5'>Instruments</Header>
+      <Card.Content extra className="card-bg">
+        <Header as='h5' className="card-header" style={whiteText}>Instruments</Header>
         {_.map(props.profile.instruments,
             (instrument, index) => <Label key={index} size='tiny' color='black'>{instrument}</Label>)}
       </Card.Content>
-      <Card.Content extra>
-        <Header as='h5'>Jams</Header>
+      <Card.Content extra className="card-bg">
+        <Header as='h5' className="card-header" style={whiteText}>Jams</Header>
         {_.map(props.profile.jams,
             (jam, index) => <Label key={index} size='tiny' color='green'>{jam}</Label>)}
       </Card.Content>
