@@ -15,10 +15,6 @@ class JamsCollection {
       contact: { type: String, optional: true },
       date: { type: String, optional: true },
       location: { type: String, optional: true },
-      interests: { type: Array, optional: true },
-      'interests.$': { type: String },
-      instruments: { type: Array, optional: true },
-      'instruments.$': { type: String },
     }, { tracker: Tracker });
     // Ensure collection documents obey schema.
     this.collection.attachSchema(this.schema);

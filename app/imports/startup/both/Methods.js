@@ -41,8 +41,8 @@ const addJamMethod = 'Jams.add';
 
 /** Creates a new jam in the Jams collection, and also updates ProfilesJams and JamsInterests. */
 Meteor.methods({
-  'Jams.add'({ name, contact, date, location, interests, instruments }) {
-    Jams.collection.insert({ name, contact, date, location, interests, instruments });
+  'Jams.add'({ name, contact, date, location, interests, instruments, participants }) {
+    Jams.collection.insert({ name, contact, date, location });
     JamsInterests.collection.remove({ jam: name });
     JamsInstruments.collection.remove({ jam: name });
     if (interests) {
@@ -54,6 +54,9 @@ Meteor.methods({
       instruments.map((instrument) => JamsInstruments.collection.insert({ jam: name, instrument }));
     } else {
       throw new Meteor.Error('At least one interest is required.');
+    }
+    if (participants) {
+      participants.map((participant) => ProfilesJams.collection.insert({ jam: name, profile: participant }));
     }
   },
 });
