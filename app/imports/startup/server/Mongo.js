@@ -8,6 +8,8 @@ import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
+import { JamsInterests } from '../../api/jams/JamsInterests';
+import { JamsInstruments } from '../../api/jams/JamsInstruments';
 
 /* eslint-disable no-console */
 
@@ -43,8 +45,12 @@ if (Instruments.collection.find().count() === 0) {
   }
 }
 
-function addJam(jam) {
-  Jams.collection.update({ name: jam }, { $set: { name: jam } }, { upsert: true });
+function addJam(name, contact, date, location, interests, instruments) {
+  Jams.collection.insert({ name, contact, date, location, interests, instruments });
+  interests.map(interest => JamsInterests.collection.insert({ project: name, interest }));
+  interests.map(interest => addInterest(interest));
+  instruments.map(instrument => JamsInstruments.collection.insert({ project: name, instrument }));
+  instruments.map(instrument => addInstrument(instrument));
 }
 
 /** Initialize the collection if empty. */

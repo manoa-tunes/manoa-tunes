@@ -3,22 +3,16 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /** Encapsulates state and variable values for this collection. */
-class JamsCollection {
+class JamsInstrumentsCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'JamsCollection';
+    this.name = 'JamsInstrumentsCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      name: { type: String, index: true, unique: true },
-      contact: { type: String, optional: true },
-      date: { type: String, optional: true },
-      location: { type: String, optional: true },
-      interests: { type: Array, optional: true },
-      'interests.$': { type: String },
-      instruments: { type: Array, optional: true },
-      'instruments.$': { type: String },
+      jam: String,
+      instrument: String,
     }, { tracker: Tracker });
     // Ensure collection documents obey schema.
     this.collection.attachSchema(this.schema);
@@ -28,4 +22,4 @@ class JamsCollection {
   }
 }
 
-export const Jams = new JamsCollection();
+export const JamsInstruments = new JamsInstrumentsCollection();
