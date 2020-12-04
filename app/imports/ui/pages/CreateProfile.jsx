@@ -16,7 +16,7 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { Jams } from '../../api/jams/Jams';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
-import { updateProfileMethod } from '../../startup/both/Methods';
+import { addProfileMethod } from '../../startup/both/Methods';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
@@ -37,11 +37,12 @@ class Home extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    Meteor.call(updateProfileMethod, data, (error) => {
+    Meteor.call(addProfileMethod, data, (error) => {
       if (error) {
         swal('Error', error.message, 'error');
       } else {
-        swal('Success', 'Profile updated successfully', 'success').then(() => formRef.reset());
+        swal('Success', 'Profile updated successfully', 'success');
+        formRef.reset();
       }
     });
   }
@@ -71,13 +72,13 @@ class Home extends React.Component {
         <div className="bg-image">
           <Grid id="home-page" container centered>
             <Grid.Column>
-              <Header as="h2" textAlign="center" inverted>Your Profile</Header>
+              <Header as="h2" textAlign="center" inverted>Profile Creation</Header>
               <AutoForm ref={ref => { fRef = ref; }}
                         model={model} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
                 <Segment>
                   <Form.Group widths={'equal'}>
                     <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
-                    <TextField name='email' showInlineError={true} placeholder={'email'}/>
+                    <TextField name='email' showInlineError={true} placeholder={email} disabled/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
                     <TextField name='picture' showInlineError={true} placeholder={'URL to picture'}/>
@@ -87,7 +88,7 @@ class Home extends React.Component {
                     <MultiSelectField className="multiselect" name='interests' showInlineError={true} placeholder={'Interests'}/>
                     <MultiSelectField className="multiselect" name='instruments' showInlineError={true} placeholder={'Instruments'}/>
                   </Form.Group>
-                  <SubmitField id='home-page-submit' value='Update'/>
+                  <SubmitField id='home-page-submit' value='Add'/>
                 </Segment>
               </AutoForm>
             </Grid.Column>
