@@ -68,8 +68,10 @@ Meteor.methods({
     Jams.collection.update({ name }, { $set: { name, contact, date, location, participants } });
     JamsInstruments.collection.remove({ jam: name });
     JamsInterests.collection.remove({ jam: name });
+    ProfilesJams.collection.remove({ jam: name });
     interests.map((interest) => JamsInterests.collection.insert({ jam: name, interest }));
     instruments.map((instrument) => JamsInstruments.collection.insert({ jam: name, instrument }));
+    participants.map((participant) => ProfilesJams.collection.insert({ profile: participant, jam: name }));
   },
 });
 
