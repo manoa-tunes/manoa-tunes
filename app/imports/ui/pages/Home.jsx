@@ -63,7 +63,7 @@ class Home extends React.Component {
     // Now create the model with all the user information.
     const jams = _.pluck(ProfilesJams.collection.find({ profile: email }).fetch(), 'jam');
     const interests = _.pluck(ProfilesInterests.collection.find({ profile: email }).fetch(), 'interest');
-    const instruments = _.pluck(ProfilesInstruments.collection.find({ profile: email }).fetch(), 'instruments');
+    const instruments = _.pluck(ProfilesInstruments.collection.find({ profile: email }).fetch(), 'instrument');
     const profile = Profiles.collection.findOne({ email });
     const model = _.extend({}, profile, { interests, instruments, jams });
     let fRef = null;
@@ -77,7 +77,7 @@ class Home extends React.Component {
                 <Segment>
                   <Form.Group widths={'equal'}>
                     <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
-                    <TextField name='email' showInlineError={true} placeholder={'email'} disabled/>
+                    <TextField name='email' showInlineError={true} defaultValue={email} disabled/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
                     <TextField name='picture' showInlineError={true} placeholder={'URL to picture'}/>
