@@ -30,10 +30,12 @@ const addProfileMethod = 'Profiles.add';
 
 Meteor.methods({
   'Profiles.add'({ email, name, bio, picture, interests, instruments, jams }) {
-    Profiles.collection.insert({ name, email, bio, picture });
-    interests.map((interest) => ProfilesInterests.collection.insert({ profile: email, interest }));
-    instruments.map((instrument) => ProfilesInstruments.collection.insert({ profile: email, instrument }));
-    jams.map((jam) => ProfilesJams.collection.insert({ profile: email, jam }));
+    if (Profiles.collection.find({ email: Meteor.user().email }) === false) {
+      Profiles.collection.insert({ name, email, bio, picture });
+      interests.map((interest) => ProfilesInterests.collection.insert({ profile: email, interest }));
+      instruments.map((instrument) => ProfilesInstruments.collection.insert({ profile: email, instrument }));
+      jams.map((jam) => ProfilesJams.collection.insert({ profile: email, jam }));
+    }
   },
 });
 

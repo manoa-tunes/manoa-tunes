@@ -85,6 +85,32 @@
     },
 
     {
+      "name": "Jemar Talon",
+      "email": "jemart@hawaii.edu",
+      "bio": "A simple sophomore studying at UH. Looking to change majors.",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Korean Pop",
+        "Alternative",
+        "Rock",
+        "Lofi",
+        "Acapella",
+        "Island Music",
+        "Japanese",
+        "Other"
+      ],
+      "instruments": [
+        "Trombone",
+        "Ukulele",
+        "Euphonium",
+        "Harmonica"
+      ],
+      "jams": [
+        "None"
+      ]
+    },
+
+    {
       "name": "Elvis Tran",
       "email": "etran@hawaii.edu",
       "bio": "Sophomore in Biochem",
@@ -582,13 +608,13 @@
     "Jazz Rock",
     "Latin",
     "R&B",
-    "Other",
     "Indie",
     "Metal or Heavy Metal",
     "EDM",
     "Percussion",
     "Island Music",
-    "Japanese"
+    "Japanese",
+    "Other"
   ],
 
   "defaultInstruments": [

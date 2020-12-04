@@ -36,12 +36,12 @@ const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
 class Home extends React.Component {
 
   /** On submit, insert the data. */
-  submit(data, formRef) {
+  submit(data) {
     Meteor.call(updateProfileMethod, data, (error) => {
       if (error) {
         swal('Error', error.message, 'error');
       } else {
-        swal('Success', 'Profile updated successfully', 'success').then(() => formRef.reset());
+        swal('Success', 'Profile updated successfully', 'success');
       }
     });
   }
@@ -66,18 +66,16 @@ class Home extends React.Component {
     const instruments = _.pluck(ProfilesInstruments.collection.find({ profile: email }).fetch(), 'instrument');
     const profile = Profiles.collection.findOne({ email });
     const model = _.extend({}, profile, { interests, instruments, jams });
-    let fRef = null;
     return (
         <div className="bg-image">
           <Grid id="home-page" container centered>
             <Grid.Column>
               <Header as="h2" textAlign="center" inverted>Your Profile</Header>
-              <AutoForm ref={ref => { fRef = ref; }}
-                        model={model} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
+              <AutoForm model={model} schema={bridge} onSubmit={data => this.submit(data)}>
                 <Segment>
                   <Form.Group widths={'equal'}>
                     <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
-                    <TextField name='email' showInlineError={true} value={email} readonly/>
+                    <TextField name='email' showInlineError={true} placeholder={'Email'} disabled/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
                     <TextField name='picture' showInlineError={true} placeholder={'URL to picture'}/>

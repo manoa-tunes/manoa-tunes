@@ -78,7 +78,7 @@ class Home extends React.Component {
                 <Segment>
                   <Form.Group widths={'equal'}>
                     <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
-                    <TextField name='email' showInlineError={true} value={email} readonly/>
+                    <TextField name='email' showInlineError={true} placeholder={email} defaultValue={email}/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
                     <TextField name='picture' showInlineError={true} placeholder={'URL to picture'}/>
@@ -100,6 +100,7 @@ class Home extends React.Component {
 
 Home.propTypes = {
   ready: PropTypes.bool.isRequired,
+  location: PropTypes.object,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
