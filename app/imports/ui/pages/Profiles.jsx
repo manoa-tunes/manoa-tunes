@@ -34,13 +34,11 @@ class ProfilesPage extends React.Component {
     const emails = _.pluck(Profiles.collection.find().fetch(), 'email');
     const profileData = emails.map(email => getProfileData(email));
     return (
-        <div className="bg-color">
-          <Container id="profiles-page">
-            <Card.Group itemsPerRow={4}>
-              {_.map(profileData, (profile, index) => <ProfileCard key={index} profile={profile}/>)}
-            </Card.Group>
-          </Container>
-        </div>
+        <Container id="profiles-page">
+          <Card.Group>
+            {_.map(profileData, (profile, index) => <ProfileCard key={index} profile={profile}/>)}
+          </Card.Group>
+        </Container>
     );
   }
 }

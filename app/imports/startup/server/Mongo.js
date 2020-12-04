@@ -8,8 +8,6 @@ import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
-import { JamsInterests } from '../../api/jams/JamsInterests';
-import { JamsInstruments } from '../../api/jams/JamsInstruments';
 
 /* eslint-disable no-console */
 
@@ -40,25 +38,20 @@ function addInstrument(instrument) {
 /** Initialize the collection if empty. */
 if (Instruments.collection.find().count() === 0) {
   if (Meteor.settings.defaultInstruments) {
-    console.log('Creating default instruments.');
+    console.log('Creating default data.');
     Meteor.settings.defaultInstruments.map(data => addInstrument(data));
   }
 }
 
-function addJam({ name, contact, date, location, interests, instruments }) {
-  console.log(`Defining jam ${name}`);
-  Jams.collection.insert({ name, contact, date, location });
-  interests.map(interest => JamsInterests.collection.insert({ jam: name, interest }));
-  instruments.map(instrument => JamsInstruments.collection.insert({ jam: name, instrument }));
-  interests.map(interest => addInterest(interest));
-  instruments.map(instrument => addInstrument(instrument));
+function addJam(jam) {
+  Jams.collection.update({ name: jam }, { $set: { name: jam } }, { upsert: true });
 }
 
 /** Initialize the collection if empty. */
 if (Jams.collection.find().count() === 0) {
   if (Meteor.settings.defaultJams) {
-    console.log('Creating default jams.');
-    Meteor.settings.defaultJams.map(jam => addJam(jam));
+    console.log('Creating default data.');
+    Meteor.settings.defaultJams.map(data => addJam(data));
   }
 }
 
@@ -73,6 +66,7 @@ function addProfile({ name, bio, interests, instruments, jams, picture, email, r
   // Make sure interests are defined in the Interests collection if they weren't already.
   interests.map(interest => addInterest(interest));
   instruments.map(instrument => addInstrument(instrument));
+  jams.map(jam => addJam(jam));
 }
 
 /** Initialize the collection if empty. */
@@ -90,5 +84,4 @@ if ((Meteor.settings.loadAssetsFile) && (Meteor.users.find().count() < 7)) {
   console.log(`Loading data from private/${assetsFileName}`);
   const jsonData = JSON.parse(Assets.getText(assetsFileName));
   jsonData.profiles.map(profile => addProfile(profile));
-  jsonData.jams.map(jam => addJam(jam));
 }

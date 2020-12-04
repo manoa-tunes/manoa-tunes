@@ -42,16 +42,3 @@ body {
 .white{
   color: white;
 }
-
-.card-header {
-  margin-top: -3px !important;
-  margin-bottom: 5px !important;
-}
-
-.bg-color {
-  background-color: #262626 ;
-}
-
-.card-bg {
-  background-color: #4d4d4d !important;
-}
