@@ -78,7 +78,7 @@ class Home extends React.Component {
                 <Segment>
                   <Form.Group widths={'equal'}>
                     <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
-                    <TextField name='email' showInlineError={true} placeholder={email} disabled/>
+                    <TextField name='email' showInlineError={true} value={email}/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
                     <TextField name='picture' showInlineError={true} placeholder={'URL to picture'}/>
