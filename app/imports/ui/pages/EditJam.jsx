@@ -16,7 +16,7 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { Jams } from '../../api/jams/Jams';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
-import { addJamMethod } from '../../startup/both/Methods';
+import { updateJamMethod } from '../../startup/both/Methods';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const makeSchema = (allInterests, allParticipants, allInstruments) => new SimpleSchema({
@@ -33,11 +33,11 @@ const makeSchema = (allInterests, allParticipants, allInstruments) => new Simple
 });
 
 /** Renders the Home Page: what appears after the user logs in. */
-class AddJam extends React.Component {
+class EditJam extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    Meteor.call(addJamMethod, data, (error) => {
+    Meteor.call(updateJamMethod, data, (error) => {
       if (error) {
         swal('Error', error.message, 'error');
       } else {
@@ -69,12 +69,12 @@ class AddJam extends React.Component {
         <div className="bg-image">
           <Grid id="home-page" container centered>
             <Grid.Column>
-              <Header as="h2" textAlign="center" inverted>Your Jams</Header>
+              <Header as="h2" textAlign="center" inverted>Edit Your Jam</Header>
               <AutoForm ref={ref => { fRef = ref; }}
-                         schema={bridge} onSubmit={data => this.submit(data, fRef)}>
+                        schema={bridge} onSubmit={data => this.submit(data, fRef)}>
                 <Segment>
                   <Form.Group widths={'equal'}>
-                    <TextField id='name' name='name' showInlineError={true} placeholder={'Name Of Your Jam (this cannot be changed later!)'}/>
+                    <TextField id='name' name='name' showInlineError={true} placeholder={"Your Jam's Current Name"}/>
                     <TextField name='contact' showInlineError={true} placeholder={'Contact Information (Email or Phone Number)'}/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
@@ -98,12 +98,14 @@ class AddJam extends React.Component {
   }
 }
 
-AddJam.propTypes = {
+EditJam.propTypes = {
+  doc: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-export default withTracker(() => {
+export default withTracker(({ match }) => {
+  const documentId = match.params._id;
   // Ensure that minimongo is populated with all collections prior to running render().
   const sub1 = Meteor.subscribe(Interests.userPublicationName);
   const sub2 = Meteor.subscribe(Instruments.userPublicationName);
@@ -113,6 +115,7 @@ export default withTracker(() => {
   const sub6 = Meteor.subscribe(ProfilesJams.userPublicationName);
   const sub7 = Meteor.subscribe(ProfilesInstruments.userPublicationName);
   return {
+    doc: Jams.collection.findOne(documentId),
     ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready() && sub7.ready(),
   };
-})(AddJam);
+})(EditJam);

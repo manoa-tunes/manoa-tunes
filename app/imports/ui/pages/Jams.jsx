@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Loader, Card, Image, Label, Header } from 'semantic-ui-react';
+import { Container, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -9,6 +9,7 @@ import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { Jams } from '../../api/jams/Jams';
 import { JamsInterests } from '../../api/jams/JamsInterests';
 import { JamsInstruments } from '../../api/jams/JamsInstruments';
+import JamsCard from '../components/JamsCard';
 
 function getJamData(name) {
   const data = Jams.collection.findOne({ name });
@@ -18,41 +19,6 @@ function getJamData(name) {
   const profilePictures = profiles.map(profile => Profiles.collection.findOne({ email: profile }).picture);
   return _.extend({ }, data, { interests, instruments, participants: profilePictures });
 }
-
-const MakeCard = (props) => (
-    <Card>
-      <Card.Content>
-        <Card.Header style={{ marginTop: '0px' }}>{props.jam.name}</Card.Header>
-        <Card.Description>
-          <span className='date'>Contact Information: {props.jam.contact}</span>
-        </Card.Description>
-        <Card.Description>
-          <span className='date'>Location: {props.jam.location}</span>
-        </Card.Description>
-        <Card.Description>
-          <span className='date'>Date: {props.jam.date}</span>
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <Header as='h5'>Interests</Header>
-        {_.map(props.jam.interests,
-            (interest, index) => <Label key={index} size='tiny' color='teal'>{interest}</Label>)}
-      </Card.Content>
-      <Card.Content extra>
-        <Header as='h5'>Instruments</Header>
-        {_.map(props.jam.instruments,
-            (instruments, index) => <Label key={index} size='tiny' color='teal'>{instruments}</Label>)}
-      </Card.Content>
-      <Card.Content extra>
-        <Header as='h5'>Participants</Header>
-        {_.map(props.jam.participants, (p, index) => <Image key={index} circular size='mini' src={p}/>)}
-      </Card.Content>
-    </Card>
-);
-
-MakeCard.propTypes = {
-  jam: PropTypes.object.isRequired,
-};
 
 /** Renders the Project Collection as a set of Cards. */
 class JamsPage extends React.Component {
@@ -69,7 +35,7 @@ class JamsPage extends React.Component {
     return (
         <Container id="jam-page">
           <Card.Group>
-            {_.map(jamData, (jam, index) => <MakeCard key={index} jam={jam}/>)}
+            {_.map(jamData, (jam, index) => <JamsCard key={index} jam={jam}/>)}
           </Card.Group>
         </Container>
     );
