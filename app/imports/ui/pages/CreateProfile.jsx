@@ -7,6 +7,7 @@ import SimpleSchema from 'simpl-schema';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Redirect, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 import { Interests } from '../../api/interests/Interests';
@@ -33,6 +34,7 @@ const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
 
 /** Renders the Home Page: what appears after the user logs in. */
 class Home extends React.Component {
+
   submit(data) {
     const { name, bio, interests, instruments } = data;
     const email = Meteor.user().username;
@@ -72,7 +74,6 @@ class Home extends React.Component {
     const profile = Profiles.collection.findOne({ email });
     const model = _.extend({}, profile, { interests, instruments, jams });
     let fRef = null;
-
     return (
         <div className="bg-image">
           <Grid id="home-page" container centered>
