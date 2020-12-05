@@ -70,7 +70,7 @@ class Home extends React.Component {
         <div className="bg-image">
           <Grid id="home-page" container centered>
             <Grid.Column>
-              <Header as="h2" textAlign="center" inverted>Your Profile</Header>
+              <Header as="h2" textAlign="center" inverted>Edit Profile</Header>
               <AutoForm model={model} schema={bridge} onSubmit={data => this.submit(data)}>
                 <Segment>
                   <Form.Group widths={'equal'}>

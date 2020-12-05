@@ -16,7 +16,6 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { Jams } from '../../api/jams/Jams';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
-import { addProfileMethod } from '../../startup/both/Methods';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
@@ -34,17 +33,22 @@ const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
 
 /** Renders the Home Page: what appears after the user logs in. */
 class Home extends React.Component {
-
-  /** On submit, insert the data. */
-  submit(data, formRef) {
-    Meteor.call(addProfileMethod, data, (error) => {
-      if (error) {
-        swal('Error', error.message, 'error');
-      } else {
-        swal('Success', 'Profile updated successfully', 'success');
-        formRef.reset();
-      }
-    });
+  submit(data) {
+    const { name, bio, interests, instruments } = data;
+    const email = Meteor.user().username;
+    const picture = 'https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg';
+    const jams = ['None'];
+    interests.map((interest) => ProfilesInterests.collection.insert({ profile: email, interest }));
+    instruments.map((instrument) => ProfilesInstruments.collection.insert({ profile: email, instrument }));
+    jams.map((jam) => ProfilesJams.collection.insert({ profile: email, jam }));
+    Profiles.collection.insert({ name, email, bio, picture },
+        (error) => {
+          if (error) {
+            swal('Error', error.message, 'error');
+          } else {
+            swal('Success', 'Item added successfully', 'success');
+          }
+        });
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -68,6 +72,7 @@ class Home extends React.Component {
     const profile = Profiles.collection.findOne({ email });
     const model = _.extend({}, profile, { interests, instruments, jams });
     let fRef = null;
+
     return (
         <div className="bg-image">
           <Grid id="home-page" container centered>
@@ -78,10 +83,6 @@ class Home extends React.Component {
                 <Segment>
                   <Form.Group widths={'equal'}>
                     <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
-                    <TextField name='email' showInlineError={true} placeholder={email} defaultValue={email}/>
-                  </Form.Group>
-                  <Form.Group widths={'equal'}>
-                    <TextField name='picture' showInlineError={true} placeholder={'URL to picture'}/>
                   </Form.Group>
                   <LongTextField id='bio' name='bio' placeholder='Write a little bit about yourself.'/>
                   <Form.Group widths={'equal'}>
@@ -100,7 +101,6 @@ class Home extends React.Component {
 
 Home.propTypes = {
   ready: PropTypes.bool.isRequired,
-  location: PropTypes.object,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
