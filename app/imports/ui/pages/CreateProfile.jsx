@@ -7,7 +7,6 @@ import SimpleSchema from 'simpl-schema';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Redirect, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 import { Interests } from '../../api/interests/Interests';
@@ -33,7 +32,11 @@ const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
 });
 
 /** Renders the Home Page: what appears after the user logs in. */
-class Home extends React.Component {
+class CreateProfile extends React.Component {
+  handleClick = () => {
+    // eslint-disable-next-line
+    document.location.href = '/';
+  }
 
   submit(data) {
     const { name, bio, interests, instruments } = data;
@@ -90,7 +93,7 @@ class Home extends React.Component {
                     <MultiSelectField className="multiselect" name='interests' showInlineError={true} placeholder={'Interests'}/>
                     <MultiSelectField className="multiselect" name='instruments' showInlineError={true} placeholder={'Instruments'}/>
                   </Form.Group>
-                  <SubmitField id='home-page-submit' value='Add'/>
+                  <SubmitField id='home-page-submit' value='Add' onClick={this.handleClick}/>
                 </Segment>
               </AutoForm>
             </Grid.Column>
@@ -100,7 +103,7 @@ class Home extends React.Component {
   }
 }
 
-Home.propTypes = {
+CreateProfile.propTypes = {
   ready: PropTypes.bool.isRequired,
 };
 
@@ -117,4 +120,4 @@ export default withTracker(() => {
   return {
     ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready() && sub7.ready(),
   };
-})(Home);
+})(CreateProfile);
