@@ -50,7 +50,6 @@ Meteor.methods({
   },
 });
 
-<<<<<<< HEAD
 const updateJamMethod = 'Jams.update';
 
 Meteor.methods({
@@ -65,7 +64,4 @@ Meteor.methods({
   },
 });
 
-export { updateProfileMethod, addProfileMethod, addJamMethod, updateJamMethod };
-=======
-export { updateProfileMethod, addJamMethod };
->>>>>>> display-2
+export { updateProfileMethod, addJamMethod, updateJamMethod };
