@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Label, Header, Link } from 'semantic-ui-react';
+import { Card, Image, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 

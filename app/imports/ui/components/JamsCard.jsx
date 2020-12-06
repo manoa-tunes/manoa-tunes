@@ -2,7 +2,9 @@ import React from 'react';
 import { Card, Image, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
+import swal from 'sweetalert';
 import { withRouter, Link } from 'react-router-dom';
+import { Meteor } from 'meteor/meteor';
 import { Jams } from '../../api/jams/Jams';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { JamsInterests } from '../../api/jams/JamsInterests';
@@ -21,6 +23,25 @@ const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.nam
     }
     // eslint-disable-next-line no-undef
     document.location.reload(true);
+  };
+
+  handleClick2 = () => {
+    const user = Meteor.user().username;
+    let count = 0;
+    const check = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name }).fetch(), 'profile');
+    for (let i = 0; i < check.length; i++) {
+      if (check[i] === user) {
+        count = 1;
+      }
+    }
+    if (count === 0) {
+      ProfilesJams.collection.insert({ jam: this.props.jam.name, profile: user });
+      swal('Success', 'Joined Jam Successfully');
+      // eslint-disable-next-line no-undef
+      document.location.reload(true);
+    } else {
+      swal('Error', 'Already In This Jam');
+    }
   };
 
   render() {
@@ -57,6 +78,9 @@ const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.nam
           </Card.Content>
           <Card.Content extra>
             <button className="ui button" onClick={this.handleClick}>Delete </button>
+          </Card.Content>
+          <Card.Content extra>
+            <button className="ui button" onClick={this.handleClick2}>Join </button>
           </Card.Content>
 
         </Card>
