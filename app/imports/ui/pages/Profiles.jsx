@@ -38,6 +38,19 @@ class ProfilesPage extends React.Component {
     }
     const emails = _.pluck(Profiles.collection.find().fetch(), 'email');
     const profileData = emails.map(email => getProfileData(email));
+    /* Use later for filter
+    <AutoForm schema={bridge} onSubmit={data => this.submit(data)} >
+              <Segment>
+                <MultiSelectField id='interests' name='interests' showInlineError={true} placeholder={'Interests'}/>
+                <SubmitField id='submit' value='Submit'/>
+              </Segment>
+            </AutoForm>
+            <Container id="filter-page">
+            <Card.Group style={{ paddingTop: '10px' }}>
+              {_.map(profileData, (profile, index) => <MakeCard key={index} profile={profile}/>)}
+            </Card.Group>
+          </Container>
+    */
     return (
         <div className="bg-color">
           <Container id="profiles-page">

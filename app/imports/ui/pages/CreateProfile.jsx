@@ -16,7 +16,6 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { Jams } from '../../api/jams/Jams';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
-import { updateProfileMethod } from '../../startup/both/Methods';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
@@ -33,17 +32,28 @@ const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
 });
 
 /** Renders the Home Page: what appears after the user logs in. */
-class Home extends React.Component {
+class CreateProfile extends React.Component {
+  handleClick = () => {
+    // eslint-disable-next-line
+    document.location.href = '/';
+  }
 
-  /** On submit, insert the data. */
   submit(data) {
-    Meteor.call(updateProfileMethod, data, (error) => {
-      if (error) {
-        swal('Error', error.message, 'error');
-      } else {
-        swal('Success', 'Profile updated successfully', 'success');
-      }
-    });
+    const { name, bio, interests, instruments } = data;
+    const email = Meteor.user().username;
+    const picture = 'https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg';
+    const jams = ['None'];
+    interests.map((interest) => ProfilesInterests.collection.insert({ profile: email, interest }));
+    instruments.map((instrument) => ProfilesInstruments.collection.insert({ profile: email, instrument }));
+    jams.map((jam) => ProfilesJams.collection.insert({ profile: email, jam }));
+    Profiles.collection.insert({ name, email, bio, picture },
+        (error) => {
+          if (error) {
+            swal('Error', error.message, 'error');
+          } else {
+            swal('Success', 'Item added successfully', 'success');
+          }
+        });
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -66,26 +76,24 @@ class Home extends React.Component {
     const instruments = _.pluck(ProfilesInstruments.collection.find({ profile: email }).fetch(), 'instrument');
     const profile = Profiles.collection.findOne({ email });
     const model = _.extend({}, profile, { interests, instruments, jams });
+    let fRef = null;
     return (
         <div className="bg-image">
           <Grid id="home-page" container centered>
             <Grid.Column>
-              <Header as="h2" textAlign="center" inverted>Edit Profile</Header>
-              <AutoForm model={model} schema={bridge} onSubmit={data => this.submit(data)}>
+              <Header as="h2" textAlign="center" inverted>Profile Creation</Header>
+              <AutoForm ref={ref => { fRef = ref; }}
+                        model={model} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
                 <Segment>
                   <Form.Group widths={'equal'}>
                     <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
-                    <TextField name='email' showInlineError={true} placeholder={'Email'} disabled/>
-                  </Form.Group>
-                  <Form.Group widths={'equal'}>
-                    <TextField name='picture' showInlineError={true} placeholder={'URL to picture'}/>
                   </Form.Group>
                   <LongTextField id='bio' name='bio' placeholder='Write a little bit about yourself.'/>
                   <Form.Group widths={'equal'}>
                     <MultiSelectField className="multiselect" name='interests' showInlineError={true} placeholder={'Interests'}/>
                     <MultiSelectField className="multiselect" name='instruments' showInlineError={true} placeholder={'Instruments'}/>
                   </Form.Group>
-                  <SubmitField id='home-page-submit' value='Update'/>
+                  <SubmitField id='home-page-submit' value='Add' onClick={this.handleClick}/>
                 </Segment>
               </AutoForm>
             </Grid.Column>
@@ -95,7 +103,7 @@ class Home extends React.Component {
   }
 }
 
-Home.propTypes = {
+CreateProfile.propTypes = {
   ready: PropTypes.bool.isRequired,
 };
 
@@ -112,4 +120,4 @@ export default withTracker(() => {
   return {
     ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready() && sub7.ready(),
   };
-})(Home);
+})(CreateProfile);
