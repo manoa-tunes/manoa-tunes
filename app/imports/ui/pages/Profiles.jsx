@@ -31,6 +31,11 @@ class ProfilesPage extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const none = 'None';
+    const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: none }).fetch(), '_id');
+    for (let i = 0; i < deleteJam.length; i++) {
+      ProfilesJams.collection.remove(deleteJam[i]);
+    }
     const emails = _.pluck(Profiles.collection.find().fetch(), 'email');
     const profileData = emails.map(email => getProfileData(email));
     return (
