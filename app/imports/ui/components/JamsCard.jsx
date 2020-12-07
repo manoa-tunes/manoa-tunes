@@ -44,6 +44,28 @@ const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.nam
     }
   };
 
+  handleClick3 = () => {
+    const user = Meteor.user().username;
+    let count = 0;
+    const check = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name }).fetch(), 'profile');
+    for (let i = 0; i < check.length; i++) {
+      if (check[i] === user) {
+        count = 1;
+      }
+    }
+    if (count === 1) {
+      const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name, profile: user }).fetch(), '_id');
+      console.log(deleteJam);
+      const last = deleteJam[0];
+      ProfilesJams.collection.remove(last);
+      swal('Success', 'Leaved Jam Successfully');
+      // eslint-disable-next-line no-undef
+      document.location.reload(true);
+    } else {
+      swal('Error', 'Not In This Jam');
+    }
+  }
+
   render() {
     return (
         <Card>
@@ -81,6 +103,9 @@ const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.nam
           </Card.Content>
           <Card.Content extra>
             <button className="ui button" onClick={this.handleClick2}>Join </button>
+          </Card.Content>
+          <Card.Content extra>
+            <button className="ui button" onClick={this.handleClick3}>Leave </button>
           </Card.Content>
 
         </Card>
