@@ -17,6 +17,19 @@ class NavBar {
     await testController.click('#login-dropdown-sign-in');
   }
 
+  async gotoProfilesPage(testController) {
+    await testController.click('#profiles-dropdown');
+    await testController.click('#profilesMenuItem');
+  }
+
+  async gotoAddJamPage(testController) {
+    await testController.click('#addjamMenuItem');
+  }
+
+  async gotoJamsPage(testController) {
+    await testController.click('#jamsMenuItem');
+  }
+
   /** Check that the specified user is currently logged in. */
   async isLoggedIn(testController, username) {
     const loggedInUser = Selector('#navbar-current-user').innerText;

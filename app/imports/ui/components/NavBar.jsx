@@ -21,19 +21,19 @@ class NavBar extends React.Component {
               [
                 // eslint-disable-next-line react/jsx-key
                 <Menu.Item>
-                      <Dropdown id="navbar-current-user" text= 'Profiles' simple item>
+                      <Dropdown id="profiles-dropdown" text= 'Profiles' simple item>
                         <Dropdown.Menu>
-                          <Dropdown.Item text="Create Profile" as={NavLink} exact to="/home" key='home'/>
-                          <Dropdown.Item text="All Profile" as={NavLink} exact to="/Profiles" key='Profiles'/>
+                          <Dropdown.Item id="homeMenuItem" text="Create Profile" as={NavLink} exact to="/home" key='home'/>
+                          <Dropdown.Item id="profilesMenuItem" text="All Profile" as={NavLink} exact to="/profiles" key='profiles'/>
                         </Dropdown.Menu>
                       </Dropdown>
                 </Menu.Item>,
                 // eslint-disable-next-line react/jsx-key
                 <Menu.Item>
-                  <Dropdown id="navbar-current-user" text= 'Jams' simple item>
+                  <Dropdown id="jams-dropdown" text= 'Jams' simple item>
                     <Dropdown.Menu>
-                      <Dropdown.Item text="Create Jams" as={NavLink} exact to="/addjam" key='addjam'/>
-                      <Dropdown.Item text="All Jams" as={NavLink} exact to="/jams" key='jams'/>
+                      <Dropdown.Item id="addjamMenuItem" text="Create Jams" as={NavLink} exact to="/addjam" key='addjam'/>
+                      <Dropdown.Item id="jamsMenuItem" text="All Jams" as={NavLink} exact to="/jams" key='jams'/>
                     </Dropdown.Menu>
                   </Dropdown>
                 </Menu.Item>]
