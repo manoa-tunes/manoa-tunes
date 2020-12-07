@@ -75,7 +75,7 @@ class AddJam extends React.Component {
                 <Segment>
                   <Form.Group widths={'equal'}>
                     <TextField id='name' name='name' showInlineError={true} placeholder={'Name Of Your Jam (this cannot be changed later!)'}/>
-                    <TextField name='contact' showInlineError={true} placeholder={'Contact Information (Email or Phone Number)'}/>
+                    <TextField name='contact' showInlineError={true} placeholder={'Contact Information (The email associated with this account)'}/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
                     <TextField name='date' showInlineError={true} placeholder={'mm/dd/yy & time'}/>

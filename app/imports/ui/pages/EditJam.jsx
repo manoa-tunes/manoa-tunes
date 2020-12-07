@@ -15,6 +15,8 @@ import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { Jams } from '../../api/jams/Jams';
+import { JamsInstruments } from '../../api/jams/JamsInstruments';
+import { JamsInterests } from '../../api/jams/JamsInterests';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 import { updateJamMethod } from '../../startup/both/Methods';
 
@@ -34,7 +36,6 @@ const makeSchema = (allInterests, allParticipants, allInstruments) => new Simple
 
 /** Renders the Home Page: what appears after the user logs in. */
 class EditJam extends React.Component {
-
   /** On submit, insert the data. */
   submit(data, formRef) {
     Meteor.call(updateJamMethod, data, (error) => {
@@ -53,29 +54,28 @@ class EditJam extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
-    // const email = Meteor.user().username;
+    const jamName = _.id; /* This is the line that needs help being fixed */
     const allInterests = _.pluck(Interests.collection.find().fetch(), 'name');
     const allParticipants = _.pluck(Profiles.collection.find().fetch(), 'email');
     const allInstruments = _.pluck(Instruments.collection.find().fetch(), 'name');
     const formSchema = makeSchema(allInterests, allParticipants, allInstruments);
     const bridge = new SimpleSchema2Bridge(formSchema);
-    // const jams = _.pluck(ProfilesJams.collection.find({ profile: email }).fetch(), 'jam');
-    // const interests = _.pluck(ProfilesInterests.collection.find({ profile: email }).fetch(), 'interest');
-    // const instruments = _.pluck(ProfilesInstruments.collection.find({ profile: email }).fetch(), 'instruments');
-    // const profile = Profiles.collection.findOne({ email });
-    // const model = _.extend({}, profile, { interests, instruments, jams });
-    let fRef = null;
+    const people = _.pluck(ProfilesJams.collection.find({ jam: jamName }).fetch(), 'profile');
+    const interests = _.pluck(JamsInterests.collection.find({ jam: jamName }).fetch(), 'interest');
+    const instruments = _.pluck(JamsInstruments.collection.find({ jam: jamName }).fetch(), 'instruments');
+    const jam = Jams.collection.findOne({ jamName });
+    const model = _.extend({}, jam, { interests, instruments, people });
+
     return (
         <div className="bg-image">
           <Grid id="home-page" container centered>
             <Grid.Column>
               <Header as="h2" textAlign="center" inverted>Edit Your Jam</Header>
-              <AutoForm ref={ref => { fRef = ref; }}
-                        schema={bridge} onSubmit={data => this.submit(data, fRef)}>
+              <AutoForm model={model} schema={bridge} onSubmit={data => this.submit(data)}>
                 <Segment>
                   <Form.Group widths={'equal'}>
-                    <TextField id='name' name='name' showInlineError={true} placeholder={"Your Jam's Current Name"}/>
-                    <TextField name='contact' showInlineError={true} placeholder={'Contact Information (Email or Phone Number)'}/>
+                    <TextField id='name' name='name' showInlineError={true} placeholder={"Your Jam's Current Name"} disabled/>
+                    <TextField name='contact' showInlineError={true} placeholder={'Contact Information (Email or Phone Number)'} disabled/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
                     <TextField name='date' showInlineError={true} placeholder={'mm/dd/yy & time'}/>

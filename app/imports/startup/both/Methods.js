@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { _ } from 'meteor/underscore';
 import { Jams } from '../../api/jams/Jams';
 import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
@@ -46,6 +47,9 @@ Meteor.methods({
     }
     if (participants) {
       participants.map((participant) => ProfilesJams.collection.insert({ jam: name, profile: participant }));
+    }
+    if (_.contains(Jams.collection, contact)) {
+      throw new Meteor.Error('You are already hosting a Jam.');
     }
   },
 });
