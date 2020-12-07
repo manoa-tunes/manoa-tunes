@@ -54,7 +54,7 @@ class EditJam extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
-    const jamName = _.pluck(Jams.collection.find({ contact: Meteor.user().username }).fetch(), 'name');
+    const jamName = _.pluck(Jams.collection.find({ contact: Meteor.user().username }).fetch(), 'name'); /* THIS LINE */
     const allInterests = _.pluck(Interests.collection.find().fetch(), 'name');
     const allParticipants = _.pluck(Profiles.collection.find().fetch(), 'email');
     const allInstruments = _.pluck(Instruments.collection.find().fetch(), 'name');
