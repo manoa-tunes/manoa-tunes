@@ -8,7 +8,6 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
 import Home from '../pages/Home';
 import Profiles from '../pages/Profiles';
 import EditJam from '../pages/EditJam';
@@ -19,6 +18,7 @@ import Signout from '../pages/Signout';
 import AddJam from '../pages/AddJam';
 import Jams from '../pages/Jams';
 import CreateProfile from '../pages/CreateProfile';
+import JamsAdmin from '../pages/JamsAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -38,7 +38,7 @@ class App extends React.Component {
               <ProtectedRoute path="/addjam" component={AddJam}/>
               <ProtectedRoute path="/jams" component={Jams}/>
               <ProtectedRoute path="/create-profile" component={CreateProfile}/>
-              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+              <AdminProtectedRoute path="/admin" component={JamsAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>

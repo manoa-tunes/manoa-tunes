@@ -5,9 +5,26 @@ import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
 import { withRouter, Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
+import { Jams } from '../../api/jams/Jams';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
+import { JamsInterests } from '../../api/jams/JamsInterests';
+import { JamsInstruments } from '../../api/jams/JamsInstruments';
+import { Profiles } from '../../api/profiles/Profiles';
 
 class JamsCard extends React.Component {
+  handleClick = () => {
+ Jams.collection.remove(this.props.jam._id);
+ JamsInterests.collection.remove(this.props.jam._id);
+ JamsInstruments.collection.remove(this.props.jam._id);
+ Profiles.collection.remove(this.props.jam._id);
+const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name }).fetch(), '_id');
+    for (let i = 0; i < deleteJam.length; i++) {
+      ProfilesJams.collection.remove(deleteJam[i]);
+    }
+    // eslint-disable-next-line no-undef
+    document.location.reload(true);
+  };
+
   handleClick2 = () => {
     const user = Meteor.user().username;
     let count = 0;
@@ -80,6 +97,9 @@ class JamsCard extends React.Component {
           </Card.Content>
           <Card.Content extra>
             <Link to={`/edit/${this.props.jam._id}`}>Edit</Link>
+          </Card.Content>
+          <Card.Content extra>
+            <button className="ui button" onClick={this.handleClick}>Delete </button>
           </Card.Content>
           <Card.Content extra>
             <button className="ui button" onClick={this.handleClick2}>Join </button>
