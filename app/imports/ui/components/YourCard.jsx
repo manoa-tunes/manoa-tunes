@@ -9,8 +9,13 @@ import { JamsInstruments } from '../../api/jams/JamsInstruments';
 import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 
-class ProfileCard extends React.Component {
-  handleClick = () => {
+class YourCard extends React.Component {
+  handleClick1 = () => {
+    // eslint-disable-next-line
+    document.location.href = '/#/home';
+  };
+
+  handleClick2 = () => {
     Jams.collection.remove(this.props.profile._id);
     JamsInterests.collection.remove(this.props.profile._id);
     JamsInstruments.collection.remove(this.props.profile._id);
@@ -53,13 +58,17 @@ class ProfileCard extends React.Component {
             {_.map(this.props.profile.jams,
                 (jam, index) => <Label key={index} size='tiny' color='green'>{jam}</Label>)}
           </Card.Content>
+          <Card.Content extra className="card-bg">
+            <button className="ui button" onClick={this.handleClick1}>Edit</button>
+            <button className="ui button delete" onClick={this.handleClick2}>Delete</button>
+          </Card.Content>
         </Card>
     );
   }
 }
 
-ProfileCard.propTypes = {
+YourCard.propTypes = {
   profile: PropTypes.object.isRequired,
 };
 
-export default withRouter(ProfileCard);
+export default withRouter(YourCard);

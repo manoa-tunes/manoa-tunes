@@ -33,6 +33,7 @@ const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
 
 /** Renders the Home Page: what appears after the user logs in. */
 class CreateProfile extends React.Component {
+  /** Redirecting. */
   handleClick = () => {
     // eslint-disable-next-line
     document.location.href = '/';

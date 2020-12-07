@@ -55,3 +55,8 @@ body {
 .card-bg {
   background-color: #4d4d4d !important;
 }
+
+.ui.button.delete {
+  background: red !important;
+  float: right;
+}

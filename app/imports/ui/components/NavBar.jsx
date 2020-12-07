@@ -23,8 +23,8 @@ class NavBar extends React.Component {
                 <Menu.Item>
                       <Dropdown id="navbar-current-user" text= 'Profiles' simple item>
                         <Dropdown.Menu>
-                          <Dropdown.Item text="Create Profile" as={NavLink} exact to="/home" key='home'/>
-                          <Dropdown.Item text="All Profile" as={NavLink} exact to="/Profiles" key='Profiles'/>
+                          <Dropdown.Item text="Your Profile" as={NavLink} exact to="/your-profile" key='your-profile'/>
+                          <Dropdown.Item text="All Profile" as={NavLink} exact to="/profiles" key='profiles'/>
                         </Dropdown.Menu>
                       </Dropdown>
                 </Menu.Item>,

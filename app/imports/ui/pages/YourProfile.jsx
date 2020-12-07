@@ -8,7 +8,7 @@ import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { Jams } from '../../api/jams/Jams';
-import ProfileCard from '../components/ProfileCard';
+import YourCard from '../components/YourCard';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 
 /** Returns the Profile and associated jams and Interests associated with the passed user email. */
@@ -22,7 +22,7 @@ function getProfileData(email) {
 }
 
 /** Renders the Profile Collection as a set of Cards. */
-class ProfilesPage extends React.Component {
+class YourProfile extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -31,31 +31,12 @@ class ProfilesPage extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const none = 'None';
-    const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: none }).fetch(), '_id');
-    for (let i = 0; i < deleteJam.length; i++) {
-      ProfilesJams.collection.remove(deleteJam[i]);
-    }
-    const emails = _.pluck(Profiles.collection.find().fetch(), 'email');
-    const profileData = emails.map(email => getProfileData(email));
-    /* Use later for filter
-    <AutoForm schema={bridge} onSubmit={data => this.submit(data)} >
-              <Segment>
-                <MultiSelectField id='interests' name='interests' showInlineError={true} placeholder={'Interests'}/>
-                <SubmitField id='submit' value='Submit'/>
-              </Segment>
-            </AutoForm>
-            <Container id="filter-page">
-            <Card.Group style={{ paddingTop: '10px' }}>
-              {_.map(profileData, (profile, index) => <MakeCard key={index} profile={profile}/>)}
-            </Card.Group>
-          </Container>
-    */
+    const profileData = [getProfileData(Meteor.user().username)];
     return (
         <div className="bg-color">
           <Container id="profiles-page">
-            <Card.Group itemsPerRow={4}>
-              {_.map(profileData, (profile, index) => <ProfileCard key={index} profile={profile}/>)}
+            <Card.Group itemsPerRow={1}>
+              {_.map(profileData, (profile, index) => <YourCard key={index} profile={profile}/>)}
             </Card.Group>
           </Container>
         </div>
@@ -63,7 +44,7 @@ class ProfilesPage extends React.Component {
   }
 }
 
-ProfilesPage.propTypes = {
+YourProfile.propTypes = {
   ready: PropTypes.bool.isRequired,
 };
 
@@ -78,4 +59,4 @@ export default withTracker(() => {
   return {
     ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready(),
   };
-})(ProfilesPage);
+})(YourProfile);
