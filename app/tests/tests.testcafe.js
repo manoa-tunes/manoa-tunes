@@ -5,6 +5,7 @@ import { signupPage } from './signup.page';
 import { navBar } from './navbar.component';
 import { homePage } from './home.page';
 import { profilesPage } from './profiles.page';
+import { jamsPage } from './jams.page';
 import { addJamPage } from './addjam.page';
 
 /* global fixture:false, test:false */
@@ -57,7 +58,17 @@ test.skip('Test that home page display', async (testController) => {
   await navBar.ensureLogout(testController);
 });
 
-test.only('Test that addJam page works', async (testController) => {
+test.only('Test that jams page displays', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoJamsPage(testController);
+  await jamsPage.isDisplayed(testController);
+  await jamsPage.hasDefaultJams(testController);
+  await navBar.ensureLogout(testController);
+});
+
+test('Test that addJam page works', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);

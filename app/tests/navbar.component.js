@@ -22,13 +22,14 @@ class NavBar {
     await testController.click('#profilesMenuItem');
   }
 
+  async gotoJamsPage(testController) {
+    await testController.click('#jams-dropdown');
+    await testController.click('#jamsMenuItem');
+  }
+
   async gotoAddJamPage(testController) {
     await testController.click('#jams-dropdown');
     await testController.click('#addjamMenuItem');
-  }
-
-  async gotoJamsPage(testController) {
-    await testController.click('#jamsMenuItem');
   }
 
   /** Check that the specified user is currently logged in. */
