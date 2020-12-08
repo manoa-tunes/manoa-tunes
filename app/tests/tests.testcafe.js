@@ -39,6 +39,16 @@ test('Test that signup page, then logout works', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
+test.only('Test that home page display', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoHomePage(testController);
+  await homePage.isDisplayed(testController);
+  await homePage.updateProfile(testController, credentials.name);
+  await navBar.ensureLogout(testController);
+});
+
 test('Test that profiles page displays', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSigninPage(testController);
@@ -49,25 +59,6 @@ test('Test that profiles page displays', async (testController) => {
   await navBar.ensureLogout(testController);
 });
 
-test.skip('Test that home page display', async (testController) => {
-  await navBar.ensureLogout(testController);
-  await navBar.gotoSigninPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await homePage.isDisplayed(testController);
-  await homePage.updateProfile(testController, credentials.name);
-  await navBar.ensureLogout(testController);
-});
-
-test.only('Test that jams page displays', async (testController) => {
-  await navBar.ensureLogout(testController);
-  await navBar.gotoSigninPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotoJamsPage(testController);
-  await jamsPage.isDisplayed(testController);
-  await jamsPage.hasDefaultJams(testController);
-  await navBar.ensureLogout(testController);
-});
-
 test('Test that addJam page works', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSigninPage(testController);
@@ -75,4 +66,14 @@ test('Test that addJam page works', async (testController) => {
   await navBar.gotoAddJamPage(testController);
   await addJamPage.isDisplayed(testController);
   await addJamPage.addJam(testController);
+});
+
+test('Test that jams page displays', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoJamsPage(testController);
+  await jamsPage.isDisplayed(testController);
+  await jamsPage.hasDefaultJams(testController);
+  await navBar.ensureLogout(testController);
 });

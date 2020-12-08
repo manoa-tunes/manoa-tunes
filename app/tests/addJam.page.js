@@ -15,7 +15,7 @@ class AddJamPage {
   async addJam(testController) {
     const name = 'Name Of Your Jam';
     const contact = 'Contact Information';
-    const date = 'mm/dd/yy & time';
+    const date = 'date & time';
     const location = 'location';
     await this.isDisplayed(testController);
     // Define the new jam
@@ -37,9 +37,17 @@ class AddJamPage {
     await testController.click(instrumentsSelector);
     await testController.click(pianoOption);
     await testController.click(instrumentsSelector);
+/*
+    // Select participants.
+    const participantsSelector = Selector('#participants');
+    const huimOption = participantsSelector.find('#huim@hawaii.edu');
+    await testController.click(participantsSelector);
+    await testController.click(huimOption);
+    await testController.click(participantsSelector);
 
     await testController.click('#submit');
     await testController.click(Selector('.swal-button--confirm'));
+ */
   }
 }
 

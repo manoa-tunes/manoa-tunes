@@ -31,7 +31,7 @@ const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
   'jams.$': { type: String, allowedValues: allJams },
 });
 
-/** Renders the Home Page: what appears after the user logs in. */
+/** Renders the createProfile Page: what appears after the user logs in. */
 class CreateProfile extends React.Component {
   handleClick = () => {
     // eslint-disable-next-line
@@ -79,7 +79,7 @@ class CreateProfile extends React.Component {
     let fRef = null;
     return (
         <div className="bg-image">
-          <Grid id="home-page" container centered>
+          <Grid id="createProfile-page" container centered>
             <Grid.Column>
               <Header as="h2" textAlign="center" inverted>Profile Creation</Header>
               <AutoForm ref={ref => { fRef = ref; }}
@@ -93,7 +93,7 @@ class CreateProfile extends React.Component {
                     <MultiSelectField className="multiselect" name='interests' showInlineError={true} placeholder={'Interests'}/>
                     <MultiSelectField className="multiselect" name='instruments' showInlineError={true} placeholder={'Instruments'}/>
                   </Form.Group>
-                  <SubmitField id='home-page-submit' value='Add' onClick={this.handleClick}/>
+                  <SubmitField id='createProfile-page-submit' value='Add' onClick={this.handleClick}/>
                 </Segment>
               </AutoForm>
             </Grid.Column>
