@@ -3,10 +3,9 @@ import { Card, Image, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import { withRouter } from 'react-router-dom';
-import { Jams } from '../../api/jams/Jams';
-import { JamsInterests } from '../../api/jams/JamsInterests';
-import { JamsInstruments } from '../../api/jams/JamsInstruments';
 import { Profiles } from '../../api/profiles/Profiles';
+import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
+import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 
 class YourCard extends React.Component {
@@ -16,11 +15,10 @@ class YourCard extends React.Component {
   };
 
   handleClick2 = () => {
-    Jams.collection.remove(this.props.profile._id);
-    JamsInterests.collection.remove(this.props.profile._id);
-    JamsInstruments.collection.remove(this.props.profile._id);
-    Profiles.collection.remove(this.props.profile._id);
     const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.profile.name }).fetch(), '_id');
+    ProfilesInterests.collection.remove(this.props.profile.interests);
+    ProfilesInstruments.collection.remove(this.props.profile.instruments);
+    Profiles.collection.remove(this.props.profile._id);
     for (let i = 0; i < deleteJam.length; i++) {
       ProfilesJams.collection.remove(deleteJam[i]);
     }

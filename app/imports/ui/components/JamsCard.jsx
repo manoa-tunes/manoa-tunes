@@ -11,11 +11,11 @@ import { Profiles } from '../../api/profiles/Profiles';
 
 class JamsCard extends React.Component {
   handleClick = () => {
- Jams.collection.remove(this.props.jam._id);
- JamsInterests.collection.remove(this.props.jam._id);
- JamsInstruments.collection.remove(this.props.jam._id);
- Profiles.collection.remove(this.props.jam._id);
-const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name }).fetch(), '_id');
+    Jams.collection.remove(this.props.jam._id);
+    JamsInterests.collection.remove(this.props.jam._id);
+    JamsInstruments.collection.remove(this.props.jam._id);
+    Profiles.collection.remove(this.props.jam._id);
+    const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name }).fetch(), '_id');
     for (let i = 0; i < deleteJam.length; i++) {
       ProfilesJams.collection.remove(deleteJam[i]);
     }
