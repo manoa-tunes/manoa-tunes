@@ -23,8 +23,8 @@ class NavBar extends React.Component {
                 <Menu.Item>
                       <Dropdown id="profiles-dropdown" text= 'Profiles' simple item>
                         <Dropdown.Menu>
-                          <Dropdown.Item id="homeMenuItem" text="Create Profile" as={NavLink} exact to="/home" key='home'/>
-                          <Dropdown.Item id="profilesMenuItem" text="All Profile" as={NavLink} exact to="/profiles" key='profiles'/>
+                          <Dropdown.Item id="homeMenuItem" text="Edit Your Profile" as={NavLink} exact to="/home" key='home'/>
+                          <Dropdown.Item id="profilesMenuItem" text="All Profiles" as={NavLink} exact to="/profiles" key='profiles'/>
                         </Dropdown.Menu>
                       </Dropdown>
                 </Menu.Item>,
@@ -32,8 +32,8 @@ class NavBar extends React.Component {
                 <Menu.Item>
                   <Dropdown id="jams-dropdown" text= 'Jams' simple item>
                     <Dropdown.Menu>
-                      <Dropdown.Item id="addjamMenuItem" text="Create Jams" as={NavLink} exact to="/addjam" key='addjam'/>
-                      <Dropdown.Item id="jamsMenuItem" text="All Jams" as={NavLink} exact to="/jams" key='jams'/>
+                      <Dropdown.Item id="addjamMenuItem" text="Create a Jam" as={NavLink} exact to="/addjam" key='addjam'/>
+                      <Dropdown.Item id="jamsMenuItem" text="List All Jams" as={NavLink} exact to="/jams" key='jams'/>
                     </Dropdown.Menu>
                   </Dropdown>
                 </Menu.Item>]
@@ -42,8 +42,8 @@ class NavBar extends React.Component {
               <Menu.Item>
                 <Dropdown id="admin-dropdown" text= 'Admin' simple item>
                   <Dropdown.Menu>
-                    <Dropdown.Item id="addjamMenuItem" text="Admin Jams" as={NavLink} exact to="/admin" key='admin'/>
-                    <Dropdown.Item id="jamsMenuItem" text="Admin Profile" as={NavLink} exact to="/jams" key='jams'/>
+                    <Dropdown.Item id="addjamMenuItem" text="Jams Management" as={NavLink} exact to="/admin" key='admin'/>
+                    <Dropdown.Item id="jamsMenuItem" text="Profiles Management" as={NavLink} exact to="/jams" key='jams'/>
                   </Dropdown.Menu>
                 </Dropdown>
               </Menu.Item>
