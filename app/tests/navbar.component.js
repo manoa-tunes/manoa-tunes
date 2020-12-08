@@ -23,6 +23,7 @@ class NavBar {
   }
 
   async gotoAddJamPage(testController) {
+    await testController.click('#jams-dropdown');
     await testController.click('#addjamMenuItem');
   }
 
