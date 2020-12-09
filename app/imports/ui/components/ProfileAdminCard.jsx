@@ -18,9 +18,10 @@ class YourCard extends React.Component {
   };
 
   handleClick2 = () => {
-    const deleteInterests = _.pluck(ProfilesInterests.collection.find(this.props.profile._id).fetch(), '_id');
-    const deleteInstruments = _.pluck(ProfilesInstruments.collection.find(this.props.profile._id).fetch(), '_id');
-    const deleteJam = _.pluck(ProfilesJams.collection.find(this.props.profile._id).fetch(), '_id');
+    const deleteInterests = _.pluck(ProfilesInterests.collection.find({ profile: this.props.profile.email }).fetch(), '_id');
+    const deleteInstruments = _.pluck(ProfilesInstruments.collection.find({ profile: this.props.profile.email }).fetch(), '_id');
+    const deleteJam = _.pluck(ProfilesJams.collection.find({ profile: this.props.profile.email }).fetch(), '_id');
+    Profiles.collection.remove(this.props.profile._id);
     for (let i = 0; i < deleteInstruments.length; i++) {
       ProfilesInstruments.collection.remove(deleteInstruments[i]);
     }
@@ -30,9 +31,8 @@ class YourCard extends React.Component {
     for (let i = 0; i < deleteJam.length; i++) {
       ProfilesJams.collection.remove(deleteJam[i]);
     }
-    Profiles.collection.remove(this.props.profile._id);
     // eslint-disable-next-line no-undef
-    document.location.href = '/#/profileadmin';
+    document.location.href = '/#/';
   };
 
   render() {
