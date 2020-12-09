@@ -22,6 +22,11 @@ class NavBar {
     await testController.click('#homeMenuItem');
   }
 
+  async gotoCreateProfilesPage(testController) {
+    await testController.click('#profiles-dropdown');
+    await testController.click('#profilesMenuItem');
+  }
+
   async gotoProfilesPage(testController) {
     await testController.click('#profiles-dropdown');
     await testController.click('#profilesMenuItem');

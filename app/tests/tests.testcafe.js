@@ -4,6 +4,7 @@ import { signoutPage } from './signout.page';
 import { signupPage } from './signup.page';
 import { navBar } from './navbar.component';
 import { homePage } from './home.page';
+import { createProfilePage } from './createProfile.page';
 import { profilesPage } from './profiles.page';
 import { jamsPage } from './jams.page';
 import { addJamPage } from './addjam.page';
@@ -39,24 +40,34 @@ test('Test that signup page, then logout works', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-test.only('Test that home page display', async (testController) => {
+test('Test that home page display', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoHomePage(testController);
   await homePage.isDisplayed(testController);
   await homePage.updateProfile(testController, credentials.name);
-  await navBar.ensureLogout(testController);
+  // await navBar.ensureLogout(testController);
 });
 
-test('Test that profiles page displays', async (testController) => {
+test('Test that create profiles page works', async (testController) => {
+  await navBar.ensureLogout(testController);
+  const newUser = `user-${new Date().getTime()}@foo.com`;
+  await navBar.gotoSignupPage(testController);
+  await signupPage.isDisplayed(testController);
+  await signupPage.signupUser(testController, newUser, credentials.username, credentials.password);
+  // await navBar.gotoCreateProfilePage(testController);
+  await createProfilePage.isDisplayed(testController);
+  await createProfilePage.setName(testController);
+});
+
+test('Test that profile page displays', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoProfilesPage(testController);
   await profilesPage.isDisplayed(testController);
   await profilesPage.hasDefaultProfiles(testController);
-  await navBar.ensureLogout(testController);
 });
 
 test('Test that addJam page works', async (testController) => {
@@ -75,5 +86,5 @@ test('Test that jams page displays', async (testController) => {
   await navBar.gotoJamsPage(testController);
   await jamsPage.isDisplayed(testController);
   await jamsPage.hasDefaultJams(testController);
-  await navBar.ensureLogout(testController);
+ // await navBar.ensureLogout(testController);
 });

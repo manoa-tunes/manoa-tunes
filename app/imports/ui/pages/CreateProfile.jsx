@@ -90,8 +90,8 @@ class CreateProfile extends React.Component {
                   </Form.Group>
                   <LongTextField id='bio' name='bio' placeholder='Write a little bit about yourself.'/>
                   <Form.Group widths={'equal'}>
-                    <MultiSelectField className="multiselect" name='interests' showInlineError={true} placeholder={'Interests'}/>
-                    <MultiSelectField className="multiselect" name='instruments' showInlineError={true} placeholder={'Instruments'}/>
+                    <MultiSelectField id='interests' className="multiselect" name='interests' showInlineError={true} placeholder={'Interests'}/>
+                    <MultiSelectField id='instruments' className="multiselect" name='instruments' showInlineError={true} placeholder={'Instruments'}/>
                   </Form.Group>
                   <SubmitField id='createProfile-page-submit' value='Add' onClick={this.handleClick}/>
                 </Segment>
