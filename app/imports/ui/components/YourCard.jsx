@@ -4,16 +4,21 @@ import { Card, Image, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import { withRouter } from 'react-router-dom';
+import swal from 'sweetalert';
 import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
-import swal from 'sweetalert';
 
 class YourCard extends React.Component {
   handleClick1 = () => {
-    // eslint-disable-next-line
-    document.location.href = '/#/home';
+    const allProfile = _.pluck(ProfilesInterests.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
+    if (allProfile.length > 0) {
+      // eslint-disable-next-line
+      document.location.href = '/#/home';
+    } else {
+      swal('Error', 'You have no profile to edit. GET OUT');
+    }
   };
 
   handleClick2 = () => {
