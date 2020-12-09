@@ -96,9 +96,6 @@ const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.nam
             {_.map(this.props.jam.participants, (p, index) => <Image key={index} circular size='mini' src={p}/>)}
           </Card.Content>
           <Card.Content extra>
-            <Link to={`/edit/${this.props.jam._id}`}>Edit</Link>
-          </Card.Content>
-          <Card.Content extra>
             <button className="ui button" onClick={this.handleClick}>Delete </button>
           </Card.Content>
           <Card.Content extra>
@@ -107,7 +104,6 @@ const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.nam
           <Card.Content extra>
             <button className="ui button" onClick={this.handleClick3}>Leave </button>
           </Card.Content>
-
         </Card>
     );
   }
