@@ -16,7 +16,7 @@ function getJamData(name) {
   const interests = _.pluck(JamsInterests.collection.find({ jam: name }).fetch(), 'interest');
   const profiles = _.pluck(ProfilesJams.collection.find({ jam: name }).fetch(), 'profile');
   const instruments = _.pluck(JamsInstruments.collection.find({ jam: name }).fetch(), 'instrument');
-  const profilePictures = profiles.map(profile => Profiles.collection.findOne({ email: profile }), 'picture'); /* something about this line is broken */
+  const profilePictures = profiles.map(profile => Profiles.collection.findOne({ email: profile }).picture);
   return _.extend({ }, data, { interests, instruments, participants: profilePictures });
 }
 
