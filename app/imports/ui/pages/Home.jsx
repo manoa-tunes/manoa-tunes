@@ -51,6 +51,12 @@ class Home extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
+  /** Redirecting. */
+  handleClick = () => {
+    // eslint-disable-next-line
+    document.location.href = '/';
+  }
+
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     const email = Meteor.user().username;
@@ -85,7 +91,7 @@ class Home extends React.Component {
                     <MultiSelectField className="multiselect" name='interests' showInlineError={true} placeholder={'Interests'}/>
                     <MultiSelectField className="multiselect" name='instruments' showInlineError={true} placeholder={'Instruments'}/>
                   </Form.Group>
-                  <SubmitField id='home-page-submit' value='Update'/>
+                  <SubmitField id='home-page-submit' value='Update' onClick={this.handleClick}/>
                 </Segment>
               </AutoForm>
             </Grid.Column>

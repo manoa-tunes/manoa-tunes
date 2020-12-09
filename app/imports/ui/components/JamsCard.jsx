@@ -25,7 +25,7 @@ class JamsCard extends React.Component {
     } else {
       swal('Error', 'Already In This Jam');
     }
-  };
+  }
 
   handleClick3 = () => {
     const user = Meteor.user().username;
