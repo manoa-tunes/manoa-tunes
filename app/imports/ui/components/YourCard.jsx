@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { Card, Image, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -16,8 +17,14 @@ class YourCard extends React.Component {
 
   handleClick2 = () => {
     const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.profile.name }).fetch(), '_id');
-    ProfilesInterests.collection.remove(this.props.profile.interests);
-    ProfilesInstruments.collection.remove(this.props.profile.instruments);
+    const deleteInterests = _.pluck(ProfilesInterests.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
+    const deleteInstruments = _.pluck(ProfilesInstruments.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
+    for (let i = 0; i < deleteInterests.length; i++) {
+      ProfilesInterests.collection.remove(deleteInterests[i]);
+    }
+    for (let i = 0; i < deleteInstruments.length; i++) {
+      ProfilesInstruments.collection.remove(deleteInstruments[i]);
+    }
     Profiles.collection.remove(this.props.profile._id);
     for (let i = 0; i < deleteJam.length; i++) {
       ProfilesJams.collection.remove(deleteJam[i]);
