@@ -3,7 +3,7 @@ import { Card, Image, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { Jams } from '../../api/jams/Jams';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
@@ -55,7 +55,6 @@ const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.nam
     }
     if (count === 1) {
       const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name, profile: user }).fetch(), '_id');
-      console.log(deleteJam);
       const last = deleteJam[0];
       ProfilesJams.collection.remove(last);
       swal('Success', 'Left Jam Successfully');

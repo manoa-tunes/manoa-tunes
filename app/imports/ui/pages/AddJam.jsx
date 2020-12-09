@@ -53,17 +53,11 @@ class AddJam extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
-    // const email = Meteor.user().username;
     const allInterests = _.pluck(Interests.collection.find().fetch(), 'name');
     const allParticipants = _.pluck(Profiles.collection.find().fetch(), 'email');
     const allInstruments = _.pluck(Instruments.collection.find().fetch(), 'name');
     const formSchema = makeSchema(allInterests, allParticipants, allInstruments);
     const bridge = new SimpleSchema2Bridge(formSchema);
-    // const jams = _.pluck(ProfilesJams.collection.find({ profile: email }).fetch(), 'jam');
-    // const interests = _.pluck(ProfilesInterests.collection.find({ profile: email }).fetch(), 'interest');
-    // const instruments = _.pluck(ProfilesInstruments.collection.find({ profile: email }).fetch(), 'instruments');
-    // const profile = Profiles.collection.findOne({ email });
-    // const model = _.extend({}, profile, { interests, instruments, jams });
     let fRef = null;
     return (
         <div className="bg-image">

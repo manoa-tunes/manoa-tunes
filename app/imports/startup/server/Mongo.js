@@ -11,8 +11,6 @@ import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { JamsInterests } from '../../api/jams/JamsInterests';
 import { JamsInstruments } from '../../api/jams/JamsInstruments';
 
-/* eslint-disable no-console */
-
 function createUser(email, role) {
   const userID = Accounts.createUser({ username: email, email, password: 'foo' });
   if (role === 'admin') {
@@ -28,7 +26,6 @@ function addInterest(interest) {
 /** Initialize the collection if empty. */
 if (Interests.collection.find().count() === 0) {
   if (Meteor.settings.defaultInterests) {
-    console.log('Creating default data.');
     Meteor.settings.defaultInterests.map(data => addInterest(data));
   }
 }
@@ -40,13 +37,11 @@ function addInstrument(instrument) {
 /** Initialize the collection if empty. */
 if (Instruments.collection.find().count() === 0) {
   if (Meteor.settings.defaultInstruments) {
-    console.log('Creating default instruments.');
     Meteor.settings.defaultInstruments.map(data => addInstrument(data));
   }
 }
 
 function addJam({ name, contact, date, location, interests, instruments }) {
-  console.log(`Defining jam ${name}`);
   Jams.collection.insert({ name, contact, date, location });
   interests.map(interest => JamsInterests.collection.insert({ jam: name, interest }));
   instruments.map(instrument => JamsInstruments.collection.insert({ jam: name, instrument }));
@@ -57,13 +52,11 @@ function addJam({ name, contact, date, location, interests, instruments }) {
 /** Initialize the collection if empty. */
 if (Jams.collection.find().count() === 0) {
   if (Meteor.settings.defaultJams) {
-    console.log('Creating default jams.');
     Meteor.settings.defaultJams.map(jam => addJam(jam));
   }
 }
 
 function addProfile({ name, bio, interests, instruments, jams, picture, email, role }) {
-  console.log(`Defining profile ${email}`);
   Profiles.collection.insert({ name, bio, picture, email });
   // Add interests and projects.
   createUser(email, role);
@@ -78,16 +71,12 @@ function addProfile({ name, bio, interests, instruments, jams, picture, email, r
 /** Initialize the collection if empty. */
 if (Profiles.collection.find().count() === 0) {
   if (Meteor.settings.defaultProfiles) {
-    console.log('Creating the default profiles');
     Meteor.settings.defaultProfiles.map(profile => addProfile(profile));
-  } else {
-    console.log('Cannot initialize the database!  Please invoke meteor with a settings file.');
   }
 }
 
 if ((Meteor.settings.loadAssetsFile) && (Meteor.users.find().count() < 7)) {
   const assetsFileName = 'data.json';
-  console.log(`Loading data from private/${assetsFileName}`);
   const jsonData = JSON.parse(Assets.getText(assetsFileName));
   jsonData.profiles.map(profile => addProfile(profile));
   jsonData.jams.map(jam => addJam(jam));
