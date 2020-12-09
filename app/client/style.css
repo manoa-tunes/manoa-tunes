@@ -50,6 +50,7 @@ body {
 
 .bg-color {
   background-color: #262626 ;
+  margin-top: -10px;
 }
 
 .card-bg {

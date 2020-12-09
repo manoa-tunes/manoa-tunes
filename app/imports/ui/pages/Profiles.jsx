@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Loader, Card } from 'semantic-ui-react';
+import { Container, Loader, Card, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -38,21 +38,16 @@ class ProfilesPage extends React.Component {
     }
     const emails = _.pluck(Profiles.collection.find().fetch(), 'email');
     const profileData = emails.map(email => getProfileData(email));
-    /* Use later for filter
-    <AutoForm schema={bridge} onSubmit={data => this.submit(data)} >
-              <Segment>
-                <MultiSelectField id='interests' name='interests' showInlineError={true} placeholder={'Interests'}/>
-                <SubmitField id='submit' value='Submit'/>
-              </Segment>
-            </AutoForm>
-            <Container id="filter-page">
-            <Card.Group style={{ paddingTop: '10px' }}>
-              {_.map(profileData, (profile, index) => <MakeCard key={index} profile={profile}/>)}
-            </Card.Group>
-          </Container>
-    */
     return (
         <div className="bg-color">
+          <Container style={{ margin: '10px 5px' }}>
+            <Button variant="primary" size="lg" href="/#/interest-filter" block>
+              Filter by Interest
+            </Button>
+            <Button variant="secondary" size="lg" href="/#/instrument-filter" style={{ marginLeft: '5px' }} block>
+              Filter by Instrument
+            </Button>
+          </Container>
           <Container id="profiles-page">
             <Card.Group itemsPerRow={4}>
               {_.map(profileData, (profile, index) => <ProfileCard key={index} profile={profile}/>)}

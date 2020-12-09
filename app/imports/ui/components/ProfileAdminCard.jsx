@@ -11,11 +11,6 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 
 class YourCard extends React.Component {
-  handleClick1 = () => {
-    // eslint-disable-next-line
-    document.location.reload();
-
-  };
 
   handleClick2 = () => {
     const deleteInterests = _.pluck(ProfilesInterests.collection.find({ profile: this.props.profile.email }).fetch(), '_id');
@@ -68,7 +63,6 @@ class YourCard extends React.Component {
                 (jam, index) => <Label key={index} size='tiny' color='green'>{jam}</Label>)}
           </Card.Content>
           <Card.Content extra className="card-bg">
-            <button className="ui button" onClick={this.handleClick1}>Edit</button>
             <button className="ui button delete" onClick={this.handleClick2}>Delete</button>
           </Card.Content>
         </Card>

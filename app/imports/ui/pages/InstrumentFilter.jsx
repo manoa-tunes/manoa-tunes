@@ -17,9 +17,9 @@ import { Instruments } from '../../api/instruments/Instruments';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
-const makeSchema = (allInterests) => new SimpleSchema({
-  interests: { type: Array, label: 'Interests', optional: true },
-  'interests.$': { type: String, allowedValues: allInterests },
+const makeSchema = (allInstruments) => new SimpleSchema({
+  instruments: { type: Array, label: 'Instruments', optional: true },
+  'instruments.$': { type: String, allowedValues: allInstruments },
 });
 
 function getProfileData(email) {
@@ -69,15 +69,15 @@ MakeCard.propTypes = {
 };
 
 /** Renders the Profile Collection as a set of Cards. */
-class Filter extends React.Component {
+class InstrumentFilter extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { interests: [] };
+    this.state = { instruments: [] };
   }
 
   submit(data) {
-    this.setState({ interests: data.interests || [] });
+    this.setState({ instruments: data.instruments || [] });
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -87,29 +87,31 @@ class Filter extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const allInterests = _.pluck(Interests.collection.find().fetch(), 'name');
-    const formSchema = makeSchema(allInterests);
+    const allInstruments = _.pluck(Instruments.collection.find().fetch(), 'name');
+    const formSchema = makeSchema(allInstruments);
     const bridge = new SimpleSchema2Bridge(formSchema);
-    const emails = _.pluck(ProfilesInterests.collection.find({ interest: { $in: this.state.interests } }).fetch(), 'profile');
+    const emails = _.pluck(ProfilesInstruments.collection.find({ instrument: { $in: this.state.instruments } }).fetch(), 'profile');
     const profileData = _.uniq(emails).map(email => getProfileData(email));
     return (
-        <Container id="filter-page">
-          <AutoForm schema={bridge} onSubmit={data => this.submit(data)} >
-            <Segment>
-              <MultiSelectField id='interests' name='interests' showInlineError={true} placeholder={'Interests'}/>
-              <SubmitField id='submit' value='Submit'/>
-            </Segment>
-          </AutoForm>
-          <Card.Group style={{ paddingTop: '10px' }}>
-            {_.map(profileData, (profile, index) => <MakeCard key={index} profile={profile}/>)}
-          </Card.Group>
-        </Container>
+        <div className="bg-color">
+          <Container id="filter-page">
+            <AutoForm schema={bridge} onSubmit={data => this.submit(data)} style={{ marginBottom: '20px' }}>
+              <Segment>
+                <MultiSelectField id='instruments' name='instruments' showInlineError={true} placeholder={'Instruments'}/>
+                <SubmitField id='submit' value='Submit'/>
+              </Segment>
+            </AutoForm>
+            <Card.Group style={{ paddingTop: '10px' }}>
+              {_.map(profileData, (profile, index) => <MakeCard key={index} profile={profile}/>)}
+            </Card.Group>
+          </Container>
+        </div>
     );
   }
 }
 
 /** Require an array of Stuff documents in the props. */
-Filter.propTypes = {
+InstrumentFilter.propTypes = {
   ready: PropTypes.bool.isRequired,
 };
 
@@ -123,6 +125,6 @@ export default withTracker(() => {
   const sub5 = Meteor.subscribe(Interests.userPublicationName);
   const sub6 = Meteor.subscribe(Instruments.userPublicationName);
   return {
-    ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6,
+    ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready(),
   };
-})(Filter);
+})(InstrumentFilter);
