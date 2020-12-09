@@ -37,6 +37,7 @@ class CreateProfilePage {
     // Submit it.
     await testController.click('#createProfile-page-submit');
     // Click the OK button on the Sweet Alert.
+    // meteor npm run start
     // await testController.click(Selector('.swal-button--confirm'));
     // Check that the field is updated.
     // await testController.expect(Selector('#name').value).eql(name);

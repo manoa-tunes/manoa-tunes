@@ -19,7 +19,7 @@ class NavBar {
 
   async gotoHomePage(testController) {
     await testController.click('#profiles-dropdown');
-    await testController.click('#homeMenuItem');
+    await testController.click('#yourProfileMenuItem');
   }
 
   async gotoCreateProfilesPage(testController) {
@@ -40,6 +40,11 @@ class NavBar {
   async gotoAddJamPage(testController) {
     await testController.click('#jams-dropdown');
     await testController.click('#addjamMenuItem');
+  }
+
+  async gotoJamsAdminPage(testController) {
+    await testController.click('#admin-dropdown');
+    await testController.click('#jamsAdminMenuItem');
   }
 
   /** Check that the specified user is currently logged in. */

@@ -34,7 +34,7 @@ class JamsAdminPage extends React.Component {
     const jamData = jams.map(jam => getJamData(jam));
     return (
         <div className='bg-color'>
-          <Container id="jam-page">
+          <Container id="jamsAdmin-page">
             <Card.Group itemsPerRow={4}>
               {_.map(jamData, (jam, index) => <JamsAdminCard key={index} jam={jam}/>)}
             </Card.Group>

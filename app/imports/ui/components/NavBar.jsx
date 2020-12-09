@@ -23,8 +23,8 @@ class NavBar extends React.Component {
                 <Menu.Item>
                       <Dropdown id="profiles-dropdown" text= 'Profiles' simple item>
                         <Dropdown.Menu>
-                          <Dropdown.Item text="Your Profile" as={NavLink} exact to="/your-profile" key='your-profile'/>
-                          <Dropdown.Item text="All Profile" as={NavLink} exact to="/profiles" key='profiles'/>
+                          <Dropdown.Item id="yourProfileMenuItem" text="Your Profile" as={NavLink} exact to="/your-profile" key='your-profile'/>
+                          <Dropdown.Item id="profilesMenuItem" text="All Profile" as={NavLink} exact to="/profiles" key='profiles'/>
                         </Dropdown.Menu>
                       </Dropdown>
                 </Menu.Item>,
@@ -42,7 +42,7 @@ class NavBar extends React.Component {
               <Menu.Item>
                 <Dropdown id="admin-dropdown" text= 'Admin' simple item>
                   <Dropdown.Menu>
-                    <Dropdown.Item id="jamsAdminsMenuItem" text="Jams Management" as={NavLink} exact to="/jamsAdmin" key='jamsAdmin'/>
+                    <Dropdown.Item id="jamsAdminMenuItem" text="Jams Management" as={NavLink} exact to="/jamsAdmin" key='jamsAdmin'/>
                     <Dropdown.Item id="profilesAdminMenuItem" text="Profiles Management" as={NavLink} exact to="/profilesAdmin" key='profilesAdmin'/>
                   </Dropdown.Menu>
                 </Dropdown>
