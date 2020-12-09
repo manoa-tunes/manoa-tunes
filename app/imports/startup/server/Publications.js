@@ -11,16 +11,6 @@ import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { JamsInterests } from '../../api/jams/JamsInterests';
 import { JamsInstruments } from '../../api/jams/JamsInstruments';
 
-// User-level publication.
-// If logged in, then publish documents owned by this user. Otherwise publish nothing.
-Meteor.publish(Stuffs.userPublicationName, function () {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Stuffs.collection.find({ owner: username });
-  }
-  return this.ready();
-});
-
 /** Define a publication to publish all interests. */
 Meteor.publish(Interests.userPublicationName, () => Interests.collection.find());
 
