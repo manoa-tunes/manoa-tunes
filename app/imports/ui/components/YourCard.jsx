@@ -8,6 +8,7 @@ import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
+import swal from 'sweetalert';
 
 class YourCard extends React.Component {
   handleClick1 = () => {
@@ -16,21 +17,26 @@ class YourCard extends React.Component {
   };
 
   handleClick2 = () => {
-    const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.profile.name }).fetch(), '_id');
-    const deleteInterests = _.pluck(ProfilesInterests.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
-    const deleteInstruments = _.pluck(ProfilesInstruments.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
-    for (let i = 0; i < deleteInterests.length; i++) {
-      ProfilesInterests.collection.remove(deleteInterests[i]);
+    const allProfile = _.pluck(ProfilesInterests.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
+    if (allProfile.length > 0) {
+      const deleteJam = _.pluck(ProfilesJams.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
+      const deleteInterests = _.pluck(ProfilesInterests.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
+      const deleteInstruments = _.pluck(ProfilesInstruments.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
+      for (let i = 0; i < deleteInterests.length; i++) {
+        ProfilesInterests.collection.remove(deleteInterests[i]);
+      }
+      for (let i = 0; i < deleteInstruments.length; i++) {
+        ProfilesInstruments.collection.remove(deleteInstruments[i]);
+      }
+      for (let i = 0; i < deleteJam.length; i++) {
+        ProfilesJams.collection.remove(deleteJam[i]);
+      }
+      Profiles.collection.remove(this.props.profile._id);
+      // eslint-disable-next-line no-undef
+      document.location.reload(true);
+    } else {
+      swal('Error', 'Profile already deleted');
     }
-    for (let i = 0; i < deleteInstruments.length; i++) {
-      ProfilesInstruments.collection.remove(deleteInstruments[i]);
-    }
-    Profiles.collection.remove(this.props.profile._id);
-    for (let i = 0; i < deleteJam.length; i++) {
-      ProfilesJams.collection.remove(deleteJam[i]);
-    }
-    // eslint-disable-next-line no-undef
-    document.location.reload(true);
   };
 
   render() {

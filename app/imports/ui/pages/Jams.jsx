@@ -33,11 +33,13 @@ class JamsPage extends React.Component {
     const jams = _.pluck(Jams.collection.find().fetch(), 'name');
     const jamData = jams.map(jam => getJamData(jam));
     return (
-        <Container id="jam-page">
-          <Card.Group>
-            {_.map(jamData, (jam, index) => <JamsCard key={index} jam={jam}/>)}
-          </Card.Group>
-        </Container>
+        <div className="bg-image">
+          <Container id="jam-page">
+            <Card.Group>
+              {_.map(jamData, (jam, index) => <JamsCard key={index} jam={jam}/>)}
+            </Card.Group>
+          </Container>
+        </div>
     );
   }
 }
