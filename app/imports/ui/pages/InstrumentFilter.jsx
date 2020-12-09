@@ -88,7 +88,8 @@ export default withTracker(() => {
   const sub4 = Meteor.subscribe(Jams.userPublicationName);
   const sub5 = Meteor.subscribe(Interests.userPublicationName);
   const sub6 = Meteor.subscribe(Instruments.userPublicationName);
+  const sub7 = Meteor.subscribe(ProfilesJams.userPublicationName);
   return {
-    ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready(),
+    ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready() && sub7.ready(),
   };
 })(InstrumentFilter);
