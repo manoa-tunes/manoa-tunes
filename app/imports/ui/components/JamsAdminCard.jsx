@@ -72,13 +72,13 @@ const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.nam
           <Card.Content>
             <Card.Header style={{ marginTop: '0px' }}>{this.props.jam.name}</Card.Header>
             <Card.Description>
-              <span className='date'>Contact Information: {this.props.jam.contact}</span>
+              <span className='date'><b>Contact Information:</b> {this.props.jam.contact}</span>
             </Card.Description>
             <Card.Description>
-              <span className='date'>Location: {this.props.jam.location}</span>
+              <span className='date'><b>Location:</b> {this.props.jam.location}</span>
             </Card.Description>
             <Card.Description>
-              <span className='date'>Date: {this.props.jam.date}</span>
+              <span className='date'><b>Date:</b> {this.props.jam.date}</span>
             </Card.Description>
           </Card.Content>
           <Card.Content extra>

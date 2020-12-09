@@ -34,7 +34,7 @@
         "Do not play any instruments"
       ],
       "jams": [
-        "Manoa-Tunes"
+        "Jamuary"
       ]
     },
 
@@ -53,7 +53,26 @@
         "Ukulele"
       ],
       "jams": [
-        "Manoa-Tunes"
+        "Jamuary"
+      ]
+    },
+
+    {
+      "name": "Cheolhoon Choi",
+      "email": "choi4879@hawaii.edu",
+      "bio": "I am a senior at the University of Hawaii at Manoa.",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Jazz Rock",
+        "Korean Pop",
+        "Blues"
+      ],
+      "instruments": [
+        "Guitar",
+        "Flute"
+      ],
+      "jams": [
+        "YessJazz"
       ]
     },
 
@@ -80,7 +99,7 @@
         "Clarinet"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     },
 
@@ -106,7 +125,7 @@
         "Harmonica"
       ],
       "jams": [
-        "None"
+        "Jamuary"
       ]
     },
 
@@ -123,7 +142,7 @@
         "Do not play any instruments"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     },
 
@@ -148,7 +167,7 @@
         "Violin/Viola/Cello"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -165,7 +184,7 @@
         "Do not play any instruments"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -182,7 +201,7 @@
         "Piano"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -200,7 +219,7 @@
         "Baritone"
       ],
       "jams": [
-        "None"
+        "POST-Host"
       ]
     },
 
@@ -217,7 +236,7 @@
         "Clarinet"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -234,7 +253,7 @@
         "Flute"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -256,7 +275,7 @@
         "Trombone"
       ],
       "jams": [
-        "None"
+        "Jamuary"
       ]
     },
 
@@ -276,7 +295,7 @@
         "Violin/Viola/Cello"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     },
 
@@ -293,7 +312,7 @@
         "Violin/Viola/Cello"
       ],
       "jams": [
-        "None"
+        "Jamuary"
       ]
     },
 
@@ -311,7 +330,7 @@
         "Do not play any instruments"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     },
 
@@ -332,7 +351,7 @@
         "Ukulele"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -351,7 +370,7 @@
         "Percussion"
       ],
       "jams": [
-        "None"
+        "POST-Host"
       ]
     },
 
@@ -367,7 +386,7 @@
         "Conch Shell"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -383,7 +402,7 @@
         "Keyboard"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -399,7 +418,7 @@
         "Taiko Drums"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -428,7 +447,7 @@
         "Microphone"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -467,7 +486,7 @@
         "Violin/Viola/Cello"
       ],
       "jams": [
-        "None"
+        "POST-Host"
       ]
     },
 
@@ -499,7 +518,7 @@
         "Do not play any instruments"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -518,7 +537,7 @@
         "Microphone"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     },
 
@@ -534,7 +553,7 @@
         "Clarinet"
       ],
       "jams": [
-        "None"
+        "Jamuary"
       ]
     },
 
@@ -555,7 +574,7 @@
         "Piano"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     },
 
@@ -572,7 +591,7 @@
         "Microphone"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -588,7 +607,7 @@
         "Piano"
       ],
       "jams": [
-        "None"
+        "POST-Host"
       ]
     },
 
@@ -605,7 +624,7 @@
         "Drums"
       ],
       "jams": [
-        "None"
+        "POST-Host"
       ]
     },
 
@@ -625,7 +644,7 @@
         "Guitar"
       ],
       "jams": [
-        "None"
+        "Jamuary"
       ]
     },
 
@@ -645,7 +664,7 @@
         "Sound Board"
       ],
       "jams": [
-        "None"
+        "POST-Host"
       ]
     },
 
@@ -672,7 +691,7 @@
         "Violin/Viola/Cello"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -697,7 +716,7 @@
         "Violin/Viola/Cello"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -720,7 +739,7 @@
         "Violin/Viola/Cello"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     },
 
@@ -740,7 +759,7 @@
         "Microphone"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -759,7 +778,7 @@
         "Piano"
       ],
       "jams": [
-        "None"
+        "POST-Host"
       ]
     },
 
@@ -777,7 +796,7 @@
         "Sound Board"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -796,7 +815,7 @@
         "Sound Board"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -821,7 +840,7 @@
         "Trumpet"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     },
 
@@ -840,7 +859,7 @@
         "Do not play any instruments"
       ],
       "jams": [
-        "None"
+        "Jamuary"
       ]
     },
 
@@ -862,7 +881,7 @@
         "Microphone"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -878,7 +897,7 @@
         "Do not play any instruments"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -898,7 +917,7 @@
         "Trombone"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -919,7 +938,7 @@
         "Trumpet"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -936,7 +955,7 @@
         "Keyboard"
       ],
       "jams": [
-        "None"
+        "POST-Host"
       ]
     },
 
@@ -956,7 +975,7 @@
         "Trumpet"
       ],
       "jams": [
-        "None"
+        "POST-Host"
       ]
     },
 
@@ -974,7 +993,7 @@
         "Flute"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -991,7 +1010,7 @@
         "Do not play any instruments"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -1011,7 +1030,7 @@
         "Sound Board"
       ],
       "jams": [
-        "None"
+        "Jamuary"
       ]
     },
 
@@ -1032,7 +1051,7 @@
         "Microphone"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     }
   ],
