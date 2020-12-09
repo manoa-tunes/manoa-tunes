@@ -20,6 +20,7 @@ import Jams from '../pages/Jams';
 import CreateProfile from '../pages/CreateProfile';
 import JamsAdmin from '../pages/JamsAdmin';
 import YourProfile from '../pages/YourProfile';
+import ProfileFilter from '../pages/ProfileFilter';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -39,6 +40,7 @@ class App extends React.Component {
               <ProtectedRoute path="/edit/:_id" component={EditJam}/>
               <ProtectedRoute path="/addjam" component={AddJam}/>
               <ProtectedRoute path="/jams" component={Jams}/>
+              <ProtectedRoute path="/filter" component={ProfileFilter}/>
               <ProtectedRoute path="/create-profile" component={CreateProfile}/>
               <AdminProtectedRoute path="/admin" component={JamsAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
