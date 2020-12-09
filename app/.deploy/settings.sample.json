@@ -1,10 +1,6 @@
 {
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "huim@hawaii.edu", "password": "changeme", "role": "admin" },
-    { "email": "khhc@hawaii.edu", "password": "changeme", "role": "admin" },
-    { "email": "choi4879@hawaii.edu", "password": "changeme", "role": "admin" },
-    { "email": "thuo@hawaii.edu", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
   ],
 

@@ -34,7 +34,7 @@
         "Do not play any instruments"
       ],
       "jams": [
-        "Manoa-Tunes"
+        "Jamuary"
       ]
     },
 
@@ -53,7 +53,26 @@
         "Ukulele"
       ],
       "jams": [
-        "Manoa-Tunes"
+        "Jamuary"
+      ]
+    },
+
+    {
+      "name": "Cheolhoon Choi",
+      "email": "choi4879@hawaii.edu",
+      "bio": "I am a senior at the University of Hawaii at Manoa.",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Jazz Rock",
+        "Korean Pop",
+        "Blues"
+      ],
+      "instruments": [
+        "Guitar",
+        "Flute"
+      ],
+      "jams": [
+        "YessJazz"
       ]
     },
 
@@ -80,7 +99,7 @@
         "Clarinet"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     },
 
@@ -106,7 +125,7 @@
         "Harmonica"
       ],
       "jams": [
-        "None"
+        "Jamuary"
       ]
     },
 
@@ -123,7 +142,7 @@
         "Do not play any instruments"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     },
 
@@ -148,7 +167,7 @@
         "Violin/Viola/Cello"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -165,7 +184,7 @@
         "Do not play any instruments"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -182,7 +201,7 @@
         "Piano"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -200,7 +219,7 @@
         "Baritone"
       ],
       "jams": [
-        "None"
+        "POST-Host"
       ]
     },
 
@@ -217,7 +236,7 @@
         "Clarinet"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -234,7 +253,7 @@
         "Flute"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -256,7 +275,7 @@
         "Trombone"
       ],
       "jams": [
-        "None"
+        "Jamuary"
       ]
     },
 
@@ -276,7 +295,7 @@
         "Violin/Viola/Cello"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     },
 
@@ -293,7 +312,7 @@
         "Violin/Viola/Cello"
       ],
       "jams": [
-        "None"
+        "Jamuary"
       ]
     },
 
@@ -311,7 +330,7 @@
         "Do not play any instruments"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     },
 
@@ -332,7 +351,7 @@
         "Ukulele"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -351,7 +370,7 @@
         "Percussion"
       ],
       "jams": [
-        "None"
+        "POST-Host"
       ]
     },
 
@@ -367,7 +386,7 @@
         "Conch Shell"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -383,7 +402,7 @@
         "Keyboard"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -399,7 +418,7 @@
         "Taiko Drums"
       ],
       "jams": [
-        "None"
+        "FebFest"
       ]
     },
 
@@ -428,7 +447,7 @@
         "Microphone"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -467,7 +486,7 @@
         "Violin/Viola/Cello"
       ],
       "jams": [
-        "None"
+        "POST-Host"
       ]
     },
 
@@ -499,7 +518,7 @@
         "Do not play any instruments"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -518,7 +537,7 @@
         "Microphone"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     },
 
@@ -534,7 +553,7 @@
         "Clarinet"
       ],
       "jams": [
-        "None"
+        "Jamuary"
       ]
     },
 
@@ -555,7 +574,7 @@
         "Piano"
       ],
       "jams": [
-        "None"
+        "MuseMix"
       ]
     },
 
@@ -572,7 +591,7 @@
         "Microphone"
       ],
       "jams": [
-        "None"
+        "YessJazz"
       ]
     },
 
@@ -588,7 +607,451 @@
         "Piano"
       ],
       "jams": [
-        "None"
+        "POST-Host"
+      ]
+    },
+
+    {
+      "name": "Mike Skate",
+      "email": "skater808@gmail.com",
+      "bio": "i like my jams like my half-pipes, dangerous.",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Rock",
+        "Alternative"
+      ],
+      "instruments": [
+        "Drums"
+      ],
+      "jams": [
+        "POST-Host"
+      ]
+    },
+
+    {
+      "name": "Marie Aime",
+      "email": "maime@gmail.com",
+      "bio": "Science and Music coming together",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Blues",
+        "Classical",
+        "Jazz",
+        "Latin"
+      ],
+      "instruments": [
+        "Piano",
+        "Guitar"
+      ],
+      "jams": [
+        "Jamuary"
+      ]
+    },
+
+    {
+      "name": "Dexter Oncore",
+      "email": "dexmix@gmail.com",
+      "bio": "Coolio",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Alternative",
+        "Metal or Heavy Metal",
+        "Pop"
+      ],
+      "instruments": [
+        "Electric Guitar",
+        "Microphone",
+        "Sound Board"
+      ],
+      "jams": [
+        "POST-Host"
+      ]
+    },
+
+    {
+      "name": "Charlotte Monsie",
+      "email": "charmon@gmail.com",
+      "bio": "I'm into the jaunty tunes.",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Acapella",
+        "Blues",
+        "Classical",
+        "Jazz",
+        "Latin",
+        "R&B"
+      ],
+      "instruments": [
+        "Clarinet",
+        "Piano",
+        "Guitar",
+        "Keyboard",
+        "Saxophone",
+        "Trumpet",
+        "Violin/Viola/Cello"
+      ],
+      "jams": [
+        "FebFest"
+      ]
+    },
+
+    {
+      "name": "Lumi Luna",
+      "email": "lights@gmail.com",
+      "bio": "Here to brighten up your day.",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Acapella",
+        "Classical",
+        "Jazz Rock",
+        "Korean Pop",
+        "Pop"
+      ],
+      "instruments": [
+        "Clarinet",
+        "Piano",
+        "Guitar",
+        "Microphone",
+        "Trumpet",
+        "Violin/Viola/Cello"
+      ],
+      "jams": [
+        "FebFest"
+      ]
+    },
+
+    {
+      "name": "Kantor Drewston",
+      "email": "kandrewston@gmail.com",
+      "bio": "Here for the people, stay for the music.",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Alternative",
+        "Big Band",
+        "Classical",
+        "Jazz Rock",
+        "Korean Pop",
+        "Metal or Heavy Metal",
+        "R&B"
+      ],
+      "instruments": [
+        "Clarinet",
+        "Violin/Viola/Cello"
+      ],
+      "jams": [
+        "MuseMix"
+      ]
+    },
+
+    {
+      "name": "Atlan Bumtis",
+      "email": "playfulname@gmail.com",
+      "bio": "Loves wordplay, obviously a lyricist.",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Acapella",
+        "Jazz",
+        "Jazz Rock",
+        "Korean Pop",
+        "Pop"
+      ],
+      "instruments": [
+        "Microphone"
+      ],
+      "jams": [
+        "FebFest"
+      ]
+    },
+
+    {
+      "name": "John Indigo",
+      "email": "john.io@gmail.com",
+      "bio": "Looking to try out new things!",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Alternative",
+        "Blues",
+        "Rock"
+      ],
+      "instruments": [
+        "Electric Guitar",
+        "Piano"
+      ],
+      "jams": [
+        "POST-Host"
+      ]
+    },
+
+    {
+      "name": "Jorks Onu",
+      "email": "nunujorks@gmail.com",
+      "bio": "Somewhat of a nerd, but I call it smart.",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Bebop",
+        "R&B"
+      ],
+      "instruments": [
+        "Saxophone",
+        "Sound Board"
+      ],
+      "jams": [
+        "YessJazz"
+      ]
+    },
+
+    {
+      "name": "Buddy Chanson",
+      "email": "buddychan@gmail.com",
+      "bio": "Singer",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Acapella",
+        "Latin"
+      ],
+      "instruments": [
+        "Keyboard",
+        "Microphone",
+        "Sound Board"
+      ],
+      "jams": [
+        "FebFest"
+      ]
+    },
+
+    {
+      "name": "Todd Mincer",
+      "email": "moddtincer@gmail.com",
+      "bio": "Chef looking for music to play at my restaurant",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Acapella",
+        "Alternative",
+        "Big Band",
+        "Blues",
+        "Classical",
+        "Jazz",
+        "Jazz Rock",
+        "Latin",
+        "R&B"
+      ],
+      "instruments": [
+        "Guitar",
+        "Trumpet"
+      ],
+      "jams": [
+        "MuseMix"
+      ]
+    },
+
+    {
+      "name": "Claire Scopp",
+      "email": "clairelair@gmail.com",
+      "bio": "Secretly plotting world domination, but running a flower shop for now.",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Classical",
+        "Blues",
+        "Percussion",
+        "Japanese"
+      ],
+      "instruments": [
+        "Do not play any instruments"
+      ],
+      "jams": [
+        "Jamuary"
+      ]
+    },
+
+    {
+      "name": "Juillet Carter",
+      "email": "juliecarter@gmail.com",
+      "bio": "Looking for party people!",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Pop",
+        "Korean Pop",
+        "Rock",
+        "Alternative",
+        "Rap",
+        "EDM"
+      ],
+      "instruments": [
+        "Taiko Drums",
+        "Microphone"
+      ],
+      "jams": [
+        "FebFest"
+      ]
+    },
+
+    {
+      "name": "Vivian de Luxe",
+      "email": "vivilulu@gmail.com",
+      "bio": "",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Percussion"
+      ],
+      "instruments": [
+        "Do not play any instruments"
+      ],
+      "jams": [
+        "YessJazz"
+      ]
+    },
+
+    {
+      "name": "Francis Michie",
+      "email": "franchie@gmail.com",
+      "bio": "Foreign exchange student from Paris. Can't wait to get to know everyone!",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Pop",
+        "Classical",
+        "Blues",
+        "EDM"
+      ],
+      "instruments": [
+        "Flute",
+        "Trombone"
+      ],
+      "jams": [
+        "YessJazz"
+      ]
+    },
+
+    {
+      "name": "Collin Frames",
+      "email": "collinf@gmail.com",
+      "bio": "",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Pop",
+        "Korean Pop",
+        "Lofi"
+      ],
+      "instruments": [
+        "Do not play any instruments",
+        "Ukulele",
+        "Drums",
+        "Trumpet"
+      ],
+      "jams": [
+        "FebFest"
+      ]
+    },
+
+    {
+      "name": "Harold Rufus",
+      "email": "riftharold@gmail.com",
+      "bio": "Video game role model",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Pop",
+        "EDM"
+      ],
+      "instruments": [
+        "Keyboard"
+      ],
+      "jams": [
+        "POST-Host"
+      ]
+    },
+
+    {
+      "name": "Kim Chance",
+      "email": "kim.ch@gmail.com",
+      "bio": "",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Rap",
+        "Percussion",
+        "Japanese"
+      ],
+      "instruments": [
+        "Violin/Viola/Cello",
+        "Clarinet",
+        "Trumpet"
+      ],
+      "jams": [
+        "POST-Host"
+      ]
+    },
+
+    {
+      "name": "Willow Bronch",
+      "email": "willbr@gmail.com",
+      "bio": "Love nature!",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Lofi",
+        "Blues",
+        "Island Music"
+      ],
+      "instruments": [
+        "Flute"
+      ],
+      "jams": [
+        "YessJazz"
+      ]
+    },
+
+    {
+      "name": "Quinn Valora",
+      "email": "val.quinn@gmail.com",
+      "bio": "I filled out the survey",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "R&B",
+        "Metal or Heavy Metal"
+      ],
+      "instruments": [
+        "Do not play any instruments"
+      ],
+      "jams": [
+        "FebFest"
+      ]
+    },
+
+    {
+      "name": "Lannen Stopes",
+      "email": "lannnn@gmail.com",
+      "bio": "Chillin'",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Alternative",
+        "Lofi",
+        "Jazz Rock"
+      ],
+      "instruments": [
+        "Guitar",
+        "Saxophone",
+        "Sound Board"
+      ],
+      "jams": [
+        "Jamuary"
+      ]
+    },
+
+    {
+      "name": "Yoggs Peacher",
+      "email": "yoggerspeachy@gmail.com",
+      "bio": "Internet personality",
+      "picture": "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg",
+      "interests": [
+        "Pop",
+        "Rock",
+        "Alternative",
+        "Indie"
+      ],
+      "instruments": [
+        "Baritone",
+        "Trombone",
+        "Microphone"
+      ],
+      "jams": [
+        "MuseMix"
       ]
     }
   ],
@@ -652,6 +1115,78 @@
       "instruments": [
         "Guitar",
         "Microphone"
+      ]
+    },
+
+    {
+      "name": "MuseMix",
+      "contact": "mmix@hawaii.edu",
+      "date": "January 15, 2021 at 1:30pm",
+      "location": "Honolulu City Hall",
+      "interests": [
+        "Classical",
+        "Jazz"
+      ],
+      "instruments": [
+        "Piano",
+        "Violin/Viola/Cello",
+        "Saxophone",
+        "Trumpet"
+      ]
+    },
+
+    {
+      "name": "POST-Host",
+      "contact": "post@hawaii.edu",
+      "date": "January 21, 2021 at 9:00pm",
+      "location": "UH Manoa, POST Building",
+      "interests": [
+        "Island Music"
+      ],
+      "instruments": [
+        "Clarinet",
+        "Flute",
+        "Ukulele"
+      ]
+    },
+
+    {
+      "name": "Jamuary",
+      "contact": "manoatunes@hawaii.edu",
+      "date": "January 30, 2021 at 6:00pm",
+      "location": "UH Manoa, Campus Center",
+      "interests": [
+        "R&B",
+        "Indie",
+        "EDM"
+      ],
+      "instruments": [
+        "Drums",
+        "Sound Board",
+        "Keyboard"
+      ]
+    },
+
+    {
+      "name": "FebFest",
+      "contact": "manoatunes@hawaii.edu",
+      "date": "February 3, 2021 at 3:00pm",
+      "location": "UH Manoa",
+      "interests": [
+        "Jazz",
+        "Jazz Rock"
+      ],
+      "instruments": [
+        "Baritone",
+        "Piano",
+        "Guitar",
+        "Violin/Viola/Cello",
+        "Clarinet",
+        "Flute",
+        "Saxophone",
+        "Trombone",
+        "Keyboard",
+        "Trumpet"
       ]
     }
   ],

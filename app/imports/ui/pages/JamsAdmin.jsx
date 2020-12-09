@@ -17,7 +17,7 @@ function getJamData(name) {
   const profiles = _.pluck(ProfilesJams.collection.find({ jam: name }).fetch(), 'profile');
   const instruments = _.pluck(JamsInstruments.collection.find({ jam: name }).fetch(), 'instrument');
   const profilePictures = profiles.map(profile => Profiles.collection.findOne({ email: profile }).picture);
-  return _.extend({ }, data, { interests, instruments, participants: profilePictures });
+  return _.extend({}, data, { interests, instruments, participants: profilePictures });
 }
 
 /** Renders the Project Collection as a set of Cards. */
@@ -33,11 +33,13 @@ class JamsAdminPage extends React.Component {
     const jams = _.pluck(Jams.collection.find().fetch(), 'name');
     const jamData = jams.map(jam => getJamData(jam));
     return (
-        <Container id="jam-page">
-          <Card.Group>
-            {_.map(jamData, (jam, index) => <JamsAdminCard key={index} jam={jam}/>)}
-          </Card.Group>
-        </Container>
+        <div className='bg-color'>
+          <Container id="jam-page">
+            <Card.Group itemsPerRow={4}>
+              {_.map(jamData, (jam, index) => <JamsAdminCard key={index} jam={jam}/>)}
+            </Card.Group>
+          </Container>
+        </div>
     );
   }
 }

@@ -25,7 +25,7 @@ class JamsCard extends React.Component {
     } else {
       swal('Error', 'Already In This Jam');
     }
-  };
+  }
 
   handleClick3 = () => {
     const user = Meteor.user().username;
@@ -55,13 +55,13 @@ class JamsCard extends React.Component {
           <Card.Content>
             <Card.Header style={{ marginTop: '0px' }}>{this.props.jam.name}</Card.Header>
             <Card.Description>
-              <span className='date'>Contact Information: {this.props.jam.contact}</span>
+              <span className='date'><b>Contact Information:</b> {this.props.jam.contact}</span>
             </Card.Description>
             <Card.Description>
-              <span className='date'>Location: {this.props.jam.location}</span>
+              <span className='date'><b>Location:</b> {this.props.jam.location}</span>
             </Card.Description>
             <Card.Description>
-              <span className='date'>Date: {this.props.jam.date}</span>
+              <span className='date'><b>Date:</b> {this.props.jam.date}</span>
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
@@ -79,15 +79,11 @@ class JamsCard extends React.Component {
             {_.map(this.props.jam.participants, (p, index) => <Image key={index} circular size='mini' src={p}/>)}
           </Card.Content>
           <Card.Content extra>
-            <Link to={`/edit/${this.props.jam._id}`}>Edit</Link>
-          </Card.Content>
-          <Card.Content extra>
             <button className="ui button" onClick={this.handleClick2}>Join </button>
           </Card.Content>
           <Card.Content extra>
             <button className="ui button" onClick={this.handleClick3}>Leave </button>
           </Card.Content>
-
         </Card>
     );
   }

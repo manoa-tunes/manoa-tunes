@@ -33,6 +33,7 @@ const makeSchema = (allInterests, allJams, allInstruments) => new SimpleSchema({
 
 /** Renders the createProfile Page: what appears after the user logs in. */
 class CreateProfile extends React.Component {
+  /** Redirecting. */
   handleClick = () => {
     // eslint-disable-next-line
     document.location.href = '/';
@@ -42,7 +43,7 @@ class CreateProfile extends React.Component {
     const { name, bio, interests, instruments } = data;
     const email = Meteor.user().username;
     const picture = 'https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg';
-    const jams = ['None'];
+    const jams = [''];
     interests.map((interest) => ProfilesInterests.collection.insert({ profile: email, interest }));
     instruments.map((instrument) => ProfilesInstruments.collection.insert({ profile: email, instrument }));
     jams.map((jam) => ProfilesJams.collection.insert({ profile: email, jam }));

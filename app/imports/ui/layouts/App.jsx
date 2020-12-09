@@ -10,7 +10,6 @@ import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
 import Home from '../pages/Home';
 import Profiles from '../pages/Profiles';
-import EditJam from '../pages/EditJam';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -19,6 +18,7 @@ import AddJam from '../pages/AddJam';
 import Jams from '../pages/Jams';
 import CreateProfile from '../pages/CreateProfile';
 import JamsAdmin from '../pages/JamsAdmin';
+import YourProfile from '../pages/YourProfile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -33,8 +33,8 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/profiles" component={Profiles}/>
+              <ProtectedRoute path="/your-profile" component={YourProfile}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
-              <ProtectedRoute path="/edit/:_id" component={EditJam}/>
               <ProtectedRoute path="/addjam" component={AddJam}/>
               <ProtectedRoute path="/jams" component={Jams}/>
               <ProtectedRoute path="/create-profile" component={CreateProfile}/>

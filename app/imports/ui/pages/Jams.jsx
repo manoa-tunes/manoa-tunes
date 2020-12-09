@@ -16,7 +16,7 @@ function getJamData(name) {
   const interests = _.pluck(JamsInterests.collection.find({ jam: name }).fetch(), 'interest');
   const profiles = _.pluck(ProfilesJams.collection.find({ jam: name }).fetch(), 'profile');
   const instruments = _.pluck(JamsInstruments.collection.find({ jam: name }).fetch(), 'instrument');
-  const profilePictures = profiles.map(profile => Profiles.collection.findOne({ email: profile }), 'picture'); /* something about this line is broken */
+  const profilePictures = profiles.map(profile => Profiles.collection.findOne({ email: profile }).picture);
   return _.extend({ }, data, { interests, instruments, participants: profilePictures });
 }
 
@@ -33,19 +33,19 @@ class JamsPage extends React.Component {
     const jams = _.pluck(Jams.collection.find().fetch(), 'name');
     const jamData = jams.map(jam => getJamData(jam));
     return (
-        <Container id="jams-page">
-          <Card.Group>
-            {_.map(jamData, (jam, index) => <JamsCard key={index} jam={jam}/>)}
-          </Card.Group>
-        </Container>
+        <div className="bg-color">
+          <Container id="jam-page">
+            <Card.Group itemsPerRow={4}>
+              {_.map(jamData, (jam, index) => <JamsCard key={index} jam={jam}/>)}
+            </Card.Group>
+          </Container>
+        </div>
     );
   }
 }
-
 JamsPage.propTypes = {
   ready: PropTypes.bool.isRequired,
 };
-
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Ensure that minimongo is populated with all collections prior to running render().
