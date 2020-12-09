@@ -13,7 +13,7 @@ import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 class YourCard extends React.Component {
   handleClick1 = () => {
     // eslint-disable-next-line
-    document.location.href = '/#/profileadmin';
+    document.location.reload();
 
   };
 
@@ -32,7 +32,9 @@ class YourCard extends React.Component {
       ProfilesJams.collection.remove(deleteJam[i]);
     }
     // eslint-disable-next-line no-undef
-    document.location.href = '/#/';
+    document.location.reload();
+    // eslint-disable-next-line no-undef
+    document.location.href = '/#/profileadmin';
   };
 
   render() {
