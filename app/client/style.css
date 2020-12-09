@@ -61,3 +61,7 @@ body {
   background: red !important;
   float: right;
 }
+
+.card-bg2 {
+  background-color: #66FF99 !important;
+}

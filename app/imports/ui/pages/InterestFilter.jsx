@@ -27,6 +27,7 @@ function getProfileData(email) {
   const interests = _.pluck(ProfilesInterests.collection.find({ profile: email }).fetch(), 'interest');
   const instruments = _.pluck(ProfilesInstruments.collection.find({ profile: email }).fetch(), 'instrument');
   const jams = _.pluck(ProfilesJams.collection.find({ profile: email }).fetch(), 'jam');
+  console.log(jams);
   // console.log(_.extend({ }, data, { interests, jams: jamPictures }));
   return _.extend({}, data, { interests, instruments, jams });
 }

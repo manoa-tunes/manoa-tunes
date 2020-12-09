@@ -3,25 +3,8 @@ import { Card, Image, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import { withRouter } from 'react-router-dom';
-import { Jams } from '../../api/jams/Jams';
-import { JamsInterests } from '../../api/jams/JamsInterests';
-import { JamsInstruments } from '../../api/jams/JamsInstruments';
-import { Profiles } from '../../api/profiles/Profiles';
-import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 
 class ProfileCard extends React.Component {
-  handleClick = () => {
-    Jams.collection.remove(this.props.profile._id);
-    JamsInterests.collection.remove(this.props.profile._id);
-    JamsInstruments.collection.remove(this.props.profile._id);
-    Profiles.collection.remove(this.props.profile._id);
-    const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.profile.name }).fetch(), '_id');
-    for (let i = 0; i < deleteJam.length; i++) {
-      ProfilesJams.collection.remove(deleteJam[i]);
-    }
-    // eslint-disable-next-line no-undef
-    document.location.reload(true);
-  };
 
   render() {
     /** Component for layout out a Profile Card. */
