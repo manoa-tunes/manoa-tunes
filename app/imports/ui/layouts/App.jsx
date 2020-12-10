@@ -22,6 +22,7 @@ import YourProfile from '../pages/YourProfile';
 import ProfilesAdmin from '../pages/ProfilesAdmin';
 import InterestFilter from '../pages/InterestFilter';
 import InstrumentFilter from '../pages/InstrumentFilter';
+import EditProfileAdmin from '../pages/EditProfileAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -43,6 +44,7 @@ class App extends React.Component {
               <ProtectedRoute path="/interest-filter" component={InterestFilter}/>
               <ProtectedRoute path="/instrument-filter" component={InstrumentFilter}/>
               <ProtectedRoute path="/create-profile" component={CreateProfile}/>
+              <ProtectedRoute path="/edit/:_id" component={EditProfileAdmin}/>
               <AdminProtectedRoute path="/jamsadmin" component={JamsAdmin}/>
               <AdminProtectedRoute path="/profileadmin" component={ProfilesAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>

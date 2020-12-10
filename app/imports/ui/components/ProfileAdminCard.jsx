@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Image, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
@@ -61,6 +61,7 @@ class YourCard extends React.Component {
                 (jam, index) => <Label key={index} size='tiny' color='green'>{jam}</Label>)}
           </Card.Content>
           <Card.Content extra className="card-bg">
+            <Link to={`/edit/${this.props.profile._id}`}>Edit</Link>
             <button className="ui button delete" onClick={this.handleClick2}>Delete</button>
           </Card.Content>
         </Card>

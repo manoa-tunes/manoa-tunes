@@ -3,7 +3,7 @@ import { Card, Image, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 
@@ -80,9 +80,7 @@ class JamsCard extends React.Component {
           </Card.Content>
           <Card.Content extra>
             <button className="ui button" onClick={this.handleClick2}>Join </button>
-          </Card.Content>
-          <Card.Content extra>
-            <button className="ui button" onClick={this.handleClick3}>Leave </button>
+            <button className="ui button" style={{ float: 'right' }} onClick={this.handleClick3}>Leave </button>
           </Card.Content>
         </Card>
     );

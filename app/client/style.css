@@ -1,6 +1,9 @@
 .bg-image {
-  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
   background-image: url("https://w-dog.net/wallpapers/6/14/483307692322911/background-dark-album-vinyl-music.jpg");
+  height: 600px;
 }
 
 body {
@@ -60,8 +63,4 @@ body {
 .ui.button.delete {
   background: red !important;
   float: right;
-}
-
-.card-bg2 {
-  background-color: #66FF99 !important;
 }

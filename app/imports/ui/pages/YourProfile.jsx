@@ -33,7 +33,7 @@ class YourProfile extends React.Component {
   renderPage() {
     const profileData = [getProfileData(Meteor.user().username)];
     return (
-        <div className="bg-color">
+        <div className="bg-image">
           <Container id="profiles-page">
             <Card.Group itemsPerRow={1}>
               {_.map(profileData, (profile, index) => <YourCard key={index} profile={profile}/>)}
