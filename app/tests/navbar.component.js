@@ -17,9 +17,15 @@ class NavBar {
     await testController.click('#login-dropdown-sign-in');
   }
 
+  async gotoYourProfilePage(testController) {
+    await testController.click('#profiles-dropdown');
+    await testController.click('#yourProfileMenuItem');
+  }
+
   async gotoHomePage(testController) {
     await testController.click('#profiles-dropdown');
     await testController.click('#yourProfileMenuItem');
+    await testController.click('#editProfile');
   }
 
   async gotoCreateProfilesPage(testController) {

@@ -75,7 +75,7 @@ class YourCard extends React.Component {
                 (jam, index) => <Label key={index} size='tiny' color='green'>{jam}</Label>)}
           </Card.Content>
           <Card.Content extra className="card-bg">
-            <button className="ui button" onClick={this.handleClick1}>Edit</button>
+            <button id='editProfile' className="ui button" onClick={this.handleClick1}>Edit</button>
             <button className="ui button delete" onClick={this.handleClick2}>Delete</button>
           </Card.Content>
         </Card>

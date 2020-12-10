@@ -44,10 +44,9 @@ class AddJamPage {
     await testController.click(participantsSelector);
     await testController.click(huimOption);
     await testController.click(participantsSelector);
-
+*/
     await testController.click('#submit');
     await testController.click(Selector('.swal-button--confirm'));
- */
   }
 }
 
