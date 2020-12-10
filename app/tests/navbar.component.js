@@ -28,7 +28,7 @@ class NavBar {
     await testController.click('#editProfile');
   }
 
-  async gotoCreateProfilesPage(testController) {
+  async gotoCreateProfilePage(testController) {
     await testController.click('#profiles-dropdown');
     await testController.click('#profilesMenuItem');
   }
@@ -51,6 +51,23 @@ class NavBar {
   async gotoJamsAdminPage(testController) {
     await testController.click('#admin-dropdown');
     await testController.click('#jamsAdminMenuItem');
+  }
+
+  async gotoProfilesAdminPage(testController) {
+    await testController.click('#admin-dropdown');
+    await testController.click('#profilesAdminMenuItem');
+  }
+
+  async gotoInstrumentFilterPage(testController) {
+    await testController.click('#profiles-dropdown');
+    await testController.click('#profilesMenuItem');
+    await testController.click('#instrumentProfileFilter');
+  }
+
+  async gotoInterestFilterPage(testController) {
+    await testController.click('#profiles-dropdown');
+    await testController.click('#profilesMenuItem');
+    await testController.click('#interestProfileFilter');
   }
 
   /** Check that the specified user is currently logged in. */

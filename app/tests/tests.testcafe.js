@@ -10,6 +10,9 @@ import { profilesPage } from './profiles.page';
 import { jamsPage } from './jams.page';
 import { addJamPage } from './addjam.page';
 import { jamsAdminPage } from './jamsAdmin.page';
+import { profilesAdminPage } from './profilesAdmin.page';
+import { instrumentFilterPage } from './instrumentFilter.page';
+import { interestFilterPage } from './interestFilter.page';
 
 /* global fixture:false, test:false */
 
@@ -58,12 +61,12 @@ test('Test that create profiles page works', async (testController) => {
   await navBar.gotoSignupPage(testController);
   await signupPage.isDisplayed(testController);
   await signupPage.signupUser(testController, newUser, credentials.username, credentials.password);
-  await navBar.gotoCreateProfilePage(testController);
+  // await navBar.gotoCreateProfilePage(testController);
   await createProfilePage.isDisplayed(testController);
   await createProfilePage.setName(testController);
 });
 
-test.only('Test that home page works', async (testController) => {
+test('Test that home page works', async (testController) => {
   // await navBar.ensureLogout(testController);
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
@@ -84,7 +87,7 @@ test('Test that profile page displays', async (testController) => {
   await profilesPage.hasDefaultProfiles(testController);
 });
 
-test('Test that addJam page works', async (testController) => {
+test('Test that add jam page works', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
@@ -103,7 +106,7 @@ test('Test that jams page displays', async (testController) => {
   await navBar.ensureLogout(testController);
 });
 
-test('Test that jamsAdmin page displays', async (testController) => {
+test('Test that jams admin page displays', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.admin, credentials.password);
@@ -111,4 +114,32 @@ test('Test that jamsAdmin page displays', async (testController) => {
   await jamsAdminPage.isDisplayed(testController);
   await jamsAdminPage.hasDefaultJamsAdmin(testController);
   await navBar.ensureLogout(testController);
+});
+
+test('Test that profilesAdmin page displays', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.admin, credentials.password);
+  await navBar.gotoProfilesAdminPage(testController);
+  await profilesAdminPage.isDisplayed(testController);
+  await profilesAdminPage.hasDefaultProfilesAdmin(testController);
+  await navBar.ensureLogout(testController);
+});
+
+test('Test that interest filter page works', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoInterestFilterPage(testController);
+  await interestFilterPage.isDisplayed(testController);
+  await interestFilterPage.filter(testController);
+});
+
+test.only('Test that instrument filter page works', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoInstrumentFilterPage(testController);
+  await instrumentFilterPage.isDisplayed(testController);
+  await instrumentFilterPage.filter(testController);
 });

@@ -41,10 +41,10 @@ class ProfilesPage extends React.Component {
     return (
         <div className="bg-color">
           <Container style={{ margin: '10px 5px' }}>
-            <Button variant="primary" size="lg" href="/#/interest-filter" block>
+            <Button id='interestProfileFilter' variant="primary" size="lg" href="/#/interest-filter" block>
               Filter by Interest
             </Button>
-            <Button variant="secondary" size="lg" href="/#/instrument-filter" style={{ marginLeft: '5px' }} block>
+            <Button id='instrumentProfileFilter' variant="secondary" size="lg" href="/#/instrument-filter" style={{ marginLeft: '5px' }} block>
               Filter by Instrument
             </Button>
           </Container>
