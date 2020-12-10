@@ -44,6 +44,8 @@ class NavBar extends React.Component {
                   <Dropdown.Menu>
                     <Dropdown.Item id="jamsAdminMenuItem" text="Jams Management" as={NavLink} exact to="/jamsAdmin" key='jamsAdmin'/>
                     <Dropdown.Item id="profilesAdminMenuItem" text="Profiles Management" as={NavLink} exact to="/profilesAdmin" key='profilesAdmin'/>
+                    <Dropdown.Item text="Profiles Management" as={NavLink} exact to="/profileadmin" key='profileadmin'/>
+                    <Dropdown.Item id="jamsMenuItem" text="Jams Management" as={NavLink} exact to="/jamsadmin" key='jamsadmin'/>
                   </Dropdown.Menu>
                 </Dropdown>
               </Menu.Item>

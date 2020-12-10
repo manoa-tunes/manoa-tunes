@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Loader, Card, Button } from 'semantic-ui-react';
+import { Container, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -8,7 +8,7 @@ import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { Jams } from '../../api/jams/Jams';
-import ProfileCard from '../components/ProfileCard';
+import ProfileAdminCard from '../components/ProfileAdminCard';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 
 /** Returns the Profile and associated jams and Interests associated with the passed user email. */
@@ -22,7 +22,7 @@ function getProfileData(email) {
 }
 
 /** Renders the Profile Collection as a set of Cards. */
-class ProfilesPage extends React.Component {
+class ProfilesPageAdmin extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -40,17 +40,9 @@ class ProfilesPage extends React.Component {
     const profileData = emails.map(email => getProfileData(email));
     return (
         <div className="bg-color">
-          <Container style={{ margin: '10px 5px' }}>
-            <Button variant="primary" size="lg" href="/#/interest-filter" block>
-              Filter by Interest
-            </Button>
-            <Button variant="secondary" size="lg" href="/#/instrument-filter" style={{ marginLeft: '5px' }} block>
-              Filter by Instrument
-            </Button>
-          </Container>
           <Container id="profiles-page">
             <Card.Group itemsPerRow={4}>
-              {_.map(profileData, (profile, index) => <ProfileCard key={index} profile={profile}/>)}
+              {_.map(profileData, (profile, index) => <ProfileAdminCard key={index} profile={profile}/>)}
             </Card.Group>
           </Container>
         </div>
@@ -58,7 +50,7 @@ class ProfilesPage extends React.Component {
   }
 }
 
-ProfilesPage.propTypes = {
+ProfilesPageAdmin.propTypes = {
   ready: PropTypes.bool.isRequired,
 };
 
@@ -73,4 +65,4 @@ export default withTracker(() => {
   return {
     ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready(),
   };
-})(ProfilesPage);
+})(ProfilesPageAdmin);

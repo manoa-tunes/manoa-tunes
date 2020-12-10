@@ -3,8 +3,32 @@ import { Card, Image, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import { withRouter } from 'react-router-dom';
+import { Profiles } from '../../api/profiles/Profiles';
+import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
+import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
+import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 
-class ProfileCard extends React.Component {
+class YourCard extends React.Component {
+
+  handleClick2 = () => {
+    const deleteInterests = _.pluck(ProfilesInterests.collection.find({ profile: this.props.profile.email }).fetch(), '_id');
+    const deleteInstruments = _.pluck(ProfilesInstruments.collection.find({ profile: this.props.profile.email }).fetch(), '_id');
+    const deleteJam = _.pluck(ProfilesJams.collection.find({ profile: this.props.profile.email }).fetch(), '_id');
+    Profiles.collection.remove(this.props.profile._id);
+    for (let i = 0; i < deleteInstruments.length; i++) {
+      ProfilesInstruments.collection.remove(deleteInstruments[i]);
+    }
+    for (let i = 0; i < deleteInterests.length; i++) {
+      ProfilesInterests.collection.remove(deleteInterests[i]);
+    }
+    for (let i = 0; i < deleteJam.length; i++) {
+      ProfilesJams.collection.remove(deleteJam[i]);
+    }
+    // eslint-disable-next-line no-undef
+    document.location.reload();
+    // eslint-disable-next-line no-undef
+    document.location.href = '/#/profileadmin';
+  };
 
   render() {
     /** Component for layout out a Profile Card. */
@@ -36,13 +60,16 @@ class ProfileCard extends React.Component {
             {_.map(this.props.profile.jams,
                 (jam, index) => <Label key={index} size='tiny' color='green'>{jam}</Label>)}
           </Card.Content>
+          <Card.Content extra className="card-bg">
+            <button className="ui button delete" onClick={this.handleClick2}>Delete</button>
+          </Card.Content>
         </Card>
     );
   }
 }
 
-ProfileCard.propTypes = {
+YourCard.propTypes = {
   profile: PropTypes.object.isRequired,
 };
 
-export default withRouter(ProfileCard);
+export default withRouter(YourCard);

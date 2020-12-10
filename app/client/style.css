@@ -50,6 +50,7 @@ body {
 
 .bg-color {
   background-color: #262626 ;
+  margin-top: -10px;
 }
 
 .card-bg {
@@ -59,4 +60,8 @@ body {
 .ui.button.delete {
   background: red !important;
   float: right;
+}
+
+.card-bg2 {
+  background-color: #66FF99 !important;
 }

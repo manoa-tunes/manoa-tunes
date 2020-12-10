@@ -17,7 +17,7 @@ class YourCard extends React.Component {
       // eslint-disable-next-line
       document.location.href = '/#/home';
     } else {
-      swal('Error', 'You have no profile to edit. GET OUT');
+      swal('Error', 'You have no profile to edit');
     }
   };
 
