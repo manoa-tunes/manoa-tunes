@@ -47,7 +47,7 @@ class ProfilesPage extends React.Component {
             <Button id='instrumentProfileFilter' variant="secondary" size="lg" href="/#/instrument-filter" style={{ marginLeft: '5px' }} block>
               Filter by Instrument
             </Button>
-            <Button variant="secondary" size="lg" href="/#/jam-filter" style={{ marginLeft: '5px' }} block>
+            <Button id='jamProfileFilter' variant="secondary" size="lg" href="/#/jam-filter" style={{ marginLeft: '5px' }} block>
               Filter by Jam
             </Button>
           </Container>

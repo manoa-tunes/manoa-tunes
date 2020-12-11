@@ -1045,6 +1045,23 @@
       "jams": [
         "MuseMix"
       ]
+    },
+
+    {
+      "name": "John",
+      "email": "john@foo.com",
+      "bio": "I am a Professor and like to paddle outrigger canoes.",
+      "picture": "https://philipmjohnson.github.io/images/philip2.jpeg",
+      "interests": [
+        "Jazz Rock",
+        "Blues"
+      ],
+      "instruments": [
+        "Guitar"
+      ],
+      "jams": [
+        "YessJazz"
+      ]
     }
   ],
 
@@ -1182,6 +1199,7 @@
       ]
     }
   ],
+
 
   "monti": {
     "appId": "pc4tGWASdAoj6b6GD",

@@ -70,6 +70,12 @@ class NavBar {
     await testController.click('#interestProfileFilter');
   }
 
+  async gotoJamFilterPage(testController) {
+    await testController.click('#profiles-dropdown');
+    await testController.click('#profilesMenuItem');
+    await testController.click('#jamProfileFilter');
+  }
+
   /** Check that the specified user is currently logged in. */
   async isLoggedIn(testController, username) {
     const loggedInUser = Selector('#navbar-current-user').innerText;

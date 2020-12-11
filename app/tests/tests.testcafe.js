@@ -13,6 +13,7 @@ import { jamsAdminPage } from './jamsAdmin.page';
 import { profilesAdminPage } from './profilesAdmin.page';
 import { instrumentFilterPage } from './instrumentFilter.page';
 import { interestFilterPage } from './interestFilter.page';
+import { jamFilterPage } from './jamFilter.page';
 
 /* global fixture:false, test:false */
 
@@ -135,11 +136,20 @@ test('Test that interest filter page works', async (testController) => {
   await interestFilterPage.filter(testController);
 });
 
-test.only('Test that instrument filter page works', async (testController) => {
+test('Test that instrument filter page works', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoInstrumentFilterPage(testController);
   await instrumentFilterPage.isDisplayed(testController);
   await instrumentFilterPage.filter(testController);
+});
+
+test('Test that jam filter page works', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoJamFilterPage(testController);
+  await jamFilterPage.isDisplayed(testController);
+  await jamFilterPage.filter(testController);
 });
