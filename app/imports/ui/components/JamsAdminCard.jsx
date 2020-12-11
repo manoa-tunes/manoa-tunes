@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Label, Header } from 'semantic-ui-react';
+import { Card, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
@@ -93,7 +93,7 @@ class JamsCard extends React.Component {
           </Card.Content>
           <Card.Content extra>
             <Header as='h5'>Participants</Header>
-            {_.map(this.props.jam.participants, (p, index) => <Image key={index} circular size='mini' src={p}/>)}
+            {_.size(this.props.jam.participants)}
           </Card.Content>
           <Card.Content extra>
             <button className="ui button" onClick={this.handleClick2}>Join </button>

@@ -44,6 +44,11 @@ class InstrumentFilter extends React.Component {
     this.setState({ instruments: data.instruments || [] });
   }
 
+  handleClick = () => {
+    // eslint-disable-next-line no-undef
+    document.location.href = '/#/profiles';
+  }
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -63,9 +68,11 @@ class InstrumentFilter extends React.Component {
               <Segment>
                 <MultiSelectField id='instruments' name='instruments' showInlineError={true} placeholder={'Instruments'}/>
                 <SubmitField id='instrumentFilter-submit' value='Submit'/>
+                <SubmitField id='submit' value='Submit'/>
+                <button className="ui button" onClick={this.handleClick}>Back </button>
               </Segment>
             </AutoForm>
-            <Card.Group style={{ paddingTop: '10px' }}>
+            <Card.Group style={{ paddingTop: '10px' }} itemsPerRow={4}>
               {_.map(profileData, (profile, index) => <ProfileCard key={index} profile={profile}/>)}
             </Card.Group>
           </Container>
