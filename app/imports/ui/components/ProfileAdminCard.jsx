@@ -27,7 +27,7 @@ class YourCard extends React.Component {
     // eslint-disable-next-line no-undef
     document.location.reload();
     // eslint-disable-next-line no-undef
-    document.location.href = '/#/profileadmin';
+    document.location.href = '/#/profilesAdmin';
   };
 
   render() {

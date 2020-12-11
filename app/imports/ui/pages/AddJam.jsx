@@ -67,7 +67,7 @@ class AddJam extends React.Component {
     let fRef = null;
     return (
         <div className="bg-image">
-          <Grid id="home-page" container centered>
+          <Grid id="add-jam-page" container centered>
             <Grid.Column>
               <Header as="h2" textAlign="center" inverted>Your Jams</Header>
               <AutoForm ref={ref => { fRef = ref; }}
@@ -75,20 +75,20 @@ class AddJam extends React.Component {
                 <Segment>
                   <Form.Group widths={'equal'}>
                     <TextField id='name' name='name' showInlineError={true} placeholder={'Name Of Your Jam (this cannot be changed later!)'}/>
-                    <TextField name='contact' showInlineError={true} placeholder={'Contact Information (Email or Phone Number)'}/>
+                    <TextField id='contact' name='contact' showInlineError={true} placeholder={'Contact Information (Email or Phone Number)'}/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
-                    <TextField name='date' showInlineError={true} placeholder={'mm/dd/yy & time'}/>
-                    <TextField name='location' showInlineError={true} placeholder={'location'}/>
+                    <TextField id='date' name='date' showInlineError={true} placeholder={'mm/dd/yy & time'}/>
+                    <TextField id='location' name='location' showInlineError={true} placeholder={'location'}/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
-                    <MultiSelectField className="multiselect" name='interests' showInlineError={true} placeholder={'Interests'}/>
-                    <MultiSelectField className="multiselect" name='instruments' showInlineError={true} placeholder={'Instruments'}/>
+                    <MultiSelectField id='interests' className="multiselect" name='interests' showInlineError={true} placeholder={'Interests'}/>
+                    <MultiSelectField id='instruments' className="multiselect" name='instruments' showInlineError={true} placeholder={'Instruments'}/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
                     <MultiSelectField id='participants' name='participants' showInlineError={true} placeholder={'Participants'}/>
                   </Form.Group>
-                  <SubmitField id='home-page-submit' value='Update'/>
+                  <SubmitField id='submit' value='Update'/>
                 </Segment>
               </AutoForm>
             </Grid.Column>

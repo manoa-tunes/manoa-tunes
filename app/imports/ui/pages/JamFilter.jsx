@@ -63,11 +63,11 @@ class JamFilter extends React.Component {
     const profileData = _.uniq(emails).map(email => getProfileData(email));
     return (
         <div className="bg-color">
-          <Container id="filter-page">
+          <Container id="jamFilter-page">
             <AutoForm schema={bridge} onSubmit={data => this.submit(data)} style={{ marginBottom: '20px' }}>
               <Segment>
                 <MultiSelectField id='jams' name='jams' showInlineError={true} placeholder={'Jams'}/>
-                <SubmitField id='submit' value='Submit'/>
+                <SubmitField id='jamFilter-submit' value='Submit'/>
                 <button className="ui button" onClick={this.handleClick}>Back </button>
               </Segment>
             </AutoForm>

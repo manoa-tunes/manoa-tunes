@@ -64,10 +64,11 @@ class InterestFilter extends React.Component {
     const profileData = _.uniq(emails).map(email => getProfileData(email));
     return (
         <div className="bg-color">
-          <Container id="filter-page">
+          <Container id="interestFilter-page">
             <AutoForm schema={bridge} onSubmit={data => this.submit(data)} style={{ marginBottom: '20px' }}>
               <Segment>
                 <MultiSelectField id='interests' name='interests' showInlineError={true} placeholder={'Interests'}/>
+                <SubmitField id='interestFilter-submit' value='Submit'/>
                 <SubmitField id='submit' value='Submit'/>
                 <button className="ui button" onClick={this.handleClick}>Back </button>
               </Segment>

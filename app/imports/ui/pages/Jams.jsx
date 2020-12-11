@@ -34,7 +34,7 @@ class JamsPage extends React.Component {
     const jamData = jams.map(jam => getJamData(jam));
     return (
         <div className="bg-color">
-          <Container id="jam-page">
+          <Container id="jams-page">
             <Card.Group itemsPerRow={4}>
               {_.map(jamData, (jam, index) => <JamsCard key={index} jam={jam}/>)}
             </Card.Group>
@@ -43,11 +43,9 @@ class JamsPage extends React.Component {
     );
   }
 }
-
 JamsPage.propTypes = {
   ready: PropTypes.bool.isRequired,
 };
-
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Ensure that minimongo is populated with all collections prior to running render().

@@ -22,7 +22,7 @@ function getProfileData(email) {
 }
 
 /** Renders the Profile Collection as a set of Cards. */
-class ProfilesPageAdmin extends React.Component {
+class ProfilesAdminPage extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -40,7 +40,7 @@ class ProfilesPageAdmin extends React.Component {
     const profileData = emails.map(email => getProfileData(email));
     return (
         <div className="bg-color">
-          <Container id="profiles-page">
+          <Container id="profilesAdmin-page">
             <Card.Group itemsPerRow={4}>
               {_.map(profileData, (profile, index) => <ProfileAdminCard key={index} profile={profile}/>)}
             </Card.Group>
@@ -50,7 +50,7 @@ class ProfilesPageAdmin extends React.Component {
   }
 }
 
-ProfilesPageAdmin.propTypes = {
+ProfilesAdminPage.propTypes = {
   ready: PropTypes.bool.isRequired,
 };
 
@@ -65,4 +65,4 @@ export default withTracker(() => {
   return {
     ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready(),
   };
-})(ProfilesPageAdmin);
+})(ProfilesAdminPage);

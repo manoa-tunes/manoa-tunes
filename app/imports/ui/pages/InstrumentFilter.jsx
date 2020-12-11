@@ -63,10 +63,11 @@ class InstrumentFilter extends React.Component {
     const profileData = _.uniq(emails).map(email => getProfileData(email));
     return (
         <div className="bg-color">
-          <Container id="filter-page">
+          <Container id="instrumentFilter-page">
             <AutoForm schema={bridge} onSubmit={data => this.submit(data)} style={{ marginBottom: '20px' }}>
               <Segment>
                 <MultiSelectField id='instruments' name='instruments' showInlineError={true} placeholder={'Instruments'}/>
+                <SubmitField id='instrumentFilter-submit' value='Submit'/>
                 <SubmitField id='submit' value='Submit'/>
                 <button className="ui button" onClick={this.handleClick}>Back </button>
               </Segment>

@@ -17,17 +17,63 @@ class NavBar {
     await testController.click('#login-dropdown-sign-in');
   }
 
+  async gotoYourProfilePage(testController) {
+    await testController.click('#profiles-dropdown');
+    await testController.click('#yourProfileMenuItem');
+  }
+
+  async gotoHomePage(testController) {
+    await testController.click('#profiles-dropdown');
+    await testController.click('#yourProfileMenuItem');
+    await testController.click('#editProfile');
+  }
+
+  async gotoCreateProfilePage(testController) {
+    await testController.click('#profiles-dropdown');
+    await testController.click('#profilesMenuItem');
+  }
+
   async gotoProfilesPage(testController) {
     await testController.click('#profiles-dropdown');
     await testController.click('#profilesMenuItem');
   }
 
+  async gotoJamsPage(testController) {
+    await testController.click('#jams-dropdown');
+    await testController.click('#jamsMenuItem');
+  }
+
   async gotoAddJamPage(testController) {
+    await testController.click('#jams-dropdown');
     await testController.click('#addjamMenuItem');
   }
 
-  async gotoJamsPage(testController) {
-    await testController.click('#jamsMenuItem');
+  async gotoJamsAdminPage(testController) {
+    await testController.click('#admin-dropdown');
+    await testController.click('#jamsAdminMenuItem');
+  }
+
+  async gotoProfilesAdminPage(testController) {
+    await testController.click('#admin-dropdown');
+    await testController.click('#profilesAdminMenuItem');
+  }
+
+  async gotoInstrumentFilterPage(testController) {
+    await testController.click('#profiles-dropdown');
+    await testController.click('#profilesMenuItem');
+    await testController.click('#instrumentProfileFilter');
+  }
+
+  async gotoInterestFilterPage(testController) {
+    await testController.click('#profiles-dropdown');
+    await testController.click('#profilesMenuItem');
+    await testController.click('#interestProfileFilter');
+  }
+
+  async gotoJamFilterPage(testController) {
+    await testController.click('#profiles-dropdown');
+    await testController.click('#profilesMenuItem');
+    await testController.click('#jamProfileFilter');
   }
 
   /** Check that the specified user is currently logged in. */
