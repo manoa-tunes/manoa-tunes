@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Image, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
@@ -25,9 +25,7 @@ class YourCard extends React.Component {
       ProfilesJams.collection.remove(deleteJam[i]);
     }
     // eslint-disable-next-line no-undef
-    document.location.reload();
-    // eslint-disable-next-line no-undef
-    document.location.href = '/#/profilesAdmin';
+    document.location.href = '/#/';
   };
 
   render() {
@@ -61,6 +59,7 @@ class YourCard extends React.Component {
                 (jam, index) => <Label key={index} size='tiny' color='green'>{jam}</Label>)}
           </Card.Content>
           <Card.Content extra className="card-bg">
+            <button className="ui button "><Link to={`/edit/${this.props.profile._id}`}>Edit</Link></button>
             <button className="ui button delete" onClick={this.handleClick2}>Delete</button>
           </Card.Content>
         </Card>

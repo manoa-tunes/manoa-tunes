@@ -23,6 +23,7 @@ import ProfilesAdmin from '../pages/ProfilesAdmin';
 import InterestFilter from '../pages/InterestFilter';
 import InstrumentFilter from '../pages/InstrumentFilter';
 import JamFilter from '../pages/JamFilter';
+import EditProfileAdmin from '../pages/EditProfileAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -45,6 +46,7 @@ class App extends React.Component {
               <ProtectedRoute path="/instrument-filter" component={InstrumentFilter}/>
               <ProtectedRoute path="/jam-filter" component={JamFilter}/>
               <ProtectedRoute path="/create-profile" component={CreateProfile}/>
+              <AdminProtectedRoute path="/edit/:_id" component={EditProfileAdmin}/>
               <AdminProtectedRoute path="/jamsAdmin" component={JamsAdmin}/>
               <AdminProtectedRoute path="/profilesAdmin" component={ProfilesAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
