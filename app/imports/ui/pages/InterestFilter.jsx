@@ -66,7 +66,7 @@ class InterestFilter extends React.Component {
                 <SubmitField id='submit' value='Submit'/>
               </Segment>
             </AutoForm>
-            <Card.Group style={{ paddingTop: '10px' }}>
+            <Card.Group style={{ paddingTop: '10px' }} itemsPerRow={4}>
               {_.map(profileData, (profile, index) => <ProfileCard key={index} profile={profile}/>)}
             </Card.Group>
           </Container>
