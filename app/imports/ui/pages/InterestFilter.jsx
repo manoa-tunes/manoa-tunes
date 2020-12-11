@@ -45,6 +45,11 @@ class InterestFilter extends React.Component {
     this.setState({ interests: data.interests || [] });
   }
 
+  handleClick = () => {
+    // eslint-disable-next-line no-undef
+    document.location.href = '/#/profiles';
+  }
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -64,6 +69,7 @@ class InterestFilter extends React.Component {
               <Segment>
                 <MultiSelectField id='interests' name='interests' showInlineError={true} placeholder={'Interests'}/>
                 <SubmitField id='submit' value='Submit'/>
+                <button className="ui button" onClick={this.handleClick}>Back </button>
               </Segment>
             </AutoForm>
             <Card.Group style={{ paddingTop: '10px' }} itemsPerRow={4}>

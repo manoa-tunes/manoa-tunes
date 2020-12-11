@@ -18,9 +18,9 @@ import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import ProfileCard from '../components/ProfileCard';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
-const makeSchema = (allInstruments) => new SimpleSchema({
-  instruments: { type: Array, label: 'Instruments', optional: true },
-  'instruments.$': { type: String, allowedValues: allInstruments },
+const makeSchema = (allJams) => new SimpleSchema({
+  jams: { type: Array, label: 'Jams', optional: true },
+  'jams.$': { type: String, allowedValues: allJams },
 });
 
 function getProfileData(email) {
@@ -33,15 +33,15 @@ function getProfileData(email) {
 }
 
 /** Renders the Profile Collection as a set of Cards. */
-class InstrumentFilter extends React.Component {
+class JamFilter extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { instruments: [] };
+    this.state = { jams: [] };
   }
 
   submit(data) {
-    this.setState({ instruments: data.instruments || [] });
+    this.setState({ jams: data.jams || [] });
   }
 
   handleClick = () => {
@@ -56,17 +56,17 @@ class InstrumentFilter extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const allInstruments = _.pluck(Instruments.collection.find().fetch(), 'name');
-    const formSchema = makeSchema(allInstruments);
+    const allJams = _.pluck(Jams.collection.find().fetch(), 'name');
+    const formSchema = makeSchema(allJams);
     const bridge = new SimpleSchema2Bridge(formSchema);
-    const emails = _.pluck(ProfilesInstruments.collection.find({ instrument: { $in: this.state.instruments } }).fetch(), 'profile');
+    const emails = _.pluck(ProfilesJams.collection.find({ jam: { $in: this.state.jams } }).fetch(), 'profile');
     const profileData = _.uniq(emails).map(email => getProfileData(email));
     return (
         <div className="bg-color">
           <Container id="filter-page">
             <AutoForm schema={bridge} onSubmit={data => this.submit(data)} style={{ marginBottom: '20px' }}>
               <Segment>
-                <MultiSelectField id='instruments' name='instruments' showInlineError={true} placeholder={'Instruments'}/>
+                <MultiSelectField id='jams' name='jams' showInlineError={true} placeholder={'Jams'}/>
                 <SubmitField id='submit' value='Submit'/>
                 <button className="ui button" onClick={this.handleClick}>Back </button>
               </Segment>
@@ -81,7 +81,7 @@ class InstrumentFilter extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-InstrumentFilter.propTypes = {
+JamFilter.propTypes = {
   ready: PropTypes.bool.isRequired,
 };
 
@@ -98,4 +98,4 @@ export default withTracker(() => {
   return {
     ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready() && sub7.ready(),
   };
-})(InstrumentFilter);
+})(JamFilter);

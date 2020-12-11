@@ -62,6 +62,10 @@ body {
   float: right;
 }
 
+.ui.button.leave {
+  float: right;
+}
+
 .card-bg2 {
   background-color: #66FF99 !important;
 }
