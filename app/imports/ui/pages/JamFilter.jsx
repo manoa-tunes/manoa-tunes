@@ -66,7 +66,7 @@ class JamFilter extends React.Component {
           <Container id="filter-page">
             <AutoForm schema={bridge} onSubmit={data => this.submit(data)} style={{ marginBottom: '20px' }}>
               <Segment>
-                <MultiSelectField id='jams' name='jams' showInlineError={true} placeholder={'jams'}/>
+                <MultiSelectField id='jams' name='jams' showInlineError={true} placeholder={'Jams'}/>
                 <SubmitField id='submit' value='Submit'/>
                 <button className="ui button" onClick={this.handleClick}>Back </button>
               </Segment>
