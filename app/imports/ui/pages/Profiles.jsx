@@ -47,6 +47,9 @@ class ProfilesPage extends React.Component {
             <Button variant="secondary" size="lg" href="/#/instrument-filter" style={{ marginLeft: '5px' }} block>
               Filter by Instrument
             </Button>
+            <Button variant="secondary" size="lg" href="/#/jam-filter" style={{ marginLeft: '5px' }} block>
+              Filter by Jam
+            </Button>
           </Container>
           <Container id="profiles-page">
             <Card.Group itemsPerRow={4}>
