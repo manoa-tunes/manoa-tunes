@@ -25,9 +25,7 @@ class YourCard extends React.Component {
       ProfilesJams.collection.remove(deleteJam[i]);
     }
     // eslint-disable-next-line no-undef
-    document.location.reload();
-    // eslint-disable-next-line no-undef
-    document.location.href = '/#/profileadmin';
+    document.location.href = '/#/';
   };
 
   render() {
@@ -61,7 +59,7 @@ class YourCard extends React.Component {
                 (jam, index) => <Label key={index} size='tiny' color='green'>{jam}</Label>)}
           </Card.Content>
           <Card.Content extra className="card-bg">
-            <Link to={`/edit/${this.props.profile._id}`}>Edit</Link>
+            <button className="ui button "><Link to={`/edit/${this.props.profile._id}`}>Edit</Link></button>
             <button className="ui button delete" onClick={this.handleClick2}>Delete</button>
           </Card.Content>
         </Card>

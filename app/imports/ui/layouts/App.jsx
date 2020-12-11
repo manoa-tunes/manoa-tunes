@@ -44,7 +44,7 @@ class App extends React.Component {
               <ProtectedRoute path="/interest-filter" component={InterestFilter}/>
               <ProtectedRoute path="/instrument-filter" component={InstrumentFilter}/>
               <ProtectedRoute path="/create-profile" component={CreateProfile}/>
-              <ProtectedRoute path="/edit/:_id" component={EditProfileAdmin}/>
+              <AdminProtectedRoute path="/edit/:_id" component={EditProfileAdmin}/>
               <AdminProtectedRoute path="/jamsadmin" component={JamsAdmin}/>
               <AdminProtectedRoute path="/profileadmin" component={ProfilesAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>

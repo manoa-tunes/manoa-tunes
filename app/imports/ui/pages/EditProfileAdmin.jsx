@@ -53,7 +53,13 @@ class EditProfileAdmin extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
-    const email = Meteor.user().username;
+    // eslint-disable-next-line no-undef
+    const URL = window.location.href;
+    let id = URL.substr(URL.indexOf('edit'));
+    id = id.substr(id.indexOf('/') + 1);
+    console.log(id);
+    const findEmail = _.pluck(Profiles.collection.find(id).fetch(), 'email');
+    const email = findEmail[0];
     // Create the form schema for uniforms. Need to determine all interests and jams for multi select list.
     const allInterests = _.pluck(Interests.collection.find().fetch(), 'name');
     const allJams = _.pluck(Jams.collection.find().fetch(), 'name');
