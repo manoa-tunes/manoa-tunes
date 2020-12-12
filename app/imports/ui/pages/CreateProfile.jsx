@@ -87,7 +87,7 @@ class CreateProfile extends React.Component {
                         model={model} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
                 <Segment>
                   <Form.Group widths={'equal'}>
-                    <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
+                    <TextField id='name' name='name' label="Required" showInlineError={true} placeholder={'Name'}/>
                   </Form.Group>
                   <LongTextField id='bio' name='bio' placeholder='Write a little bit about yourself.'/>
                   <Form.Group widths={'equal'}>

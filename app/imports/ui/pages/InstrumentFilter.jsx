@@ -68,7 +68,6 @@ class InstrumentFilter extends React.Component {
               <Segment>
                 <MultiSelectField id='instruments' name='instruments' showInlineError={true} placeholder={'Instruments'}/>
                 <SubmitField id='instrumentFilter-submit' value='Submit'/>
-                <SubmitField id='submit' value='Submit'/>
                 <button className="ui button" onClick={this.handleClick}>Back </button>
               </Segment>
             </AutoForm>

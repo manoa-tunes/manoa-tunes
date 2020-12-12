@@ -69,7 +69,6 @@ class InterestFilter extends React.Component {
               <Segment>
                 <MultiSelectField id='interests' name='interests' showInlineError={true} placeholder={'Interests'}/>
                 <SubmitField id='interestFilter-submit' value='Submit'/>
-                <SubmitField id='submit' value='Submit'/>
                 <button className="ui button" onClick={this.handleClick}>Back </button>
               </Segment>
             </AutoForm>
