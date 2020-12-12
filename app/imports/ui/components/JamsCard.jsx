@@ -14,7 +14,6 @@ class JamsCard extends React.Component {
     let count = 0;
     const check = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name }).fetch(), 'profile');
     const allProfile = Profiles.collection.find(user);
-    console.log(allProfile);
     if (allProfile !== null) {
       for (let i = 0; i < check.length; i++) {
         if (check[i] === user) {
