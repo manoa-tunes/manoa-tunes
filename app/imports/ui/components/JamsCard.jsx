@@ -5,17 +5,16 @@ import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
 import { withRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
+import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
-import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 
 class JamsCard extends React.Component {
   handleClick2 = () => {
     const user = Meteor.user().username;
     let count = 0;
     const check = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name }).fetch(), 'profile');
-
-    const allProfile = _.pluck(ProfilesInterests.collection.find({ profile: user }).fetch(), '_id');
-    if (allProfile.length > 0) {
+    const allProfile = _.pluck(Profiles.collection.find().fetch(), 'email');
+    if (allProfile.includes(user)) {
       for (let i = 0; i < check.length; i++) {
         if (check[i] === user) {
           count = 1;
