@@ -6,24 +6,31 @@ import swal from 'sweetalert';
 import { withRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
+import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 
 class JamsCard extends React.Component {
   handleClick2 = () => {
     const user = Meteor.user().username;
     let count = 0;
     const check = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name }).fetch(), 'profile');
-    for (let i = 0; i < check.length; i++) {
-      if (check[i] === user) {
-        count = 1;
+
+    const allProfile = _.pluck(ProfilesInterests.collection.find({ profile: user }).fetch(), '_id');
+    if (allProfile.length > 0) {
+      for (let i = 0; i < check.length; i++) {
+        if (check[i] === user) {
+          count = 1;
+        }
       }
-    }
-    if (count === 0) {
-      ProfilesJams.collection.insert({ jam: this.props.jam.name, profile: user });
-      swal('Success', 'Joined Jam Successfully');
-      // eslint-disable-next-line no-undef
-      document.location.reload(true);
+      if (count === 0) {
+        ProfilesJams.collection.insert({ jam: this.props.jam.name, profile: user });
+        swal('Success', 'Joined Jam Successfully');
+        // eslint-disable-next-line no-undef
+        document.location.reload(true);
+      } else {
+        swal('Error', 'Already In This Jam');
+      }
     } else {
-      swal('Error', 'Already In This Jam');
+      swal('Error', 'You have no profile to join this jam');
     }
   }
 
@@ -37,7 +44,10 @@ class JamsCard extends React.Component {
       }
     }
     if (count === 1) {
-      const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name, profile: user }).fetch(), '_id');
+      const deleteJam = _.pluck(ProfilesJams.collection.find({
+        jam: this.props.jam.name,
+        profile: user,
+      }).fetch(), '_id');
       console.log(deleteJam);
       const last = deleteJam[0];
       ProfilesJams.collection.remove(last);
@@ -79,8 +89,8 @@ class JamsCard extends React.Component {
             {_.size(this.props.jam.participants)}
           </Card.Content>
           <Card.Content extra>
-            <button className="ui button" onClick={this.handleClick2}>Join </button>
-            <button className="ui button leave" onClick={this.handleClick3}>Leave </button>
+            <button className="ui button" onClick={this.handleClick2}>Join</button>
+            <button className="ui button leave" onClick={this.handleClick3}>Leave</button>
           </Card.Content>
         </Card>
     );
