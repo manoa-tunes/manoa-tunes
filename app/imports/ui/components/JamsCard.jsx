@@ -13,8 +13,7 @@ class JamsCard extends React.Component {
     const user = Meteor.user().username;
     let count = 0;
     const check = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name }).fetch(), 'profile');
-    const allProfile = Profiles.collection.find(user);
-    if (allProfile !== null) {
+
     const allProfile = _.pluck(ProfilesInterests.collection.find({ profile: user }).fetch(), '_id');
     if (allProfile.length > 0) {
       for (let i = 0; i < check.length; i++) {
