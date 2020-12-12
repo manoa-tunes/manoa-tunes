@@ -12,7 +12,7 @@ import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 
 class YourCard extends React.Component {
   handleClick1 = () => {
-    const allProfile = _.pluck(Profiles.collection.find(this.props.profile._id).fetch(), '_id');
+    const allProfile = _.pluck(ProfilesInterests.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
     if (allProfile.length > 0) {
       // eslint-disable-next-line
       document.location.href = '/#/home';
@@ -22,7 +22,7 @@ class YourCard extends React.Component {
   };
 
   handleClick2 = () => {
-    const allProfile = _.pluck(Profiles.collection.find(this.props.profile._id).fetch(), '_id');
+    const allProfile = _.pluck(ProfilesInterests.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
     if (allProfile.length > 0) {
       const deleteJam = _.pluck(ProfilesJams.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
       const deleteInterests = _.pluck(ProfilesInterests.collection.find({ profile: Meteor.user().username }).fetch(), '_id');

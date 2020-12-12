@@ -6,7 +6,7 @@ import swal from 'sweetalert';
 import { withRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
-import { Profiles } from '../../api/profiles/Profiles';
+import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 
 class JamsCard extends React.Component {
   handleClick2 = () => {
@@ -15,6 +15,8 @@ class JamsCard extends React.Component {
     const check = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name }).fetch(), 'profile');
     const allProfile = Profiles.collection.find(user);
     if (allProfile !== null) {
+    const allProfile = _.pluck(ProfilesInterests.collection.find({ profile: user }).fetch(), '_id');
+    if (allProfile.length > 0) {
       for (let i = 0; i < check.length; i++) {
         if (check[i] === user) {
           count = 1;

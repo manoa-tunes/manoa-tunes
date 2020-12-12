@@ -8,7 +8,7 @@ import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 
-class ProfileAdminCard extends React.Component {
+class YourCard extends React.Component {
 
   handleClick2 = () => {
     const deleteInterests = _.pluck(ProfilesInterests.collection.find({ profile: this.props.profile.email }).fetch(), '_id');
@@ -67,8 +67,8 @@ class ProfileAdminCard extends React.Component {
   }
 }
 
-ProfileAdminCard.propTypes = {
+YourCard.propTypes = {
   profile: PropTypes.object.isRequired,
 };
 
-export default withRouter(ProfileAdminCard);
+export default withRouter(YourCard);
