@@ -80,7 +80,7 @@ class Home extends React.Component {
               <AutoForm model={model} schema={bridge} onSubmit={data => this.submit(data)}>
                 <Segment>
                   <Form.Group widths={'equal'}>
-                    <TextField id='name' name='name' showInlineError={true} placeholder={'Name'}/>
+                    <TextField id='name' name='name' required showInlineError={true} placeholder={'Name'}/>
                     <TextField name='email' showInlineError={true} placeholder={'Email'} disabled/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
