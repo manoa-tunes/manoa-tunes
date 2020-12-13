@@ -41,7 +41,7 @@ class AddJam extends React.Component {
       if (error) {
         swal('Error', error.message, 'error');
       } else {
-        swal('Success', 'Profile updated successfully', 'success').then(() => formRef.reset());
+        swal('Success', 'Jam created successfully', 'success').then(() => formRef.reset());
       }
     });
   }
