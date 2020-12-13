@@ -47,7 +47,7 @@ class CreateProfile extends React.Component {
     interests.map((interest) => ProfilesInterests.collection.insert({ profile: email, interest }));
     instruments.map((instrument) => ProfilesInstruments.collection.insert({ profile: email, instrument }));
     jams.map((jam) => ProfilesJams.collection.insert({ profile: email, jam }));
-    Profiles.collection.insert({ name, email, bio, picture, interests, instruments, jams },
+    Profiles.collection.insert({ name, email, bio, picture },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
