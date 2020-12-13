@@ -66,7 +66,7 @@ class AddJam extends React.Component {
     // const model = _.extend({}, profile, { interests, instruments, jams });
     let fRef = null;
     return (
-        <div className="bg-image">
+        <div className="bg-image2">
           <Grid id="add-jam-page" container centered>
             <Grid.Column>
               <Header as="h2" textAlign="center" inverted>Your Jams</Header>
