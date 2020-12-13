@@ -25,47 +25,6 @@ class JamsCard extends React.Component {
     document.location.reload(true);
   };
 
-  handleClick2 = () => {
-    const user = Meteor.user().username;
-    let count = 0;
-    const check = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name }).fetch(), 'profile');
-    for (let i = 0; i < check.length; i++) {
-      if (check[i] === user) {
-        count = 1;
-      }
-    }
-    if (count === 0) {
-      ProfilesJams.collection.insert({ jam: this.props.jam.name, profile: user });
-      swal('Success', 'Joined Jam Successfully');
-      // eslint-disable-next-line no-undef
-      document.location.reload(true);
-    } else {
-      swal('Error', 'Already In This Jam');
-    }
-  };
-
-  handleClick3 = () => {
-    const user = Meteor.user().username;
-    let count = 0;
-    const check = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name }).fetch(), 'profile');
-    for (let i = 0; i < check.length; i++) {
-      if (check[i] === user) {
-        count = 1;
-      }
-    }
-    if (count === 1) {
-      const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name, profile: user }).fetch(), '_id');
-      console.log(deleteJam);
-      const last = deleteJam[0];
-      ProfilesJams.collection.remove(last);
-      swal('Success', 'Left Jam Successfully');
-      // eslint-disable-next-line no-undef
-      document.location.reload(true);
-    } else {
-      swal('Error', 'Not In This Jam');
-    }
-  }
-
   render() {
     return (
         <Card>
