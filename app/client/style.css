@@ -1,6 +1,17 @@
 .bg-image {
-  background-size: auto;
   background-image: url("https://w-dog.net/wallpapers/6/14/483307692322911/background-dark-album-vinyl-music.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.bg-image2 {
+  background-image: url("https://cdn.discordapp.com/attachments/779160949814067200/787488511061262346/maybe.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  background-repeat: no-repeat;
 }
 
 body {
@@ -67,5 +78,5 @@ body {
 }
 
 .card-bg2 {
-  background-color: #66FF99 !important;
+  background-color: #e0e0e0  !important;
 }
