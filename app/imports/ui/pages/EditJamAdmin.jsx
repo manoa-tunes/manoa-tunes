@@ -41,7 +41,7 @@ class EditJamAdmin extends React.Component {
       if (error) {
         swal('Error', error.message, 'error');
       } else {
-        swal('Success', 'Profile updated successfully', 'success');
+        swal('Success', 'Jams updated successfully', 'success');
       }
     });
   }
@@ -53,6 +53,7 @@ class EditJamAdmin extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
+    // Jam id is URL
     // eslint-disable-next-line no-undef
     const URL = window.location.href;
     let id = URL.substr(URL.indexOf('editJam'));
@@ -69,7 +70,7 @@ class EditJamAdmin extends React.Component {
 
     const interests = _.pluck(JamsInterests.collection.find({ jam: name }).fetch(), 'interest');
     const instruments = _.pluck(JamsInstruments.collection.find({ jam: name }).fetch(), 'instrument');
-    const participants = _.pluck(ProfilesJams.collection.find({ jam: name }).fetch(), 'jam');
+    const participants = _.pluck(ProfilesJams.collection.find({ jam: name }).fetch(), 'profile');
     const jam = Jams.collection.findOne({ name });
     const model = _.extend({}, jam, { interests, instruments, participants });
     return (
@@ -81,7 +82,7 @@ class EditJamAdmin extends React.Component {
                         schema={bridge} onSubmit={data => this.submit(data)}>
                 <Segment>
                   <Form.Group widths={'equal'}>
-                    <TextField id='name' name='name' showInlineError={true} placeholder={'Name Of Your Jam'}/>
+                    <TextField id='name' name='name' showInlineError={true} placeholder={'Name Of Your Jam'} disabled/>
                     <TextField id='contact' name='contact' showInlineError={true} placeholder={'Contact Information (Email or Phone Number)'}/>
                   </Form.Group>
                   <Form.Group widths={'equal'}>
@@ -95,7 +96,7 @@ class EditJamAdmin extends React.Component {
                   <Form.Group widths={'equal'}>
                     <MultiSelectField id='participants' name='participants' showInlineError={true} placeholder={'Participants'}/>
                   </Form.Group>
-                  <SubmitField id='Update' value='Update'/>
+                  <SubmitField id='submit' value='Update'/>
                 </Segment>
               </AutoForm>
             </Grid.Column>

@@ -55,7 +55,7 @@ class EditProfileAdmin extends React.Component {
   renderPage() {
     // eslint-disable-next-line no-undef
     const URL = window.location.href;
-    let id = URL.substr(URL.indexOf('edit'));
+    let id = URL.substr(URL.indexOf('editProfile'));
     id = id.substr(id.indexOf('/') + 1);
     const findEmail = _.pluck(Profiles.collection.find(id).fetch(), 'email');
     const email = findEmail[0];
