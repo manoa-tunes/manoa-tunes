@@ -54,7 +54,7 @@ class ProfilesPage extends React.Component {
           </Container>
           <Container id="profiles-page">
             <Card.Group itemsPerRow={4}>
-              {this.props.profiles.map((profile, index) => <ProfileCard key={index} profile={profile} notes={this.props.notes.filter(note => (note.contactId === profile._id))}/>)}
+              {_.map(profileData, (profile, index) => <ProfileCard key={index} profile={profile} notes={this.props.notes.filter(note => (note.contactId === profile._id))}/>)}
             </Card.Group>
           </Container>
         </div>

@@ -10,7 +10,8 @@ class Note extends React.Component {
         <div className="white">
           <Feed.Event>
             <Feed.Content>
-              <Feed.Date content={this.props.note.createdAt.toLocaleDateString('en-US') + ' ' + this.props.note.user} />
+              <Feed.Date content={this.props.note.createdAt.toLocaleDateString('en-US')} />
+              <Feed.Date content={this.props.note.user} />
               <Feed.Summary>
                 {this.props.note.note}
               </Feed.Summary>
