@@ -58,6 +58,12 @@ class NavBar {
     await testController.click('#profilesAdminMenuItem');
   }
 
+  async gotoEditProfileAdminPage(testController) {
+    await testController.click('#admin-dropdown');
+    await testController.click('#profilesAdminMenuItem');
+    await testController.click('#editProfileAdmin');
+  }
+
   async gotoInstrumentFilterPage(testController) {
     await testController.click('#profiles-dropdown');
     await testController.click('#profilesMenuItem');

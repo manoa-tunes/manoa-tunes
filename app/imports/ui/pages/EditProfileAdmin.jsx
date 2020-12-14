@@ -74,7 +74,7 @@ class EditProfileAdmin extends React.Component {
     const model = _.extend({}, profile, { interests, instruments, jams });
     return (
         <div className="bg-image">
-          <Grid id="home-page" container centered>
+          <Grid id="editProfileAdmin-page" container centered>
             <Grid.Column>
               <Header as="h2" textAlign="center" inverted>Edit Profile</Header>
               <AutoForm model={model} schema={bridge} onSubmit={data => this.submit(data)}>
@@ -91,7 +91,7 @@ class EditProfileAdmin extends React.Component {
                     <MultiSelectField className="multiselect" name='interests' showInlineError={true} placeholder={'Interests'}/>
                     <MultiSelectField className="multiselect" name='instruments' showInlineError={true} placeholder={'Instruments'}/>
                   </Form.Group>
-                  <SubmitField id='home-page-submit' value='Update'/>
+                  <SubmitField id='editProfileAdmin-page-submit' value='Update'/>
                 </Segment>
               </AutoForm>
             </Grid.Column>
