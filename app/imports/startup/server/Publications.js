@@ -31,6 +31,8 @@ Meteor.publish(ProfilesInstruments.userPublicationName, () => ProfilesInstrument
 
 Meteor.publish(ProfilesJams.userPublicationName, () => ProfilesJams.collection.find());
 
+Meteor.publish(Notes.userPublicationName, () => Notes.collection.find());
+
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.
 Meteor.publish(Stuffs.adminPublicationName, function () {
@@ -45,13 +47,6 @@ Meteor.publish(Stuffs.adminPublicationName, function () {
 Meteor.publish(null, function () {
   if (this.userId) {
     return Meteor.roleAssignment.find({ 'user._id': this.userId });
-  }
-  return this.ready();
-});
-
-Meteor.publish(Notes.userPublicationName, function () {
-  if (this.userId) {
-    return Notes.collection.find();
   }
   return this.ready();
 });

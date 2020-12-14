@@ -11,10 +11,12 @@ class Note extends React.Component {
           <Feed.Event>
             <Feed.Content>
               <Feed.Date content={this.props.note.createdAt.toLocaleDateString('en-US')} />
-              <Feed.Date content={this.props.note.user} />
               <Feed.Summary>
                 {this.props.note.note}
               </Feed.Summary>
+              <br/>
+              <Feed.Date content={this.props.note.user} />
+              <hr/>
             </Feed.Content>
           </Feed.Event>
         </div>

@@ -63,7 +63,6 @@ class ProfilesPage extends React.Component {
 }
 
 ProfilesPage.propTypes = {
-  profiles: PropTypes.object.isRequired,
   ready: PropTypes.bool.isRequired,
   notes: PropTypes.array.isRequired,
 };
