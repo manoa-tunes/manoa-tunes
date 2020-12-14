@@ -37,14 +37,15 @@ class AddJamPage {
     await testController.click(instrumentsSelector);
     await testController.click(pianoOption);
     await testController.click(instrumentsSelector);
-/*
+
     // Select participants.
+    /*
     const participantsSelector = Selector('#participants');
-    const huimOption = participantsSelector.find('#huim@hawaii.edu');
+    const emailOption = participantsSelector.find('#Email', 'huim@hawaii.edu');
     await testController.click(participantsSelector);
-    await testController.click(huimOption);
+    await testController.click(emailOption);
     await testController.click(participantsSelector);
-*/
+    */
     await testController.click('#submit');
     await testController.click(Selector('.swal-button--confirm'));
   }

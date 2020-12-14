@@ -88,8 +88,8 @@ class JamsCard extends React.Component {
             {_.size(this.props.jam.participants)}
           </Card.Content>
           <Card.Content extra className="card-bg2">
-            <button className="ui button" onClick={this.handleClick2}>Join</button>
-            <button className="ui button leave" onClick={this.handleClick3}>Leave</button>
+            <button id='join' className="ui button" onClick={this.handleClick2}>Join</button>
+            <button id='leave' className="ui button leave" onClick={this.handleClick3}>Leave</button>
           </Card.Content>
         </Card>
     );

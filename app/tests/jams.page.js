@@ -11,11 +11,18 @@ class JamsPage {
     await testController.expect(this.pageSelector.exists).ok();
   }
 
-  /** Checks that the current page has at least nine interests on it.  */
-  async hasDefaultJams(testController) {
-    const cardCount = Selector('.ui .card').count;
-    await testController.expect(cardCount).gte(4);
+  async jamsJoin(testController) {
+    await this.isDisplayed(testController);
+    await testController.click('#join');
+    await testController.click(Selector('.swal-button--confirm'));
   }
 }
 
 export const jamsPage = new JamsPage();
+/** Checks that the current page has at least nine interests on it.  */
+/*
+async hasDefaultJams(testController) {
+  const cardCount = Selector('.ui .card').count;
+  await testController.expect(cardCount).gte(4);
+}
+*/
