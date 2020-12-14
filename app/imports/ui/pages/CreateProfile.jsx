@@ -43,18 +43,23 @@ class CreateProfile extends React.Component {
     const { name, bio, interests, instruments } = data;
     const email = Meteor.user().username;
     const picture = 'https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg';
+    const allProfiles = _.pluck(Profiles.collection.find().fetch(), 'email');
     const jams = [''];
-    interests.map((interest) => ProfilesInterests.collection.insert({ profile: email, interest }));
-    instruments.map((instrument) => ProfilesInstruments.collection.insert({ profile: email, instrument }));
-    jams.map((jam) => ProfilesJams.collection.insert({ profile: email, jam }));
-    Profiles.collection.insert({ name, email, bio, picture },
-        (error) => {
-          if (error) {
-            swal('Error', error.message, 'error');
-          } else {
-            swal('Success', 'Item added successfully', 'success');
-          }
-        });
+    if (allProfiles.includes(email)) {
+      swal('Error', 'You already have a created profile');
+    } else {
+      interests.map((interest) => ProfilesInterests.collection.insert({ profile: email, interest }));
+      instruments.map((instrument) => ProfilesInstruments.collection.insert({ profile: email, instrument }));
+      jams.map((jam) => ProfilesJams.collection.insert({ profile: email, jam }));
+      Profiles.collection.insert({ name, email, bio, picture },
+          (error) => {
+            if (error) {
+              swal('Error', error.message, 'error');
+            } else {
+              swal('Success', 'Profile created successfully', 'success');
+            }
+          });
+    }
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */

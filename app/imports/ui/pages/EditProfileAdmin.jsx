@@ -57,7 +57,6 @@ class EditProfileAdmin extends React.Component {
     const URL = window.location.href;
     let id = URL.substr(URL.indexOf('edit'));
     id = id.substr(id.indexOf('/') + 1);
-    console.log(id);
     const findEmail = _.pluck(Profiles.collection.find(id).fetch(), 'email');
     const email = findEmail[0];
     // Create the form schema for uniforms. Need to determine all interests and jams for multi select list.

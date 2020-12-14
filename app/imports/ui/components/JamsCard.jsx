@@ -61,7 +61,7 @@ class JamsCard extends React.Component {
   render() {
     return (
         <Card>
-          <Card.Content>
+          <Card.Content className="card-bg2">
             <Card.Header style={{ marginTop: '0px' }}>{this.props.jam.name}</Card.Header>
             <Card.Description>
               <span className='date'><b>Contact Information:</b> {this.props.jam.contact}</span>
@@ -73,21 +73,21 @@ class JamsCard extends React.Component {
               <span className='date'><b>Date:</b> {this.props.jam.date}</span>
             </Card.Description>
           </Card.Content>
-          <Card.Content extra>
+          <Card.Content extra className="card-bg2">
             <Header as='h5'>Interests</Header>
             {_.map(this.props.jam.interests,
                 (interest, index) => <Label key={index} size='tiny' color='teal'>{interest}</Label>)}
           </Card.Content>
-          <Card.Content extra>
+          <Card.Content extra className="card-bg2">
             <Header as='h5'>Instruments</Header>
             {_.map(this.props.jam.instruments,
                 (instruments, index) => <Label key={index} size='tiny' color='teal'>{instruments}</Label>)}
           </Card.Content>
-          <Card.Content extra>
+          <Card.Content extra className="card-bg2">
             <Header as='h5'>Participants</Header>
             {_.size(this.props.jam.participants)}
           </Card.Content>
-          <Card.Content extra>
+          <Card.Content extra className="card-bg2">
             <button className="ui button" onClick={this.handleClick2}>Join</button>
             <button className="ui button leave" onClick={this.handleClick3}>Leave</button>
           </Card.Content>

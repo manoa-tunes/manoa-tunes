@@ -41,7 +41,7 @@ class AddJam extends React.Component {
       if (error) {
         swal('Error', error.message, 'error');
       } else {
-        swal('Success', 'Profile updated successfully', 'success').then(() => formRef.reset());
+        swal('Success', 'Jam created successfully', 'success').then(() => formRef.reset());
       }
     });
   }
@@ -66,7 +66,7 @@ class AddJam extends React.Component {
     // const model = _.extend({}, profile, { interests, instruments, jams });
     let fRef = null;
     return (
-        <div className="bg-image">
+        <div className="bg-image2">
           <Grid id="add-jam-page" container centered>
             <Grid.Column>
               <Header as="h2" textAlign="center" inverted>Your Jams</Header>

@@ -16,7 +16,7 @@ class Landing extends React.Component {
               </Header>
             </Grid.Row>
 
-           {/* <Image size='huge' centered src="/images/band.png"/> */}
+            {/* <Image size='huge' centered src="/images/band.png"/> */}
 
             <Grid.Row columns={2} stretched>
               <Grid.Column textAlign='left' className='test'>
@@ -68,10 +68,10 @@ class Landing extends React.Component {
                 </Segment>
               </Grid.Column>
             </Grid.Row>
-        </Grid>
-  </div>
-  );
+          </Grid>
+        </div>
+    );
   }
-  }
+}
 
-  export default Landing;
+export default Landing;

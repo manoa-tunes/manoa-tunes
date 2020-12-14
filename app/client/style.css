@@ -1,6 +1,25 @@
 .bg-image {
-  background-size: auto;
   background-image: url("https://w-dog.net/wallpapers/6/14/483307692322911/background-dark-album-vinyl-music.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.bg-image2 {
+  background-image: url("https://images.wallpaperscraft.com/image/drum_instrument_neon_168882_3840x2160.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  background-repeat: no-repeat;
+}
+
+.bg-image3 {
+  background-image: url("https://wallpaperboat.com/wp-content/uploads/2019/04/fender-guitar-016.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  background-repeat: no-repeat;
 }
 
 body {
@@ -14,17 +33,21 @@ body {
 }
 
 .footer-text {
-    font-family: 'Roboto', sans-serif;
-    color: white;
-    margin-top: 5px;
-    margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .signout {
-    margin-top: -10px;
-    padding: 200px;
-    object-fit: cover;
-    background-image: url("https://w-dog.net/wallpapers/6/14/483307692322911/background-dark-album-vinyl-music.jpg");
+  margin-top: -10px;
+  padding: 200px;
+  object-fit: cover;
+  background-image: url("https://wallpaperboat.com/wp-content/uploads/2019/04/fender-guitar-016.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  background-repeat: no-repeat;
 }
 
 #back {
@@ -67,5 +90,5 @@ body {
 }
 
 .card-bg2 {
-  background-color: #66FF99 !important;
+  background-color: #e0e0e0  !important;
 }
