@@ -60,6 +60,8 @@ body {
 .comment-bg {
   background-color: #4d4d4d !important;
   font-color: white;
+  padding-left: 15px;
+  padding-bottom: 15px;
 }
 
 .ui.button.delete {

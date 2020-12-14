@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Label, Header, Feed, Dropdown } from 'semantic-ui-react';
+import { Card, Image, Label, Header, Feed, Dropdown, Modal } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import { Meteor } from 'meteor/meteor';
@@ -8,14 +8,10 @@ import AddNote from './AddNote';
 import Note from './Note';
 
 class ProfileCard extends React.Component {
-  check = (e) => {
-    e.stopPropagation();
-  }
 
   render() {
     /** Component for layout out a Profile Card. */
     const whiteText = { color: 'white' };
-    const noopSearch = options => options;
 
     return (
         <Card>
@@ -44,22 +40,22 @@ class ProfileCard extends React.Component {
             {_.map(this.props.profile.jams,
                 (jam, index) => <Label key={index} size='tiny' color='green'>{jam}</Label>)}
           </Card.Content>
-
-          <Dropdown text='Reviews'
-                    search={noopSearch}
-                    className="comment-bg white">
+          <Dropdown text='Reviews' className="comment-bg white">
             <Dropdown.Menu>
-              <Card.Content extra className="comment-bg">
-                <Header as='h5' className="card-header" style={whiteText}>Review</Header>
+              <Modal trigger={<Dropdown.Item>Open Reviews</Dropdown.Item>}>
+                <Modal.Content extra className="comment-bg">
+                <Header as='h1' className="card-header" style={whiteText}>Reviews</Header>
                 <Feed>
                   {_.map(this.props.notes, (note, index) => <Note key={index} note={note}/>)}
                 </Feed>
-              </Card.Content>
-              <Card.Content extra className="comment-bg" onClick={this.check}>
-                <AddNote owner={this.props.profile.name} contactId={this.props.profile._id} user={Meteor.user().username} />
-              </Card.Content>
+              </Modal.Content>
+                <Modal.Content extra className="comment-bg">
+                  <AddNote owner={this.props.profile.name} contactId={this.props.profile._id} user={Meteor.user().username} />
+                </Modal.Content>
+              </Modal>
             </Dropdown.Menu>
           </Dropdown>
+
         </Card>
     );
   }
