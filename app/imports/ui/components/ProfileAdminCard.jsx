@@ -1,12 +1,16 @@
 import React from 'react';
-import { Card, Image, Label, Header } from 'semantic-ui-react';
+import { Card, Image, Label, Header, Modal, Dropdown, Feed, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
+import { Meteor } from 'meteor/meteor';
 import { withRouter, Link } from 'react-router-dom';
 import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
+import { Notes } from '../../api/note/Notes';
+import NoteAdmin from './NoteAdmin';
+import AddNote from './AddNote';
 
 class ProfileAdminCard extends React.Component {
 
@@ -14,6 +18,7 @@ class ProfileAdminCard extends React.Component {
     const deleteInterests = _.pluck(ProfilesInterests.collection.find({ profile: this.props.profile.email }).fetch(), '_id');
     const deleteInstruments = _.pluck(ProfilesInstruments.collection.find({ profile: this.props.profile.email }).fetch(), '_id');
     const deleteJam = _.pluck(ProfilesJams.collection.find({ profile: this.props.profile.email }).fetch(), '_id');
+    const deleteNote = _.pluck(Notes.collection.find({ owner: this.props.profile.name }).fetch(), '_id');
     Profiles.collection.remove(this.props.profile._id);
     for (let i = 0; i < deleteInstruments.length; i++) {
       ProfilesInstruments.collection.remove(deleteInstruments[i]);
@@ -23,6 +28,9 @@ class ProfileAdminCard extends React.Component {
     }
     for (let i = 0; i < deleteJam.length; i++) {
       ProfilesJams.collection.remove(deleteJam[i]);
+    }
+    for (let i = 0; i < deleteNote.length; i++) {
+      Notes.collection.remove(deleteNote[i]);
     }
     // eslint-disable-next-line no-undef
     document.location.href = '/#/';
@@ -58,6 +66,22 @@ class ProfileAdminCard extends React.Component {
             {_.map(this.props.profile.jams,
                 (jam, index) => <Label key={index} size='tiny' color='green'>{jam}</Label>)}
           </Card.Content>
+          <Button extra text='Reviews'
+                  size='small'
+                  inverted
+                  className="card-bg">
+            <Modal trigger={<Dropdown.Item>Open Reviews</Dropdown.Item>}>
+              <Modal.Content extra className="comment-bg">
+                <Header as='h1' className="card-header" style={whiteText}>Reviews</Header>
+                <Feed>
+                  {_.map(this.props.notes, (note, index) => <NoteAdmin key={index} note={note} />)}
+                </Feed>
+              </Modal.Content>
+              <Modal.Content extra className="comment-bg">
+                <AddNote owner={this.props.profile.name} contactId={this.props.profile._id} user={Meteor.user().username}/>
+              </Modal.Content>
+            </Modal>
+          </Button>
           <Card.Content extra className="card-bg">
             <button className="ui button "><Link to={`/edit/${this.props.profile._id}`}>Edit</Link></button>
             <button className="ui button delete" onClick={this.handleClick2}>Delete</button>
@@ -69,6 +93,7 @@ class ProfileAdminCard extends React.Component {
 
 ProfileAdminCard.propTypes = {
   profile: PropTypes.object.isRequired,
+  notes: PropTypes.array.isRequired,
 };
 
 export default withRouter(ProfileAdminCard);

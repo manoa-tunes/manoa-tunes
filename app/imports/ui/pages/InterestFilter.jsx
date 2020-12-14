@@ -16,6 +16,7 @@ import MultiSelectField from '../forms/controllers/MultiSelectField';
 import { Instruments } from '../../api/instruments/Instruments';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import ProfileCard from '../components/ProfileCard';
+import { Notes } from '../../api/note/Notes';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const makeSchema = (allInterests) => new SimpleSchema({
@@ -73,7 +74,7 @@ class InterestFilter extends React.Component {
               </Segment>
             </AutoForm>
             <Card.Group style={{ paddingTop: '10px' }} itemsPerRow={4}>
-              {_.map(profileData, (profile, index) => <ProfileCard key={index} profile={profile}/>)}
+              {_.map(profileData, (profile, index) => <ProfileCard key={index} profile={profile} notes={this.props.notes.filter(note => (note.contactId === profile._id))}/>)}
             </Card.Group>
           </Container>
         </div>
@@ -84,6 +85,7 @@ class InterestFilter extends React.Component {
 /** Require an array of Stuff documents in the props. */
 InterestFilter.propTypes = {
   ready: PropTypes.bool.isRequired,
+  notes: PropTypes.array.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
@@ -96,7 +98,9 @@ export default withTracker(() => {
   const sub5 = Meteor.subscribe(Interests.userPublicationName);
   const sub6 = Meteor.subscribe(Instruments.userPublicationName);
   const sub7 = Meteor.subscribe(ProfilesJams.userPublicationName);
+  const sub8 = Meteor.subscribe(Notes.userPublicationName);
   return {
-    ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready() && sub7.ready(),
+    notes: Notes.collection.find({}).fetch(),
+    ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready() && sub7.ready() && sub8.ready(),
   };
 })(InterestFilter);

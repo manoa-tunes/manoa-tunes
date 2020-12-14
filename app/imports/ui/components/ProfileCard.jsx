@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Label, Header, Feed, Dropdown, Modal } from 'semantic-ui-react';
+import { Card, Image, Label, Header, Feed, Dropdown, Modal, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import { Meteor } from 'meteor/meteor';
@@ -40,21 +40,22 @@ class ProfileCard extends React.Component {
             {_.map(this.props.profile.jams,
                 (jam, index) => <Label key={index} size='tiny' color='green'>{jam}</Label>)}
           </Card.Content>
-          <Dropdown text='Reviews' className="comment-bg white">
-            <Dropdown.Menu>
+          <Button extra text='Reviews'
+                  size='small'
+                  inverted
+                    className="card-bg">
               <Modal trigger={<Dropdown.Item>Open Reviews</Dropdown.Item>}>
                 <Modal.Content extra className="comment-bg">
-                <Header as='h1' className="card-header" style={whiteText}>Reviews</Header>
+                <Header as='h1' className="card-header" style={whiteText}>{this.props.profile.name} : Reviews</Header>
                 <Feed>
                   {_.map(this.props.notes, (note, index) => <Note key={index} note={note}/>)}
                 </Feed>
               </Modal.Content>
                 <Modal.Content extra className="comment-bg">
-                  <AddNote owner={this.props.profile.name} contactId={this.props.profile._id} user={Meteor.user().username} />
+                  <AddNote owner={this.props.profile.name} contactId={this.props.profile._id} user={Meteor.user().username}/>
                 </Modal.Content>
               </Modal>
-            </Dropdown.Menu>
-          </Dropdown>
+          </Button>
 
         </Card>
     );

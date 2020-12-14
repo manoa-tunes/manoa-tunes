@@ -5,7 +5,10 @@ import { withRouter } from 'react-router-dom';
 import { Notes } from '../../api/note/Notes';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class Note extends React.Component {
+class NoteAdmin extends React.Component {
+  handleClick = () => {
+    Notes.collection.remove(this.props.note._id);
+  };
 
   render() {
     return (
@@ -18,6 +21,11 @@ class Note extends React.Component {
               </Feed.Summary>
               <br/>
               <Feed.Date content={this.props.note.user} />
+              <Feed.Summary>
+                <button className="ui button delete" onClick={this.handleClick}>Delete</button>
+              </Feed.Summary>
+              <br/>
+              <br/>
               <hr/>
             </Feed.Content>
           </Feed.Event>
@@ -27,9 +35,9 @@ class Note extends React.Component {
 }
 
 /** Require a document to be passed to this component. */
-Note.propTypes = {
+NoteAdmin.propTypes = {
   note: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(Note);
+export default withRouter(NoteAdmin);
