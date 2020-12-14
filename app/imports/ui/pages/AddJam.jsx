@@ -69,7 +69,7 @@ class AddJam extends React.Component {
         <div className="bg-image2">
           <Grid id="add-jam-page" container centered>
             <Grid.Column>
-              <Header as="h2" textAlign="center" inverted>Your Jams</Header>
+              <Header as="h2" textAlign="center" inverted>Create Jam</Header>
               <AutoForm ref={ref => { fRef = ref; }}
                          schema={bridge} onSubmit={data => this.submit(data, fRef)}>
                 <Segment>
@@ -88,7 +88,7 @@ class AddJam extends React.Component {
                   <Form.Group widths={'equal'}>
                     <MultiSelectField id='participants' name='participants' showInlineError={true} placeholder={'Participants'}/>
                   </Form.Group>
-                  <SubmitField id='submit' value='Update'/>
+                  <SubmitField id='submit' value='Create'/>
                 </Segment>
               </AutoForm>
             </Grid.Column>
