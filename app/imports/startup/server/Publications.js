@@ -10,6 +10,7 @@ import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { JamsInterests } from '../../api/jams/JamsInterests';
 import { JamsInstruments } from '../../api/jams/JamsInstruments';
+import { Notes } from '../../api/note/Notes';
 
 /** Define a publication to publish all interests. */
 Meteor.publish(Interests.userPublicationName, () => Interests.collection.find());
@@ -44,6 +45,13 @@ Meteor.publish(Stuffs.adminPublicationName, function () {
 Meteor.publish(null, function () {
   if (this.userId) {
     return Meteor.roleAssignment.find({ 'user._id': this.userId });
+  }
+  return this.ready();
+});
+
+Meteor.publish(Notes.userPublicationName, function () {
+  if (this.userId) {
+    return Notes.collection.find();
   }
   return this.ready();
 });

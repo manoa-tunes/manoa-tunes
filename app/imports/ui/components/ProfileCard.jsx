@@ -1,8 +1,11 @@
 import React from 'react';
-import { Card, Image, Label, Header } from 'semantic-ui-react';
+import { Card, Image, Label, Header, Feed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
+import { Meteor } from 'meteor/meteor';
 import { withRouter } from 'react-router-dom';
+import AddNote from './AddNote';
+import Note from './Note';
 
 class ProfileCard extends React.Component {
 
@@ -36,6 +39,14 @@ class ProfileCard extends React.Component {
             {_.map(this.props.profile.jams,
                 (jam, index) => <Label key={index} size='tiny' color='green'>{jam}</Label>)}
           </Card.Content>
+          <Card.Content extra className="card-bg">
+            <Feed>
+              {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
+            </Feed>
+          </Card.Content>
+          <Card.Content extra className="comment-bg">
+            <AddNote owner={this.props.profile.name} contactId={this.props.profile._id} user={Meteor.user().username}/>
+          </Card.Content>
         </Card>
     );
   }
@@ -43,6 +54,7 @@ class ProfileCard extends React.Component {
 
 ProfileCard.propTypes = {
   profile: PropTypes.object.isRequired,
+  notes: PropTypes.array.isRequired,
 };
 
 export default withRouter(ProfileCard);
