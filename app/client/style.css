@@ -85,8 +85,14 @@ body {
   float: right;
 }
 
+.ui.button.join {
+  float: left;
+  background: #1db954 !important;
+}
+
 .ui.button.leave {
   float: right;
+  background: red !important;
 }
 
 .card-bg2 {

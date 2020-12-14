@@ -58,6 +58,17 @@ class JamsCard extends React.Component {
     }
   }
 
+  checker = () => {
+    const user = Meteor.user().username;
+    const check = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name }).fetch(), 'profile');
+    for (let i = 0; i < check.length; i++) {
+      if (check[i] === user) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   render() {
     return (
         <Card>
@@ -90,6 +101,8 @@ class JamsCard extends React.Component {
           <Card.Content extra className="card-bg2">
             <button id='join' className="ui button" onClick={this.handleClick2}>Join</button>
             <button id='leave' className="ui button leave" onClick={this.handleClick3}>Leave</button>
+            <button className="ui button join" onClick={this.handleClick2} disabled={!this.checker()}>Join</button>
+            <button className="ui button leave" onClick={this.handleClick3} disabled={this.checker()}>Leave</button>
           </Card.Content>
         </Card>
     );
