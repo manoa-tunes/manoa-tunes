@@ -3,7 +3,7 @@ import { Card, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 // import swal from 'sweetalert';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 // import { Meteor } from 'meteor/meteor';
 import { Jams } from '../../api/jams/Jams';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
@@ -55,6 +55,7 @@ class JamsCard extends React.Component {
             {_.size(this.props.jam.participants)}
           </Card.Content>
           <Card.Content extra className="card-bg2">
+            <button id='editJamAdmin' className="ui button "><Link to={`/editJam/${this.props.jam._id}`}>Edit</Link></button>
             <button className="ui button delete" onClick={this.handleClick}>Delete </button>
           </Card.Content>
         </Card>

@@ -47,6 +47,7 @@ class App extends React.Component {
               <ProtectedRoute path="/jam-filter" component={JamFilter}/>
               <ProtectedRoute path="/create-profile" component={CreateProfile}/>
               <AdminProtectedRoute path="/edit/:_id" component={EditProfileAdmin}/>
+              <AdminProtectedRoute path="/editJam/:_id" component={EditProfileAdmin}/>
               <AdminProtectedRoute path="/jamsAdmin" component={JamsAdmin}/>
               <AdminProtectedRoute path="/profilesAdmin" component={ProfilesAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
