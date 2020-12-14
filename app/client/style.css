@@ -80,6 +80,11 @@ body {
   background-color: #4d4d4d !important;
 }
 
+.comment-bg {
+  background-color: #4d4d4d !important;
+  font-color: white;
+}
+
 .ui.button.delete {
   background: red !important;
   float: right;

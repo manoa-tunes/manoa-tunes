@@ -10,6 +10,7 @@ import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { Jams } from '../../api/jams/Jams';
 import ProfileAdminCard from '../components/ProfileAdminCard';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
+import { Notes } from '../../api/note/Notes';
 
 /** Returns the Profile and associated jams and Interests associated with the passed user email. */
 function getProfileData(email) {
@@ -42,7 +43,7 @@ class ProfilesAdminPage extends React.Component {
         <div className="bg-color">
           <Container id="profilesAdmin-page">
             <Card.Group itemsPerRow={4}>
-              {_.map(profileData, (profile, index) => <ProfileAdminCard key={index} profile={profile}/>)}
+              {_.map(profileData, (profile, index) => <ProfileAdminCard key={index} profile={profile} notes={this.props.notes.filter(note => (note.contactId === profile._id))}/>)}
             </Card.Group>
           </Container>
         </div>
@@ -52,6 +53,7 @@ class ProfilesAdminPage extends React.Component {
 
 ProfilesAdminPage.propTypes = {
   ready: PropTypes.bool.isRequired,
+  notes: PropTypes.array.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
@@ -62,7 +64,9 @@ export default withTracker(() => {
   const sub3 = Meteor.subscribe(ProfilesInstruments.userPublicationName);
   const sub4 = Meteor.subscribe(ProfilesJams.userPublicationName);
   const sub5 = Meteor.subscribe(Jams.userPublicationName);
+  const sub6 = Meteor.subscribe(Notes.userPublicationName);
   return {
-    ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready(),
+    notes: Notes.collection.find({}).fetch(),
+    ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready(),
   };
 })(ProfilesAdminPage);

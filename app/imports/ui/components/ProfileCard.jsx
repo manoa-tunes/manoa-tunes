@@ -1,14 +1,18 @@
 import React from 'react';
-import { Card, Image, Label, Header } from 'semantic-ui-react';
+import { Card, Image, Label, Header, Feed, Dropdown, Modal, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
+import { Meteor } from 'meteor/meteor';
 import { withRouter } from 'react-router-dom';
+import AddNote from './AddNote';
+import Note from './Note';
 
 class ProfileCard extends React.Component {
 
   render() {
     /** Component for layout out a Profile Card. */
     const whiteText = { color: 'white' };
+
     return (
         <Card>
           <Card.Content className="card-bg">
@@ -36,6 +40,23 @@ class ProfileCard extends React.Component {
             {_.map(this.props.profile.jams,
                 (jam, index) => <Label key={index} size='tiny' color='green'>{jam}</Label>)}
           </Card.Content>
+          <Button extra text='Reviews'
+                  size='small'
+                  inverted
+                    className="card-bg">
+              <Modal trigger={<Dropdown.Item>Open Reviews</Dropdown.Item>}>
+                <Modal.Content extra className="comment-bg">
+                <Header as='h1' className="card-header" style={whiteText}>{this.props.profile.name} : Reviews</Header>
+                <Feed>
+                  {_.map(this.props.notes, (note, index) => <Note key={index} note={note}/>)}
+                </Feed>
+              </Modal.Content>
+                <Modal.Content extra className="comment-bg">
+                  <AddNote owner={this.props.profile.name} contactId={this.props.profile._id} user={Meteor.user().username}/>
+                </Modal.Content>
+              </Modal>
+          </Button>
+
         </Card>
     );
   }
@@ -43,6 +64,7 @@ class ProfileCard extends React.Component {
 
 ProfileCard.propTypes = {
   profile: PropTypes.object.isRequired,
+  notes: PropTypes.array.isRequired,
 };
 
 export default withRouter(ProfileCard);

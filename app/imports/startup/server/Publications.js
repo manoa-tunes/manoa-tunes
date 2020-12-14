@@ -10,6 +10,7 @@ import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { JamsInterests } from '../../api/jams/JamsInterests';
 import { JamsInstruments } from '../../api/jams/JamsInstruments';
+import { Notes } from '../../api/note/Notes';
 
 /** Define a publication to publish all interests. */
 Meteor.publish(Interests.userPublicationName, () => Interests.collection.find());
@@ -29,6 +30,8 @@ Meteor.publish(ProfilesInterests.userPublicationName, () => ProfilesInterests.co
 Meteor.publish(ProfilesInstruments.userPublicationName, () => ProfilesInstruments.collection.find());
 
 Meteor.publish(ProfilesJams.userPublicationName, () => ProfilesJams.collection.find());
+
+Meteor.publish(Notes.userPublicationName, () => Notes.collection.find());
 
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.
