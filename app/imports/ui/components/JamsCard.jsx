@@ -50,7 +50,7 @@ class JamsCard extends React.Component {
       console.log(deleteJam);
       const last = deleteJam[0];
       ProfilesJams.collection.remove(last);
-      swal('Success', 'Leaved Jam Successfully');
+      swal('Success', 'Left Jam Successfully');
       // eslint-disable-next-line no-undef
       document.location.reload(true);
     } else {

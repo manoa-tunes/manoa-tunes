@@ -25,8 +25,8 @@ class Landing extends React.Component {
                   Upcoming Jam Meeting
                 </Header>
                 <Segment attached>
-                  Jam session with the makers of Manoa Tunes! <br/> <br/>
-                  Meeting on 11/03/2026
+                  Jam session with some of the jazziest! <br/> <br/>
+                  Meeting on December 23, 2020
                 </Segment>
               </Grid.Column>
               <Grid.Column textAlign='right' className='test'>
