@@ -15,12 +15,11 @@ class NoteAdmin extends React.Component {
         <div className="white">
           <Feed.Event>
             <Feed.Content>
-              <Feed.Date content={this.props.note.createdAt.toLocaleDateString('en-US')} />
+              <Feed.Date content={`${this.props.note.user} | ${this.props.note.createdAt.toLocaleDateString('en-US')}`} />
+              <br/>
               <Feed.Summary>
                 {this.props.note.note}
               </Feed.Summary>
-              <br/>
-              <Feed.Date content={this.props.note.user} />
               <Feed.Summary>
                 <button className="ui button delete" onClick={this.handleClick}>Delete</button>
               </Feed.Summary>

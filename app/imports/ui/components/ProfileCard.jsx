@@ -4,15 +4,27 @@ import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import { Meteor } from 'meteor/meteor';
 import { withRouter } from 'react-router-dom';
+import swal from 'sweetalert';
 import AddNote from './AddNote';
 import Note from './Note';
+import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
+import { Profiles } from '../../api/profiles/Profiles';
 
 class ProfileCard extends React.Component {
+  handleClick = () => {
+    const allProfile = _.pluck(ProfilesInterests.collection.find({ profile: Meteor.user().username }).fetch(), 'interest');
+    if (allProfile.length <= 0) {
+      swal('Error', 'You have no profile');
+      // eslint-disable-next-line
+      document.location.href = '/#/';
+    }
+  };
 
   render() {
     /** Component for layout out a Profile Card. */
     const whiteText = { color: 'white' };
-
+    const user = _.pluck(Profiles.collection.find({ email: Meteor.user().username }).fetch(), 'picture');
+    const fix = user[0];
     return (
         <Card>
           <Card.Content className="card-bg">
@@ -43,6 +55,7 @@ class ProfileCard extends React.Component {
           <Button extra text='Reviews'
                   size='small'
                   inverted
+                  onClick={this.handleClick}
                     className="card-bg">
               <Modal trigger={<Dropdown.Item>Open Reviews</Dropdown.Item>}>
                 <Modal.Content extra className="comment-bg">
@@ -52,7 +65,7 @@ class ProfileCard extends React.Component {
                 </Feed>
               </Modal.Content>
                 <Modal.Content extra className="comment-bg">
-                  <AddNote owner={this.props.profile.name} contactId={this.props.profile._id} user={Meteor.user().username}/>
+                  <AddNote owner={this.props.profile.name} contactId={this.props.profile._id} user={Meteor.user().username} picture={fix}/>
                 </Modal.Content>
               </Modal>
           </Button>

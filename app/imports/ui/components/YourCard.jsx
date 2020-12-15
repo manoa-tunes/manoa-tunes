@@ -9,6 +9,7 @@ import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
+import { Notes } from '../../api/note/Notes';
 
 class YourCard extends React.Component {
   handleClick1 = () => {
@@ -24,6 +25,9 @@ class YourCard extends React.Component {
 
   handleClick2 = () => {
     const allProfile = _.pluck(Profiles.collection.find(this.props.profile._id).fetch(), '_id');
+    const name = _.pluck(Profiles.collection.find({ email: Meteor.user().username }).fetch(), 'name');
+    const get = name[0];
+    const deleteNote = _.pluck(Notes.collection.find({ owner: get }).fetch(), '_id');
     if (allProfile.length > 0) {
       const deleteJam = _.pluck(ProfilesJams.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
       const deleteInterests = _.pluck(ProfilesInterests.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
@@ -36,6 +40,9 @@ class YourCard extends React.Component {
       }
       for (let i = 0; i < deleteJam.length; i++) {
         ProfilesJams.collection.remove(deleteJam[i]);
+      }
+      for (let i = 0; i < deleteNote.length; i++) {
+        Notes.collection.remove(deleteNote[i]);
       }
       Profiles.collection.remove(this.props.profile._id);
       // eslint-disable-next-line no-undef
@@ -86,6 +93,7 @@ class YourCard extends React.Component {
 
 YourCard.propTypes = {
   profile: PropTypes.object.isRequired,
+  notes: PropTypes.array.isRequired,
 };
 
 export default withRouter(YourCard);

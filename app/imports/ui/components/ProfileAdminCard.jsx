@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, Image, Label, Header, Modal, Dropdown, Feed, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
-import { Meteor } from 'meteor/meteor';
 import { withRouter, Link } from 'react-router-dom';
 import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInstruments } from '../../api/profiles/ProfilesInstruments';
@@ -10,7 +9,6 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { Notes } from '../../api/note/Notes';
 import NoteAdmin from './NoteAdmin';
-import AddNote from './AddNote';
 
 class ProfileAdminCard extends React.Component {
 
@@ -76,9 +74,6 @@ class ProfileAdminCard extends React.Component {
                 <Feed>
                   {_.map(this.props.notes, (note, index) => <NoteAdmin key={index} note={note} />)}
                 </Feed>
-              </Modal.Content>
-              <Modal.Content extra className="comment-bg">
-                <AddNote owner={this.props.profile.name} contactId={this.props.profile._id} user={Meteor.user().username}/>
               </Modal.Content>
             </Modal>
           </Button>
