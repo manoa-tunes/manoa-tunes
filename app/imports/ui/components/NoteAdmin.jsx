@@ -1,5 +1,5 @@
 import React from 'react';
-import { Feed } from 'semantic-ui-react';
+import { Feed, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Notes } from '../../api/note/Notes';
@@ -15,6 +15,7 @@ class NoteAdmin extends React.Component {
         <div className="white">
           <Feed.Event>
             <Feed.Content>
+              <Image floated='left' size='mini' src={this.props.note.picture}/>
               <Feed.Date content={`${this.props.note.user} | ${this.props.note.createdAt.toLocaleDateString('en-US')}`} />
               <br/>
               <Feed.Summary>
