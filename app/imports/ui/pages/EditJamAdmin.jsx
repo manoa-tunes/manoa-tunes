@@ -75,7 +75,7 @@ class EditJamAdmin extends React.Component {
     const model = _.extend({}, jam, { interests, instruments, participants });
     return (
         <div className="bg-image2">
-          <Grid id="add-jam-page" container centered>
+          <Grid id="editJamAdmin-page" container centered>
             <Grid.Column>
               <Header as="h2" textAlign="center" inverted>Your Jams</Header>
               <AutoForm model={model}
@@ -96,7 +96,7 @@ class EditJamAdmin extends React.Component {
                   <Form.Group widths={'equal'}>
                     <MultiSelectField id='participants' name='participants' showInlineError={true} placeholder={'Participants'}/>
                   </Form.Group>
-                  <SubmitField id='submit' value='Update'/>
+                  <SubmitField id='editJamAdmin-page-submit' value='Update'/>
                 </Segment>
               </AutoForm>
             </Grid.Column>

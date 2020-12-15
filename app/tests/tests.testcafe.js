@@ -12,6 +12,7 @@ import { addJamPage } from './addJam.page';
 import { jamsAdminPage } from './jamsAdmin.page';
 import { profilesAdminPage } from './profilesAdmin.page';
 import { editProfileAdminPage } from './editProfileAdmin.page';
+import { editJamAdminPage } from './editJamAdmin.page';
 import { instrumentFilterPage } from './instrumentFilter.page';
 import { interestFilterPage } from './interestFilter.page';
 import { jamFilterPage } from './jamFilter.page';
@@ -160,6 +161,17 @@ test('Test that editProfileAdmin page works', async (testController) => {
   await navBar.gotoEditProfileAdminPage(testController);
   await editProfileAdminPage.isDisplayed(testController);
   await editProfileAdminPage.updateProfile(testController, credentials.name);
+  // await editProfileAdminPage.hasDefaultEditProfileAdmin(testController);
+  await navBar.ensureLogout(testController);
+});
+
+test('Test that editJamAdmin page works', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.admin, credentials.password);
+  await navBar.gotoEditJamAdminPage(testController);
+  await editJamAdminPage.isDisplayed(testController);
+  await editJamAdminPage.updateLocation(testController, credentials.location);
   // await editProfileAdminPage.hasDefaultEditProfileAdmin(testController);
   await navBar.ensureLogout(testController);
 });
