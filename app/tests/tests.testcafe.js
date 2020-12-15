@@ -8,7 +8,7 @@ import { yourProfilePage } from './yourProfile.page';
 import { createProfilePage } from './createProfile.page';
 import { profilesPage } from './profiles.page';
 import { jamsPage } from './jams.page';
-import { addJamPage } from './addjam.page';
+import { addJamPage } from './addJam.page';
 import { jamsAdminPage } from './jamsAdmin.page';
 import { profilesAdminPage } from './profilesAdmin.page';
 import { editProfileAdminPage } from './editProfileAdmin.page';
