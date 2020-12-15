@@ -14,7 +14,6 @@ import { Notes } from '../../api/note/Notes';
 class YourCard extends React.Component {
   handleClick1 = () => {
     const allProfile = _.pluck(Profiles.collection.find(this.props.profile._id).fetch(), '_id');
-    console.log(allProfile);
     if (allProfile.length > 0) {
       // eslint-disable-next-line
       document.location.href = '/#/home';
@@ -28,6 +27,7 @@ class YourCard extends React.Component {
     const name = _.pluck(Profiles.collection.find({ email: Meteor.user().username }).fetch(), 'name');
     const get = name[0];
     const deleteNote = _.pluck(Notes.collection.find({ owner: get }).fetch(), '_id');
+    const getUser = _.pluck(Notes.collection.find({ user: Meteor.user().username }).fetch(), '_id');
     if (allProfile.length > 0) {
       const deleteJam = _.pluck(ProfilesJams.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
       const deleteInterests = _.pluck(ProfilesInterests.collection.find({ profile: Meteor.user().username }).fetch(), '_id');
@@ -43,6 +43,9 @@ class YourCard extends React.Component {
       }
       for (let i = 0; i < deleteNote.length; i++) {
         Notes.collection.remove(deleteNote[i]);
+      }
+      for (let i = 0; i < getUser.length; i++) {
+          Notes.collection.remove(getUser[i]);
       }
       Profiles.collection.remove(this.props.profile._id);
       // eslint-disable-next-line no-undef

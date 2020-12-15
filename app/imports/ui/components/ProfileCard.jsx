@@ -7,12 +7,11 @@ import { withRouter } from 'react-router-dom';
 import swal from 'sweetalert';
 import AddNote from './AddNote';
 import Note from './Note';
-import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { Profiles } from '../../api/profiles/Profiles';
 
 class ProfileCard extends React.Component {
   handleClick = () => {
-    const allProfile = _.pluck(ProfilesInterests.collection.find({ profile: Meteor.user().username }).fetch(), 'interest');
+    const allProfile = _.pluck(Profiles.collection.find({ email: Meteor.user().username }).fetch(), '_id');
     if (allProfile.length <= 0) {
       swal('Error', 'You have no profile');
       // eslint-disable-next-line

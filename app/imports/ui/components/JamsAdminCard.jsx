@@ -9,17 +9,21 @@ import { Jams } from '../../api/jams/Jams';
 import { ProfilesJams } from '../../api/profiles/ProfilesJams';
 import { JamsInterests } from '../../api/jams/JamsInterests';
 import { JamsInstruments } from '../../api/jams/JamsInstruments';
-import { Profiles } from '../../api/profiles/Profiles';
 
 class JamsCard extends React.Component {
   handleClick = () => {
     Jams.collection.remove(this.props.jam._id);
-    JamsInterests.collection.remove(this.props.jam._id);
-    JamsInstruments.collection.remove(this.props.jam._id);
-    Profiles.collection.remove(this.props.jam._id);
     const deleteJam = _.pluck(ProfilesJams.collection.find({ jam: this.props.jam.name }).fetch(), '_id');
+    const deleteInterest = _.pluck(JamsInterests.collection.find({ jam: this.props.jam.name }).fetch(), '_id');
+    const deleteInstrument = _.pluck(JamsInstruments.collection.find({ jam: this.props.jam.name }).fetch(), '_id');
     for (let i = 0; i < deleteJam.length; i++) {
       ProfilesJams.collection.remove(deleteJam[i]);
+    }
+    for (let i = 0; i < deleteInterest.length; i++) {
+      JamsInterests.collection.remove(deleteInterest[i]);
+    }
+    for (let i = 0; i < deleteInstrument.length; i++) {
+      JamsInstruments.collection.remove(deleteInstrument[i]);
     }
     // eslint-disable-next-line no-undef
     document.location.reload(true);
