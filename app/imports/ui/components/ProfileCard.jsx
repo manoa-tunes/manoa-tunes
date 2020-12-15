@@ -11,7 +11,7 @@ import { Profiles } from '../../api/profiles/Profiles';
 
 class ProfileCard extends React.Component {
   handleClick = () => {
-    const allProfile = _.pluck(Profiles.collection.find(this.props.profile._id).fetch(), '_id');
+    const allProfile = _.pluck(Profiles.collection.find({ email: Meteor.user().username }).fetch(), '_id');
     if (allProfile.length <= 0) {
       swal('Error', 'You have no profile');
       // eslint-disable-next-line
