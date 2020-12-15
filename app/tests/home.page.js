@@ -45,7 +45,7 @@ class HomePage {
     await testController.typeText('#name', name);
     await testController.click('#home-page-submit');
     */
-    // await testController.click(Selector('.swal-button--confirm'));
+    await testController.click(Selector('.swal-button--confirm'));
     // await testController.expect(Selector('#name').value).eql(name);
   }
 }

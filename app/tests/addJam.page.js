@@ -13,7 +13,7 @@ class AddJamPage {
 
   /** Checks this page is displayed, then adds a new jam */
   async addJam(testController) {
-    const name = 'Name Of Your Jam';
+    const name = ' Jam Name';
     const contact = 'Contact Information';
     const date = 'date & time';
     const location = 'location';
@@ -41,7 +41,7 @@ class AddJamPage {
     // Select participants.
     /*
     const participantsSelector = Selector('#participants');
-    const emailOption = participantsSelector.find('#Email', 'huim@hawaii.edu');
+    const emailOption = participantsSelector.find('Profiles[huim@hawaii.edu]');
     await testController.click(participantsSelector);
     await testController.click(emailOption);
     await testController.click(participantsSelector);
