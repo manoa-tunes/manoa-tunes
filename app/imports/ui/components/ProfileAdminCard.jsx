@@ -17,6 +17,7 @@ class ProfileAdminCard extends React.Component {
     const deleteInstruments = _.pluck(ProfilesInstruments.collection.find({ profile: this.props.profile.email }).fetch(), '_id');
     const deleteJam = _.pluck(ProfilesJams.collection.find({ profile: this.props.profile.email }).fetch(), '_id');
     const deleteNote = _.pluck(Notes.collection.find({ owner: this.props.profile.name }).fetch(), '_id');
+    const getUser = _.pluck(Notes.collection.find({ user: this.props.profile.email }).fetch(), '_id');
     Profiles.collection.remove(this.props.profile._id);
     for (let i = 0; i < deleteInstruments.length; i++) {
       ProfilesInstruments.collection.remove(deleteInstruments[i]);
@@ -29,6 +30,9 @@ class ProfileAdminCard extends React.Component {
     }
     for (let i = 0; i < deleteNote.length; i++) {
       Notes.collection.remove(deleteNote[i]);
+    }
+    for (let i = 0; i < getUser.length; i++) {
+      Notes.collection.remove(getUser[i]);
     }
     // eslint-disable-next-line no-undef
     document.location.href = '/#/';

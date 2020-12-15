@@ -18,7 +18,7 @@ class Footer extends React.Component {
                     <List.Item href='https://manoa-tunes.github.io/' target="_blank" className="footer-text">About Us</List.Item>
                     <List.Item href='https://www.meteor.com/install' target="_blank" className="footer-text">Meteor Installation</List.Item>
                     <List.Item href='/signup#/signup' target="_blank" className="footer-text">Sign Up</List.Item>
-                    <List.Item href='/#/create-profile' target="_blank" className="footer-text">Create Profile</List.Item>
+                    <List.Item href='/#/create-profile' className="footer-text">Create Profile</List.Item>
                   </List>
                 </GridColumn>
 
